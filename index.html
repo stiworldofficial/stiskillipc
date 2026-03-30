@@ -1,1 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>STI Skilli | Loading...</title>
+    <link rel="manifest" href="manifest.json">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
 
+    <style>
+        :root {
+            --gold-primary: #FFD700;
+            --void-bg: #000000;
+        }
+
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            background-color: var(--void-bg);
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            overflow: hidden;
+            position: fixed; 
+            transition: opacity 0.8s ease-in-out; 
+        }
+
+        /* --- 1. HD Image Background (Ascension Style) --- */
+        #bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100dvh; 
+            object-fit: cover; 
+            object-position: center;
+            z-index: 0;
+            opacity: 0.85; 
+            animation: slowZoom 20s infinite alternate; 
+        }
+
+        @keyframes slowZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        
+        /* Overlay */
+        .image-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* --- 2. Main UI Layer --- */
+        .stage-center {
+            position: relative;
+            z-index: 10;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            transition: opacity 1s ease-in-out; 
+        }
+
+        /* --- 3. Logo (Floating & Transparent) --- */
+        .logo-container {
+            width: 120px; height: 120px;
+            margin-bottom: 0.5rem; 
+            position: relative;
+            z-index: 2;
+            animation: floatLogo 4s ease-in-out infinite;
+        }
+
+        .logo-img {
+            width: 100%; height: 100%;
+            object-fit: contain; 
+            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4)); 
+        }
+
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* --- 4. Typography (Royal Fonts) --- */
+        .brand-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-weight: 700;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            line-height: 1;
+            text-align: center;
+            color: #fff;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            margin-bottom: 0.5rem;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .tagline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem; 
+            animation: fadeIn 2s ease-out;
+            text-align: center;
+        }
+
+        /* --- 5. Loader --- */
+        .loader-zone {
+            width: 160px;
+            text-align: center;
+        }
+
+        .loader-line {
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .loader-fill {
+            position: absolute;
+            left: 0; top: 0;
+            height: 100%;
+            width: 0%;
+            background: #FFD700;
+            box-shadow: 0 0 20px #FFD700;
+            transition: width 0.1s linear;
+        }
+
+        .status-text {
+            margin-top: 12px;
+            font-size: 0.7rem;
+            color: #ddd;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); } 
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Dissolve Effect Class */
+        .dissolve-active {
+            opacity: 0 !important;
+        }
+    </style>
+</head>
+<body>
+
+    <img id="bg-image" src="skilligovtbck.webp" alt="">
+    
+    <div class="image-overlay"></div>
+
+    <main id="main-stage" class="stage-center">
+        
+        <div class="logo-container">
+            <img src="stione.png" alt="STI Skilli" class="logo-img"
+                 onerror="this.src='https://placehold.co/200x200/png?text=S';">
+        </div>
+
+        <h1 class="brand-title">STISKILLI</h1>
+        <p class="tagline">Your True Guide</p>
+
+        <div class="loader-zone">
+            <div class="loader-line">
+                <div id="progress-bar" class="loader-fill"></div>
+            </div>
+            <p id="status-text" class="status-text">Initializing...</p>
+        </div>
+    </main>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const allow = params.get("allow");
+        
+        let REDIRECT_URL = 'main.html';
+        if (allow === "stiskilli") {
+            REDIRECT_URL = 'main.html?allow=stiskilli';
+        }
+
+        const DURATION = 3500; 
+        const HAS_VISITED_KEY = 'hasVisitedSkilli';
+
+        window.onload = () => {
+            const bar = document.getElementById('progress-bar');
+            const status = document.getElementById('status-text');
+            const stage = document.getElementById('main-stage');
+
+            // STI Skilli Original Steps
+            const steps = [
+                { p: 15, t: "Governmenting..." },
+                { p: 35, t: "Booostiingg..." },
+                { p: 65, t: "Privatising..." },
+                { p: 85, t: "Finding..." },
+                { p: 95, t: "Welcome BABY..." }
+            ];
+
+            let start = null;
+
+            function loadLoop(timestamp) {
+                if (!start) start = timestamp;
+                const rawProgress = Math.min((timestamp - start) / DURATION, 1);
+                
+                // Ease In Quad Animation
+                const easedProgress = rawProgress < 0.5 ? 2 * rawProgress * rawProgress : 1 - Math.pow(-2 * rawProgress + 2, 2) / 2;
+                
+                bar.style.width = `${rawProgress * 100}%`;
+
+                const step = steps.findLast(s => (rawProgress * 100) >= s.p);
+                if (step && status.innerText !== step.t) status.innerText = step.t;
+
+                if (rawProgress < 1) {
+                    requestAnimationFrame(loadLoop);
+                } else {
+                    // Final State
+                    status.innerText = "Welcome";
+                    status.style.color = "#FFF";
+                    status.style.letterSpacing = "0.5em";
+                    
+                    localStorage.setItem(HAS_VISITED_KEY, 'true');
+
+                    // --- Quick Dissolve Transition ---
+                    setTimeout(() => {
+                        // Dissolve Screen
+                        document.body.classList.add('dissolve-active');
+                        
+                        // Redirect
+                        setTimeout(() => {
+                            window.location.replace(REDIRECT_URL);
+                        }, 800);
+                        
+                    }, 500);
+                }
+            }
+            requestAnimationFrame(loadLoop);
+        };
+    </script>
+</body>
+</html>
