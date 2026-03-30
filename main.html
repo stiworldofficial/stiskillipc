@@ -1,1 +1,3588 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+   <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>StiSkilli App – Government & Private Jobs, Exams & Notifications India</title> 
+<!-- =========================
+     CANONICAL → PLAY STORE
+========================== -->
+<link rel="canonical" href="https://play.google.com/store/apps/details?id=com.ai.skillaura">
+<!-- =========================
+     ROBOTS – SEO ENABLED
+========================== -->
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<!-- =========================
+     META DESCRIPTION (SEO)
+========================== -->
+<meta name="description" content="StiSkilli Android App provides latest Government Jobs, Private Jobs, Exam Notifications, Admit Cards, Results, 
+    Syllabus, Answer Keys and Career Guidance in India. Download the StiSkilli App from Google Play for daily job and exam updates.">
+<!-- =========================
+     META KEYWORDS (ALL GOVT JOB TYPES)
+========================== -->
+<meta name="keywords" content="government jobs india, sarkari naukri, central government jobs, state government jobs, latest govt jobs, 
+    govt job notification, ssc jobs, upsc jobs, bank jobs, railway jobs, defence jobs, army jobs, navy jobs, air force jobs, police jobs,
+    teaching jobs, govt teacher jobs, psu jobs, public sector jobs, medical govt jobs, engineering govt jobs, court jobs, postal jobs, india post jobs, 
+    anganwadi jobs, group c jobs, group d jobs, exam notifications, admit card, exam results, syllabus">
+<!-- =========================
+     BASIC APP META
+========================== -->
+<meta name="application-name" content="StiSkilli">
+<meta name="theme-color" content="#F4C430">
+<meta name="mobile-web-app-capable" content="yes">
+<!-- =========================
+     OPEN GRAPH (SOCIAL)
+========================== -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="StiSkilli App – Government & Private Jobs India">
+<meta property="og:description" content="Government Jobs, Private Jobs, Exam Notifications, Admit Cards, Results and Syllabus in one app. Download StiSkilli from Google Play.">
+<meta property="og:url" content="https://play.google.com/store/apps/details?id=com.ai.skillaura">
+<meta property="og:image" content="https://play-lh.googleusercontent.com/your-app-icon.png">
+<meta property="og:site_name" content="StiSkilli">
+<!-- =========================
+     TWITTER / X
+========================== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="StiSkilli App">
+<meta name="twitter:description" content="Government & Private Jobs, Exams, Results and Notifications App in India.">
+<meta name="twitter:image" content="https://play-lh.googleusercontent.com/your-app-icon.png">
+<!-- =========================
+     ANDROID APP INDEXING
+========================== -->
+<link rel="alternate"
+href="android-app://com.ai.skillaura/https/play.google.com/store/apps/details?id=com.ai.skillaura">
+<!-- =========================
+     STRUCTURED DATA – MOBILE APPLICATION
+========================== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "StiSkilli",
+  "operatingSystem": "Android",
+  "applicationCategory": "EducationApplication",
+  "url": "https://play.google.com/store/apps/details?id=com.ai.skillaura",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "INR"
+  }
+}
+</script>
+  
 
+<!-- =========================
+     SOCIAL PROFILES
+========================== -->
+<link rel="me" href="https://www.facebook.com/stiworldofficial/">
+<link rel="me" href="https://www.instagram.com/stiworldofficial">
+<!-- =========================
+     FAVICON
+========================== -->
+<link rel="icon" type="image/png" href="https://play-lh.googleusercontent.com/your-app-icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- THEME VARIABLES --- */
+        :root {
+            --primary: #F4C430;       
+            --primary-glow: #FFD700; 
+            --shining-gold: 0 0 15px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.2);
+            --header-height: 70px; 
+            --footer-height: 75px; 
+        }
+
+        /* --- GLOBAL RESET (FIXED SCROLL) --- */
+        html, body {
+            margin: 0; padding: 0;
+            width: 100%; height: 100dvh;
+            overflow: hidden; /* No Body Scroll */
+            position: fixed; 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overscroll-behavior: none;
+        }
+
+        /* --- UNIVERSE BACKGROUND --- */
+        #universe-bg {
+            position: fixed; top: -10%; left: -10%; width: 120%; height: 120%;
+            z-index: -10;
+            background: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2072&auto=format&fit=crop');
+            background-size: cover;
+            filter: contrast(120%) brightness(40%);
+            animation: galaxyMove 60s linear infinite alternate;
+        }
+        @keyframes galaxyMove { from { transform: scale(1); } to { transform: scale(1.1); } }
+
+        /* --- GOLDEN BORDER ANIMATION --- */
+        .golden-border-anim {
+            border: 2px solid var(--primary);
+            box-shadow: var(--shining-gold);
+            animation: borderPulse 3s infinite alternate;
+        }
+        @keyframes borderPulse {
+            0% { box-shadow: 0 0 10px rgba(244, 196, 48, 0.4); border-color: #bfa128; }
+            100% { box-shadow: 0 0 25px rgba(244, 196, 48, 0.9), inset 0 0 15px rgba(244, 196, 48, 0.3); border-color: #ffd700; }
+        }
+
+        /* --- HEADER --- */
+        .glass-header {
+            position: fixed; top: calc(15px + env(safe-area-inset-top)); left: 50%; transform: translateX(-50%);
+            width: 94%; max-width: 800px; height: var(--header-height);
+            background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(25px);
+            border-radius: 24px;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 20px; z-index: 3000;
+        }
+        .header-logo { width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--primary); object-fit: cover; box-shadow: 0 0 10px var(--primary-glow); }
+        .header-title-img { height: 32px; width: auto; object-fit: contain; filter: drop-shadow(0 0 5px var(--primary)); }
+
+        /* --- DOCK (Footer) --- */
+        .dock-wrapper { position: fixed; bottom: calc(20px + env(safe-area-inset-bottom)); left: 0; width: 100%; display: flex; justify-content: center; z-index: 3000; padding: 0 10px; }
+        .glass-dock { 
+            width: 100%; max-width: 600px; height: var(--footer-height); 
+            background: rgba(5, 5, 5, 0.9); backdrop-filter: blur(30px);
+            border-radius: 24px; 
+            display: flex; justify-content: space-evenly; align-items: center;
+        }
+        .dock-item { 
+            width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; 
+            color: rgba(255, 255, 255, 0.3); cursor: pointer; position: relative;
+            transition: all 0.3s ease; border-radius: 16px;
+        }
+        .dock-item i { font-size: 1.6rem; transition: 0.3s; }
+        
+        /* Active Footer Highlight */
+        .dock-item.active { 
+            color: var(--primary-glow); 
+            background: radial-gradient(circle, rgba(244, 196, 48, 0.2) 0%, transparent 70%);
+            text-shadow: 0 0 20px var(--primary);
+        }
+        .dock-item.active i { transform: scale(1.1); filter: drop-shadow(0 0 5px var(--primary)); }
+
+        /* --- MAIN MODAL (The Container for Cards) --- */
+        .modal-overlay { 
+            position: fixed; 
+            /* Positioning logic to stay between Header and Footer */
+            top: calc(var(--header-height) + 30px + env(safe-area-inset-top)); 
+            bottom: calc(var(--footer-height) + 35px + env(safe-area-inset-bottom)); 
+            left: 0; right: 0; 
+            z-index: 2500; 
+            display: none; justify-content: center; 
+            padding: 0 10px; pointer-events: none; 
+        }
+        .flex-modal { display: flex !important; animation: fadeIn 0.4s ease-out forwards; }
+        .hidden-modal { display: none !important; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Modal Box */
+        .modal-box { 
+            pointer-events: auto; 
+            background-color: #111; 
+            background-size: cover; background-position: center; background-repeat: no-repeat;
+            border-radius: 30px; 
+            width: 100%; max-width: 1400px; height: 100%; padding: 15px; 
+            display: flex; flex-direction: column; overflow: hidden;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+        }
+
+        /* --- COMPACT HEADER & NAV --- */
+        .modal-header-container {
+            display: flex; flex-direction: column; align-items: center; 
+            margin-bottom: 15px; flex-shrink: 0;
+        }
+
+        .modal-header { 
+            text-align: center; 
+            background: rgba(0,0,0,0.6); 
+            padding: 8px 25px;
+            border-radius: 50px;
+            backdrop-filter: blur(5px); 
+            border: 1px solid rgba(255,255,255,0.1); 
+            margin-bottom: 10px;
+            width: fit-content;
+            min-width: 180px;
+        }
+
+        .modal-header h2 { 
+            font-family: 'Rajdhani'; font-weight: 900; font-size: 1.5rem;
+            color: #fff; text-shadow: 0 0 15px rgba(255, 215, 0, 0.8); 
+            margin: 0; letter-spacing: 1px; text-transform: uppercase;
+        }
+        
+        /* --- HORIZONTAL SCROLLING SUB-NAV (VISIBLE SCROLLBAR ON PC) --- */
+        .sub-nav { 
+            background: rgba(0,0,0,0.7); 
+            border-radius: 20px; 
+            padding: 8px; 
+            display: flex; 
+            gap: 8px; 
+            overflow-x: auto;      /* Enables horizontal scroll when needed */
+            white-space: nowrap;
+            width: 100%;
+            /* Remove scrollbar hiding – now scrollbar appears on desktop */
+            scrollbar-width: thin;   /* Thin scrollbar on Firefox */
+            -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+        }
+        /* Custom scrollbar styling for WebKit browsers (Chrome, Edge, Safari) – optional but makes it visible */
+        .sub-nav::-webkit-scrollbar {
+            height: 5px;
+        }
+        .sub-nav::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.4);
+            border-radius: 10px;
+        }
+        .sub-nav::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+        
+        .sub-item { 
+            padding: 6px 16px; 
+            border-radius: 12px; 
+            font-size: 0.7rem; 
+            font-family: 'Rajdhani'; 
+            font-weight: 700; 
+            color: #ccc; 
+            border: 1px solid transparent; 
+            transition: 0.3s; 
+            cursor: pointer; 
+            text-transform: uppercase;
+            flex-shrink: 0;  /* Prevent items from shrinking, ensures horizontal scroll */
+        }
+        .sub-item.active { 
+            background: var(--primary); 
+            color: #000; 
+            border-color: var(--primary-glow); 
+            box-shadow: 0 0 20px rgba(244, 196, 48, 0.4); 
+            font-weight: 800;
+        }
+
+        /* --- CARDS GRID --- */
+        .grid-container { 
+            flex-grow: 1; 
+            overflow-y: auto; 
+            -webkit-overflow-scrolling: touch;
+            padding: 5px; 
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+            padding-bottom: 20px;
+        }
+        @media (min-width: 1024px) { .grid-container { grid-template-columns: repeat(5, 1fr); gap: 15px; } }
+
+        .card-11d {
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            border-radius: 20px; height: 145px;
+            position: relative; overflow: hidden;
+            display: flex; flex-direction: column;
+            transition: all 0.3s ease; cursor: pointer;
+        }
+        .card-11d:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 25px rgba(244, 196, 48, 0.3);
+            transform: translateY(-3px); background: rgba(0,0,0,0.95);
+        }
+        
+        .card-img-box { height: 65px; width: 100%; position: relative; overflow: hidden; }
+        .card-img-box img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: 0.5s; }
+        .card-11d:hover .card-img-box img { opacity: 1; transform: scale(1.1); }
+        .card-tag { 
+            position: absolute; bottom: 4px; left: 6px; font-size: 0.5rem; 
+            background: #000; color: var(--primary); padding: 2px 6px; 
+            border: 1px solid var(--primary); border-radius: 4px; font-weight: 800; text-transform: uppercase;
+        }
+
+        .card-content { padding: 8px 10px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-title { font-family: 'Rajdhani'; font-weight: 800; font-size: 0.95rem; line-height: 1.1; color: #fff; text-transform: uppercase; }
+        .card-sub { font-size: 0.6rem; color: #ccc; text-transform: uppercase; margin-top: 2px; font-weight: 600; }
+        .card-action { margin-top: auto; font-size: 0.55rem; text-align: right; color: var(--primary); font-weight: 800; letter-spacing: 1px; }
+
+        /* --- POPUP CSS (CONSTRAINED BETWEEN HEADER & FOOTER) --- */
+        #lang-popup {
+            position: fixed; 
+            /* Start exactly after Header */
+            top: calc(var(--header-height) + 30px + env(safe-area-inset-top)); 
+            /* End exactly before Footer */
+            bottom: calc(var(--footer-height) + 35px + env(safe-area-inset-bottom)); 
+            
+            left: 10px; right: 10px; /* Slight margin from sides */
+            
+            z-index: 9999; 
+            display: none; 
+            align-items: center; 
+            justify-content: center;
+            
+            /* Only blur/dim the middle area */
+            background: rgba(0, 0, 0, 0.5); 
+            backdrop-filter: blur(5px);
+            
+            border-radius: 30px; /* Match the content rounded corners */
+            
+            /* Animation */
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        #lang-popup.active { display: flex; opacity: 1; }
+
+        .popup-card {
+            width: 90%; max-width: 380px;
+            /* Solid background so it's readable over the blur */
+            background: linear-gradient(160deg, #151515, #000);
+            border: 2px solid var(--primary); box-shadow: 0 0 60px rgba(244, 196, 48, 0.5);
+            border-radius: 26px; padding: 25px; text-align: center; position: relative;
+            
+            /* Ensure popup fits if screen is very short */
+            max-height: 100%; overflow-y: auto;
+        }
+        
+        /* IMAGE REMOVED per request: no image in popup */
+        /* .popup-img removed */
+        
+        .popup-h2 { font-family: 'Rajdhani'; font-size: 1.6rem; font-weight: 800; color: #fff; text-transform: uppercase; margin: 0 0 8px 0; }
+        .popup-p { font-size: 0.75rem; color: #888; margin-bottom: 20px; text-transform: uppercase; font-weight: 600; }
+
+        /* ---- NEW ROW LAYOUT for both buttons side by side ---- */
+        .lang-row {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .lang-btn-row {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 8px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.15);
+            white-space: nowrap;
+        }
+        .btn-hindi-row { background: rgba(255, 87, 34, 0.15); color: #FF5722; border-color: rgba(255, 87, 34, 0.4); }
+        .btn-hindi-row:hover { background: #FF5722; color: #fff; box-shadow: 0 0 20px #FF5722; }
+        .btn-eng-row { background: rgba(33, 150, 243, 0.15); color: #2196F3; border-color: rgba(33, 150, 243, 0.4); }
+        .btn-eng-row:hover { background: #2196F3; color: #fff; box-shadow: 0 0 20px #2196F3; }
+        
+        .close-popup { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; color: #555; cursor: pointer; }
+
+    </style>
+</head>
+<body>
+
+    <div id="universe-bg"></div>
+
+    <header class="glass-header golden-border-anim">
+        <img class="header-logo" src="sti.png" alt="Logo" onerror="this.src='https://via.placeholder.com/44/FFD700/000?text=S'">
+        <img class="header-title-img" src="skillora.png" alt="SKILLI" onerror="this.style.display='none'">
+        <img class="header-logo" src="ytglogo.png" alt="Logo" onerror="this.src='https://via.placeholder.com/44/FFD700/000?text=Y'">
+    </header>
+
+    <div class="dock-wrapper">
+        <nav class="glass-dock golden-border-anim">
+            <div id="nav-private" class="dock-item" onclick="openCategory('private', this)"><i class="fas fa-briefcase"></i></div>
+            <div id="nav-ai" class="dock-item" onclick="openCategory('ai', this)"><i class="fas fa-robot"></i></div>
+            <div id="nav-govt" class="dock-item active" onclick="openCategory('govt', this)"><i class="fas fa-landmark"></i></div>
+            <div id="nav-trending" class="dock-item" onclick="openCategory('trending', this)"><i class="fas fa-fire"></i></div>
+            <div id="nav-news" class="dock-item" onclick="openCategory('news', this)"><i class="fas fa-newspaper"></i></div>
+        </nav>
+    </div>
+
+    <div id="main-modal" class="modal-overlay flex-modal">
+        <div class="modal-box golden-border-anim" id="dynamic-modal-box">
+            
+            <div class="modal-header-container">
+                <div class="modal-header">
+                    <h2 id="cat-title">GOVERNMENT EXAMS</h2>
+                </div>
+                <div class="sub-nav golden-border-anim" id="sub-nav-container"></div>
+            </div>
+
+            <div id="cards-grid" class="grid-container"></div>
+        </div>
+    </div>
+
+    <!-- POPUP - Image removed, buttons in one row -->
+    <div id="lang-popup">
+        <div class="popup-card">
+            <div class="close-popup" onclick="closePopup()">&times;</div>
+            <!-- IMAGE TAG REMOVED per request -->
+            <h2 id="pop-title" class="popup-h2">Title</h2>
+            <p class="popup-p">Select Language / भाषा चुनें</p>
+            
+            <!-- Buttons in a single row -->
+            <div class="lang-row">
+                <a id="link-hi" href="#" class="lang-btn-row btn-hindi-row">
+                    <span>हिंदी</span>
+                </a> 
+                <a id="link-en" href="#" class="lang-btn-row btn-eng-row">
+                    <span>ENGLISH</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // -----------------------------------------------
+        // COMPLETE DATABASE (Govt, Private, AI, Trending, News)
+        // -----------------------------------------------
+        const dataBase = {
+             govt: {
+                'UPSC Exam': [
+  {
+    title: "Civil-Services",
+    sub: "Examination",
+    tag: "Grade A",
+    img: "upsc.webp",
+    linkHi: "upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps-hindi.html",
+    linkEn: "upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps.html"
+  },
+  {
+    title: "Engineering",
+    sub: "Services-Examination",
+    tag: "Technical",
+    img: "ese.webp",
+    linkHi: "#upsc-ese-ies-engineering-services-exam.html",
+    linkEn: "upsc-ese-ies-engineering-services-exam.html"
+  },
+  {
+    title: "Forest-Services",
+    sub: "Examination",
+    tag: "Grade A",
+    img: "ifos.webp",
+    linkHi: "#upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps.html",
+    linkEn: "upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps.html"
+  },
+  {
+    title: "Chif-Defence",
+    sub: "(CDS)Examination",
+    tag: "Defence",
+    img: "dfs.webp",
+    linkHi: "#ups-cds-combined-defence-dervices.html",
+    linkEn: "#ups-cds-combined-defence-dervices.html"
+  },
+  {
+    title: "National-Defence",
+    sub: "Academy-Examination",
+    tag: "Defence",
+    img: "dfs.webp",
+    linkHi: "#upsc-nda-na-services.html",
+    linkEn: "#upsc-nda-na-services.html"
+  },
+  {
+    title: "Combined-Medical",
+    sub: "(CMS)Services",
+    tag: "Medical",
+    img: "cms.webp",
+    linkHi: "#upsc-cms-services.html",
+    linkEn: "#upsc-cms-services.html"
+  },
+  {
+    title: "Indian-Economics",
+    sub: "& Statistic-Examination",
+    tag: "Specialist",
+    img: "iesiss.webp",
+    linkHi: "#upsc-ies-iss-services.html",
+    linkEn: "#upsc-ies-iss-services.html"
+  },
+  {
+    title: "Central-Armed",
+    sub: "Police-Force(Capf)",
+    tag: "Paramilitary",
+    img: "capf.webp",
+    linkHi: "#upsc-capf-services.html",
+    linkEn: "#upsc-capf-services.html"
+  },
+  {
+    title: "Combines-Geo(CGSE)",
+    sub: "Scientist-Examination",
+    tag: "Science",
+    img: "cgse.webp",
+    linkHi: "#upsc-cgs-services.html",
+    linkEn: "#upsc-cgs-services.html"
+  },
+  {
+    title: "Employees-Provident",
+    sub: "Fund-Organisation(EPFO)",
+    tag: "Group A/B",
+    img: "epfo.webp",
+    linkHi: "#upsc-epfo-eo-oa-services.html",
+    linkEn: "#upsc-epfo-eo-oa-services.html"
+  },
+  {
+    title: "Central-Industrial",
+    sub: "Police-Force",
+    tag: "Departmental",
+    img: "cisf.webp",
+    linkHi: "#upsc-cisf-acexe-ldce-service.html",
+    linkEn: "#upsc-cisf-acexe-ldce-service.html"
+  },
+  {
+    title: "SO/Steno",
+    sub: "Secretariat",
+    tag: "Departmental",
+    img: "so.webp",
+    linkHi: "#upsc-so-steno-grade-b-grade-i-ldce-services.html",
+    linkEn: "#upsc-so-steno-grade-b-grade-i-ldce-services.html"
+  },
+  {
+    title: "CBI DSP",
+    sub: "Investigation",
+    tag: "Departmental",
+    img: "cbi.webp",
+    linkHi: "#upsc-cbi-dsp-limited-dept-service.html",
+    linkEn: "#upsc-cbi-dsp-limited-dept-service.html"
+  },
+  {
+    title: "SCRA",
+    sub: "Railway Engg.",
+    tag: "Technical",
+    img: "scra.webp",
+    linkHi: "#upsc-special-class-railway-apprentice-scra-services.html",
+    linkEn: "#upsc-special-class-railway-apprentice-scra-services.html"
+  }
+],
+       
+
+  'nra-cet': [
+  /* ===== CET : MATRIC LEVEL ===== */
+  { title:"CET MTS", sub:"SSC MTS", tag:"10th", img:"cet.png", linkHi: "#cet-matric-ssc-mts-rrb-ibps-others.html",
+    linkEn: "cet-matric-ssc-mts-rrb-ibps-others.html" },
+  { title:"CET Group D", sub:"RRB Group D", tag:"10th", img:"cet.png", linkHi: "#cet-matric-ssc-mts-rrb-ibps-others.html",
+    linkEn: "cet-matric-ssc-mts-rrb-ibps-others.html" },
+  { title:"CET Clerk L1", sub:"IBPS Support", tag:"10th", img:"cet.png", linkHi: "#cet-matric-ssc-mts-rrb-ibps-others.html",
+    linkEn: "cet-matric-ssc-mts-rrb-ibps-others.html" },
+  { title:"CET Group C", sub:"Other Exams", tag:"10th", img:"cet.png", linkHi: "#cet-matric-ssc-mts-rrb-ibps-others.html",
+    linkEn: "cet-matric-ssc-mts-rrb-ibps-others.html" },
+
+  /* ===== CET : 12th PASS LEVEL ===== */
+  { title:"CET CHSL", sub:"SSC CHSL", tag:"12th", img:"cet.png", linkHi: "#cet-highersec-ssc-chsl-all-12th.html",
+    linkEn: "cet-highersec-ssc-chsl-all-12th.html" },
+  { title:"CET NTPC 12", sub:"RRB NTPC", tag:"12th", img:"cet.png", linkHi: "#cet-highersec-ssc-chsl-all-12th.html",
+    linkEn: "cet-highersec-ssc-chsl-all-12th.html" },
+  { title:"CET IBPS Clerk", sub:"Prelims", tag:"12th", img:"cet.png", linkHi: "#cet-highersec-ssc-chsl-all-12th.html",
+    linkEn: "cet-highersec-ssc-chsl-all-12th.html" },
+  { title:"CET RRB PO", sub:"Scale-I", tag:"12th", img:"cet.png", linkHi: "#cet-highersec-ssc-chsl-all-12th.html",
+    linkEn: "cet-highersec-ssc-chsl-all-12th.html" },
+  { title:"CET 12th Other", sub:"Govt Exams", tag:"12th", img:"cet.png", linkHi: "#cet-highersec-ssc-chsl-all-12th.html",
+    linkEn: "cet-highersec-ssc-chsl-all-12th.html" },
+
+  /* ===== CET : GRADUATE LEVEL ===== */
+  { title:"CET CGL", sub:"SSC CGL", tag:"Graduate", img:"cet.png", linkHi: "#cet-graduate-ssc-cgl-grad.html",
+    linkEn: "cet-graduate-ssc-cgl-grad.html" },
+  { title:"CET NTPC Grad", sub:"RRB NTPC", tag:"Graduate", img:"cet.png", linkHi: "#cet-graduate-ssc-cgl-grad.html",
+    linkEn: "cet-graduate-ssc-cgl-grad.html" },
+  { title:"CET IBPS PO", sub:"Probationary Officer", tag:"Graduate", img:"cet.png", linkHi: "#cet-graduate-ssc-cgl-grad.html",
+    linkEn: "cet-graduate-ssc-cgl-grad.html" },
+  { title:"CET RRB PO", sub:"Scale-I", tag:"Graduate", img:"cet.png", linkHi: "#cet-graduate-ssc-cgl-grad.html",
+    linkEn: "cet-graduate-ssc-cgl-grad.html" },
+  { title:"CET Grad Other", sub:"Govt Exams", tag:"Graduate", img:"cet.png", linkHi: "#cet-graduate-ssc-cgl-grad.html",
+    linkEn: "cet-graduate-ssc-cgl-grad.html" } 
+],
+   
+
+ 'SSC Exam': [
+  {
+    title: "CGL",
+    sub: "Graduate Level Exam",
+    tag: "Graduate",
+    img: "ssc.png",
+    linkHi: "#ssc-combined-graduate-level-cgl-examination.html",
+    linkEn: "ssc-combined-graduate-level-cgl-examination.html"
+  },
+  {
+    title: "CHSL",
+    sub: "12th Level Exam",
+    tag: "12th Pass",
+    img: "ssc.png",
+    linkHi: "#ssc-combined-higher-secondary-level-chsl-examination.html",
+    linkEn: "ssc-combined-higher-secondary-level-chsl-examination.html"
+  },
+  {
+    title: "MTS",
+    sub: "10th Level Staff",
+    tag: "10th Pass",
+    img: "ssc.png",
+    linkHi: "#ssc-multi-tasking-staff-mts-examination.html",
+    linkEn: "ssc-multi-tasking-staff-mts-examination.html"
+  },
+  {
+    title: "GD",
+    sub: "Constable Duty",
+    tag: "Defence",
+    img: "ssc.png",
+    linkHi: "#ssc-general-duty-gd-constable-examination.html",
+    linkEn: "ssc-general-duty-gd-constable-examination.html"
+  },
+  {
+    title: "JE",
+    sub: "Junior Engineer",
+    tag: "Technical",
+    img: "ssc.png",
+    linkHi: "#ssc-junior-engineer-je-examination.html",
+    linkEn: "ssc-junior-engineer-je-examination.html"
+  },
+  {
+    title: "JHT",
+    sub: "Hindi Translator",
+    tag: "Language",
+    img: "ssc.png",
+    linkHi: "#ssc-junior-hindi-translator-jht-examination.html",
+    linkEn: "ssc-junior-hindi-translator-jht-examination.html"
+  },
+  {
+    title: "Steno",
+    sub: "Grade C & D",
+    tag: "Clerical",
+    img: "ssc.png",
+    linkHi: "#ssc-stenographer-grade-c-d-examination.html",
+    linkEn: "ssc-stenographer-grade-c-d-examination.html"
+  },
+  {
+    title: "CPO SI",
+    sub: "Sub-Inspector",
+    tag: "Police",
+    img: "ssc.png",
+    linkHi: "#ssc-central-police-organisation-cpo-si-examination.html",
+    linkEn: "ssc-central-police-organisation-cpo-si-examination.html"
+  },
+  
+  {
+    title: "DP Const.",
+    sub: "Delhi Police",
+    tag: "Police",
+    img: "ssc.png",
+    linkHi: "#ssc-constable-executive-delhi-police-examination.html",
+    linkEn: "ssc-constable-executive-delhi-police-examination.html"
+  },
+  {
+    title: "SA (IMD)",
+    sub: "Scientific Asst.",
+    tag: "Science",
+    img: "ssc.png",
+    linkHi: "#ssc-scientific-assistant-imd-examination.html",
+    linkEn: "ssc-scientific-assistant-imd-examination.html"
+  },
+  {
+    title: "Tradesman",
+    sub: "Skilled Constable",
+    tag: "Skilled",
+    img: "ssc.png",
+    linkHi: "#ssc-constable-tradesman-examination.html",
+    linkEn: "ssc-constable-tradesman-examination.html"
+  },
+  {
+    title: "Phase",
+    sub: "Phase Exam",
+    tag: "Multiple",
+    img: "ssc.png",
+    linkHi: "#ssc-phase-examinations.html",
+    linkEn: "ssc-phase-examinations.html"
+  }
+],
+                'RRB Exam': [
+
+/* ===================== UPSC ===================== */
+
+{ title:"CSE", sub:"Civil Services", tag:"UPSC", img:"rrb.png", linkHi: "#upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps.html",
+    linkEn: "upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps.html" },
+{ title:"ESE", sub:"Engg Services", tag:"UPSC", img:"rrb.png", linkHi: "#upsc-ese-ies-engineering-services-exam.html",
+    linkEn: "upsc-ese-ies-engineering-services-exam.html" },
+{ title:"IFoS", sub:"Forest Service", tag:"UPSC", img:"rrb.png", linkHi: "#upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps.html",
+    linkEn: "upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps.html" },
+{ title:"CDS", sub:"Defence", tag:"UPSC", img:"rrb.png", linkHi: "#ups-cds-combined-defence-dervices.html",
+    linkEn: "ups-cds-combined-defence-dervices.html" },
+{ title:"NDA/NA", sub:"Defence Acad.", tag:"UPSC", img:"rrb.png", linkHi: "#upsc-nda-na-services.html",
+    linkEn: "upsc-nda-na-services.html" },
+{ title:"CMS", sub:"Medical", tag:"UPSC", img:"rrb.png", linkHi: "#upsc-cms-services.html",
+    linkEn: "upsc-cms-services.html" },
+{ title:"IES/ISS", sub:"Eco & Stats", tag:"UPSC", img:"rrb.png", linkHi: "#upsc-ies-iss-services.html",
+    linkEn: "upsc-ies-iss-services.html" },
+{ title:"CAPF", sub:"Armed Police", tag:"UPSC", img:"rrb.png", linkHi: "#upsc-capf-services.html",
+    linkEn: "upsc-capf-services.html" },
+{ title:"EPFO", sub:"EO / AO", tag:"UPSC", img:"rrb.png", linkHi: "#upsc-epfo-eo-oa-services.html",
+    linkEn: "upsc-epfo-eo-oa-services.html" },
+
+/* UPSC Railway via CSE */
+{ title:"IRTS", sub:"Rail Traffic", tag:"UPSC Rail", img:"rrb.png", linkHi: "#upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps.html",
+    linkEn: "upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps.html" },
+{ title:"SO Rail", sub:"Accounts/Stores", tag:"UPSC Rail", img:"rrb.png", linkHi: "#upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps.html",
+    linkEn: "upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps.html" },
+
+/* ===================== SSC ===================== */
+
+{ title:"CGL", sub:"Graduate Exam", tag:"SSC", img:"rrb.png", linkHi: "#ssc-combined-graduate-level-cgl-examination.html",
+    linkEn: "ssc-combined-graduate-level-cgl-examination.html" },
+{ title:"CHSL", sub:"12th Exam", tag:"SSC", img:"rrb.png", linkHi: "#ssc-combined-higher-secondary-level-chsl-examination.html",
+    linkEn: "ssc-combined-higher-secondary-level-chsl-examination.html" },
+{ title:"MTS", sub:"10th Staff", tag:"SSC", img:"rrb.png", linkHi: "#ssc-multi-tasking-staff-mts-examination.html",
+    linkEn: "ssc-multi-tasking-staff-mts-examination.html" },
+{ title:"GD", sub:"Constable", tag:"SSC", img:"rrb.png", linkHi: "#ssc-general-duty-gd-constable-examination.html",
+    linkEn: "ssc-general-duty-gd-constable-examination.html" },
+{ title:"JE", sub:"Junior Engg", tag:"SSC", img:"rrb.png", linkHi: "#ssc-junior-engineer-je-examination.html",
+    linkEn: "ssc-junior-engineer-je-examination.html" },
+{ title:"JHT", sub:"Translator", tag:"SSC", img:"rrb.png", linkHi: "#ssc-junior-hindi-translator-jht-examination.html",
+    linkEn: "ssc-junior-hindi-translator-jht-examination.html" },
+{ title:"Steno", sub:"Grade C/D", tag:"SSC", img:"rrb.png", linkHi: "#ssc-stenographer-grade-c-d-examination.html",
+    linkEn: "ssc-stenographer-grade-c-d-examination.html" },
+{ title:"CPO SI", sub:"Sub-Inspector", tag:"SSC", img:"rrb.png", linkHi: "#ssc-central-police-organisation-cpo-si-examination.html",
+    linkEn: "ssc-central-police-organisation-cpo-si-examination.html" },
+
+/* ===================== RRB / RRC ===================== */
+
+{ title:"NTPC", sub:"Non-Tech", tag:"RRB", img:"rrb.png", linkHi: "#rrb-ntpc-non-technical-categories-examination.html",
+    linkEn: "rrb-ntpc-non-technical-categories-examination.html" },
+{ title:"JE", sub:"Rail Engg", tag:"RRB", img:"rrb.png", linkHi: "#rrb-je-junior-engineer-and-technical-examination.html",
+    linkEn: "rrb-je-junior-engineer-and-technical-examination.html" },
+{ title:"ALP", sub:"Loco Pilot", tag:"RRB", img:"rrb.png", linkHi: "#rrb-alp-assistant-loco-pilot-and-technician.html",
+    linkEn: "rrb-alp-assistant-loco-pilot-and-technician.html" },
+{ title:"Para", sub:"Paramedical", tag:"RRB", img:"rrb.png", linkHi: "#rrb-paramedical-staff-nurse-pharmacist-radiographer-lab-technician-helth-malaria-inspector.html",
+    linkEn: "rrb-paramedical-staff-nurse-pharmacist-radiographer-lab-technician-helth-malaria-inspector.html" },
+{ title:"Mini", sub:"Ministerial", tag:"RRB", img:"rrb.png", linkHi: "#rrb-ministerial-and-isolated-categories.html",
+    linkEn: "rrb-ministerial-and-isolated-categories.html" },
+{ title:"Group-D", sub:"Level-1", tag:"RRC", img:"rrb.png", linkHi: "#rrb-group-d-level-one-exam.html",
+    linkEn: "rrb-group-d-level-one-exam.html" }
+
+],
+                'IBPS Exam': [
+  /* ===================== IBPS BANK ===================== */
+
+  {
+    title: "IBPS PO",
+    sub: "Probationary Officer",
+    tag: "IBPS",
+    img: "ibps.png",
+    linkHi: "#ibps-po-probationary-officer-clerk-exam.html",
+    linkEn: "ibps-po-probationary-officer-clerk-exam.html"
+  },
+  {
+    title: "IBPS Clerk",
+    sub: "Clerical Cadre",
+    tag: "IBPS",
+    img: "ibps.png",
+    linkHi: "#ibps-po-probationary-officer-clerk-exam.html",
+    linkEn: "ibps-po-probationary-officer-clerk-exam.html"
+  },
+
+  /* ===================== IBPS RRB ===================== */
+
+  {
+    title: "RRB PO",
+    sub: "Officer Scale-I",
+    tag: "IBPS RRB",
+    img: "ibps.png",
+    linkHi: "#ibps-rrb-officer-scale-i-assistant-manager-ibps-rrb-officer-scale-ii-manager-ibps-rrb-officer-scale-iii-senior-manager-ibps-rrb-office-assistant-multipurpose-clerk.html",
+    linkEn: "ibps-rrb-officer-scale-i-assistant-manager-ibps-rrb-officer-scale-ii-manager-ibps-rrb-officer-scale-iii-senior-manager-ibps-rrb-office-assistant-multipurpose-clerk.html"
+  },
+  {
+    title: "RRB Mgr",
+    sub: "Officer Scale-II",
+    tag: "IBPS RRB",
+    img: "ibps.png",
+    linkHi: "#ibps-rrb-officer-scale-i-assistant-manager-ibps-rrb-officer-scale-ii-manager-ibps-rrb-officer-scale-iii-senior-manager-ibps-rrb-office-assistant-multipurpose-clerk.html",
+    linkEn: "ibps-rrb-officer-scale-i-assistant-manager-ibps-rrb-officer-scale-ii-manager-ibps-rrb-officer-scale-iii-senior-manager-ibps-rrb-office-assistant-multipurpose-clerk.html"
+  },
+  {
+    title: "RRB Sr Mgr",
+    sub: "Officer Scale-III",
+    tag: "IBPS RRB",
+    img: "ibps.png",
+    linkHi: "#ibps-rrb-officer-scale-i-assistant-manager-ibps-rrb-officer-scale-ii-manager-ibps-rrb-officer-scale-iii-senior-manager-ibps-rrb-office-assistant-multipurpose-clerk.html",
+    linkEn: "ibps-rrb-officer-scale-i-assistant-manager-ibps-rrb-officer-scale-ii-manager-ibps-rrb-officer-scale-iii-senior-manager-ibps-rrb-office-assistant-multipurpose-clerk.html"
+  },
+  {
+    title: "RRB Clerk",
+    sub: "Office Asst.",
+    tag: "IBPS RRB",
+    img: "ibps.png",
+    linkHi: "#ibps-rrb-officer-scale-i-assistant-manager-ibps-rrb-officer-scale-ii-manager-ibps-rrb-officer-scale-iii-senior-manager-ibps-rrb-office-assistant-multipurpose-clerk.html",
+    linkEn: "ibps-rrb-officer-scale-i-assistant-manager-ibps-rrb-officer-scale-ii-manager-ibps-rrb-officer-scale-iii-senior-manager-ibps-rrb-office-assistant-multipurpose-clerk.html"
+  },
+
+  /* ===================== IBPS SO ===================== */
+
+  {
+    title: "IT Officer",
+    sub: "Scale-I",
+    tag: "IBPS SO",
+    img: "ibps.png",
+    linkHi: "#ibps-so-it-officer-scale-i-agricultural-field-officer-scale-i-jbhasha-adhikari-scale-i-law-officer-scale-i-hr-personnel-officer-scale-i-marketing-officer-scale-i-exam.html",
+    linkEn: "ibps-so-it-officer-scale-i-agricultural-field-officer-scale-i-jbhasha-adhikari-scale-i-law-officer-scale-i-hr-personnel-officer-scale-i-marketing-officer-scale-i-exam.html"
+  },
+  {
+    title: "Agri Officer",
+    sub: "Scale-I",
+    tag: "IBPS SO",
+    img: "ibps.png",
+    linkHi: "#ibps-so-it-officer-scale-i-agricultural-field-officer-scale-i-jbhasha-adhikari-scale-i-law-officer-scale-i-hr-personnel-officer-scale-i-marketing-officer-scale-i-exam.html",
+    linkEn: "ibps-so-it-officer-scale-i-agricultural-field-officer-scale-i-jbhasha-adhikari-scale-i-law-officer-scale-i-hr-personnel-officer-scale-i-marketing-officer-scale-i-exam.html"
+  },
+  {
+    title: "Rajbhasha",
+    sub: "Scale-I",
+    tag: "IBPS SO",
+    img: "ibps.png",
+    linkHi: "#ibps-so-it-officer-scale-i-agricultural-field-officer-scale-i-jbhasha-adhikari-scale-i-law-officer-scale-i-hr-personnel-officer-scale-i-marketing-officer-scale-i-exam.html",
+    linkEn: "ibps-so-it-officer-scale-i-agricultural-field-officer-scale-i-jbhasha-adhikari-scale-i-law-officer-scale-i-hr-personnel-officer-scale-i-marketing-officer-scale-i-exam.html"
+  },
+  {
+    title: "Law Officer",
+    sub: "Scale-I",
+    tag: "IBPS SO",
+    img: "ibps.png",
+    linkHi: "#ibps-so-it-officer-scale-i-agricultural-field-officer-scale-i-jbhasha-adhikari-scale-i-law-officer-scale-i-hr-personnel-officer-scale-i-marketing-officer-scale-i-exam.html",
+    linkEn: "ibps-so-it-officer-scale-i-agricultural-field-officer-scale-i-jbhasha-adhikari-scale-i-law-officer-scale-i-hr-personnel-officer-scale-i-marketing-officer-scale-i-exam.html"
+  },
+  {
+    title: "Marketing",
+    sub: "Scale-I",
+    tag: "IBPS SO",
+    img: "ibps.png",
+    linkHi: "#ibps-so-it-officer-scale-i-agricultural-field-officer-scale-i-jbhasha-adhikari-scale-i-law-officer-scale-i-hr-personnel-officer-scale-i-marketing-officer-scale-i-exam.html",
+    linkEn: "ibps-so-it-officer-scale-i-agricultural-field-officer-scale-i-jbhasha-adhikari-scale-i-law-officer-scale-i-hr-personnel-officer-scale-i-marketing-officer-scale-i-exam.html"
+  }
+],
+                'RBI Exam': [
+  /* ===================== RBI GRADE B ===================== */
+
+  {
+    title: "RBI Gr-B Gen",
+    sub: "General (DR)",
+    tag: "RBI",
+    img: "rbi.png",
+    linkHi: "#rbi-grade-b-dr-general-rbi-grade-b-dr-depr-department-of-economic-and-policy-research-rbi-grade-b-dr-dsim-department-of-statistics-and-information-management.html",
+    linkEn: "rbi-grade-b-dr-general-rbi-grade-b-dr-depr-department-of-economic-and-policy-research-rbi-grade-b-dr-dsim-department-of-statistics-and-information-management.html"
+  },
+  {
+    title: "RBI Gr-B DEPR",
+    sub: "Eco & Policy",
+    tag: "RBI",
+    img: "rbi.png",
+    linkHi: "#rbi-grade-b-dr-general-rbi-grade-b-dr-depr-department-of-economic-and-policy-research-rbi-grade-b-dr-dsim-department-of-statistics-and-information-management.html",
+    linkEn: "rbi-grade-b-dr-general-rbi-grade-b-dr-depr-department-of-economic-and-policy-research-rbi-grade-b-dr-dsim-department-of-statistics-and-information-management.html"
+  },
+  {
+    title: "RBI Gr-B DSIM",
+    sub: "Statistics",
+    tag: "RBI",
+    img: "rbi.png",
+    linkHi: "#rbi-grade-b-dr-general-rbi-grade-b-dr-depr-department-of-economic-and-policy-research-rbi-grade-b-dr-dsim-department-of-statistics-and-information-management.html",
+    linkEn: "rbi-grade-b-dr-general-rbi-grade-b-dr-depr-department-of-economic-and-policy-research-rbi-grade-b-dr-dsim-department-of-statistics-and-information-management.html"
+  },
+
+  /* ===================== RBI GRADE A ===================== */
+
+  {
+    title: "RBI Gr-A Raj",
+    sub: "Rajbhasha",
+    tag: "RBI",
+    img: "rbi.png",
+    linkHi: "#rbi-grade-a-officer-assistant-manager-level.html",
+    linkEn: "rbi-grade-a-officer-assistant-manager-level.html"
+  },
+  {
+    title: "RBI Gr-A PS",
+    sub: "Protocol & Sec.",
+    tag: "RBI",
+    img: "rbi.png",
+    linkHi: "#rbi-grade-a-officer-assistant-manager-level.html",
+    linkEn: "rbi-grade-a-officer-assistant-manager-level.html"
+  },
+
+  /* ===================== RBI ASSISTANT ===================== */
+
+  {
+    title: "RBI Asst.",
+    sub: "Clerk",
+    tag: "RBI",
+    img: "rbi.png",
+    linkHi: "#rbi-assistant-clerical-level.html",
+    linkEn: "rbi-assistant-clerical-level.html"
+  },
+
+  /* ===================== RBI SPECIALIST ===================== */
+
+  {
+    title: "RBI Legal",
+    sub: "Grade B",
+    tag: "RBI Spec.",
+    img: "rbi.png",
+    linkHi: "#rbi-specialist-technical-posts-exam-guide.html",
+    linkEn: "rbi-specialist-technical-posts-exam-guide.html"
+  },
+  {
+    title: "RBI Tech Mgr",
+    sub: "Civil / Elec.",
+    tag: "RBI Spec.",
+    img: "rbi.png",
+    linkHi: "#rbi-specialist-technical-posts-exam-guide.html",
+    linkEn: "rbi-specialist-technical-posts-exam-guide.html"
+  },
+  {
+    title: "RBI Librarian",
+    sub: "Grade A",
+    tag: "RBI Spec.",
+    img: "rbi.png",
+    linkHi: "#rbi-specialist-technical-posts-exam-guide.html",
+    linkEn: "rbi-specialist-technical-posts-exam-guide.html"
+  },
+  {
+    title: "RBI Curator",
+    sub: "Grade A",
+    tag: "RBI Spec.",
+    img: "rbi.png",
+    linkHi: "#rbi-specialist-technical-posts-exam-guide.html",
+    linkEn: "rbi-specialist-technical-posts-exam-guide.html"
+  },
+  {
+    title: "RBI IT",
+    sub: "IT / Data",
+    tag: "RBI Spec.",
+    img: "rbi.png",
+    linkHi: "#rbi-specialist-technical-posts-exam-guide.html",
+    linkEn: "rbi-specialist-technical-posts-exam-guide.html"
+  },
+
+  /* ===================== RBI CONSULTANT ===================== */
+
+  {
+    title: "RBI Cons. IT",
+    sub: "IT Consultant",
+    tag: "RBI Contract",
+    img: "rbi.png",
+    linkHi: "#rbi-consultant--fintech-it-risk.html",
+    linkEn: "rbi-consultant--fintech-it-risk.html"
+  },
+  {
+    title: "RBI Cons. Fin",
+    sub: "FinTech",
+    tag: "RBI Contract",
+    img: "rbi.png",
+    linkHi: "#rbi-consultant--fintech-it-risk.html",
+    linkEn: "rbi-consultant--fintech-it-risk.html"
+  },
+  {
+    title: "RBI Cons. Risk",
+    sub: "Risk Mgmt",
+    tag: "RBI Contract",
+    img: "rbi.png",
+    linkHi: "#rbi-consultant--fintech-it-risk.html",
+    linkEn: "rbi-consultant--fintech-it-risk.html"
+  }
+],
+                'State PSE': [
+  /* ===================== STATE PSC ===================== */
+
+  { title:"UPPSC", sub:"Uttar Pradesh PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#uppsc.html",
+    linkEn: "uppsc.html" },
+  { title:"BPSC", sub:"Bihar PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#bpsc.html",
+    linkEn: "bpsc.html" },
+  { title:"RPSC", sub:"Rajasthan PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#rpsc.html",
+    linkEn: "rpsc.html" },
+  { title:"MPPSC", sub:"Madhya Pradesh PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#mppsc.html",
+    linkEn: "mppsc.html" },
+  { title:"UKPSC", sub:"Uttarakhand PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#ukpsc.html",
+    linkEn: "ukpsc.html" },
+  { title:"JPSC", sub:"Jharkhand PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#jpsc.html",
+    linkEn: "jpsc.html" },
+  { title:"WBPSC", sub:"West Bengal PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#wbpsc.html",
+    linkEn: "wbpsc.html" },
+  { title:"GPSC (GJ)", sub:"Gujarat PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#gpsc.html",
+    linkEn: "gpsc.html" },
+  { title:"GPSC (GA)", sub:"Goa PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#gopsc.html",
+    linkEn: "gopsc.html" },
+  { title:"MPSC", sub:"Maharashtra PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#mpsc.html",
+    linkEn: "mpsc.html" },
+  { title:"HPSC", sub:"Haryana PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#hpsc.html",
+    linkEn: "hpsc.html" },
+  { title:"HPPSC", sub:"Himachal PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#hppsc.html",
+    linkEn: "hppsc.html" },
+  { title:"JKPSC", sub:"J&K PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#jkpsc.html",
+    linkEn: "jkpsc.html" },
+  { title:"OPSC", sub:"Odisha PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#opsc.html",
+    linkEn: "opsc.html" },
+  { title:"CGPSC", sub:"Chhattisgarh PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#cgpsc.html",
+    linkEn: "cgpsc.html" },
+  { title:"TNPSC", sub:"Tamil Nadu PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#tnpsc.html",
+    linkEn: "tnpsc.html" },
+  { title:"KPSC (KA)", sub:"Karnataka PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#kpsc.html",
+    linkEn: "kpsc.html" },
+  { title:"KPSC (KL)", sub:"Kerala PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#kpsckrla.html",
+    linkEn: "kpsckrla.html" },
+  { title:"TPSC", sub:"Tripura PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#tpsc.html",
+    linkEn: "tpsc.html" },
+  { title:"APPSC", sub:"Andhra PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#appsc.html",
+    linkEn: "appsc.html" },
+  { title:"TSPSC", sub:"Telangana PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#tspsc.html",
+    linkEn: "tspsc.html" },
+  { title:"Manipur PSC", sub:"Manipur PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#manipur-psc.html",
+    linkEn: "manipur-psc.html" },
+  { title:"Meghalaya PSC", sub:"Meghalaya PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#meghalaya-psc.html",
+    linkEn: "meghalaya-psc.html" },
+  { title:"Mizoram PSC", sub:"Mizoram PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#mizoram-psc.html",
+    linkEn: "mizoram-psc.html" },
+  { title:"Nagaland PSC", sub:"Nagaland PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#nagaland-psc.html",
+    linkEn: "nagaland-psc.html" },
+  { title:"Sikkim PSC", sub:"Sikkim PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#sikkim-psc.html",
+    linkEn: "sikkim-psc.html" },
+  { title:"Arunachal PSC", sub:"Arunachal PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#arunachal-pradesh-psc.html",
+    linkEn: "arunachal-pradesh-psc.html" },
+  { title:"PPSC", sub:"Punjab PSC", tag:"State PSC", img:"stetpse.png", linkHi: "#punjab-psc.html",
+    linkEn: "#punjab-psc.html" },
+
+  /* ===================== STATE SSC / SSB ===================== */
+
+  { title:"UPSSSC", sub:"UP Subordinate", tag:"State SSC", img:"stetpse.png", linkHi: "#upsssc.html",
+    linkEn: "upsssc.html" },
+  { title:"BSSC", sub:"Bihar SSC", tag:"State SSC", img:"stetpse.png", linkHi: "#bssc.html",
+    linkEn: "bssc.html" },
+  { title:"RSMSSB", sub:"Rajasthan SSB", tag:"State SSC", img:"stetpse.png", linkHi: "#rsmssb.html",
+    linkEn: "rsmssb.html" },
+  { title:"MPPEB", sub:"MP Vyapam", tag:"State SSC", img:"stetpse.png", linkHi: "#mppeb.html",
+    linkEn: "mppeb.html" },
+  { title:"HSSC", sub:"Haryana SSC", tag:"State SSC", img:"stetpse.png", linkHi: "#hssc.html",
+    linkEn: "hssc.html" },
+  { title:"UKSSSC", sub:"UK Subordinate", tag:"State SSC", img:"stetpse.png", linkHi: "#uksssc.html",
+    linkEn: "uksssc.html" },
+  { title:"JSSC", sub:"Jharkhand SSC", tag:"State SSC", img:"stetpse.png", linkHi: "#jssc.html",
+    linkEn: "jssc.html" },
+  { title:"HPSSSB", sub:"HP SSB", tag:"State SSC", img:"stetpse.png", linkHi: "#hpsssb.html",
+    linkEn: "hpsssb.html" },
+  { title:"WBSSC", sub:"WB SSC", tag:"State SSC", img:"stetpse.png", linkHi: "#wbssc.html",
+    linkEn: "wbssc.html" },
+  { title:"OSSSC", sub:"Odisha SSC", tag:"State SSC", img:"stetpse.png", linkHi: "#osssc.html",
+    linkEn: "osssc.html" },
+  { title:"CG Vyapam", sub:"CG Board", tag:"State SSC", img:"stetpse.png", linkHi: "#cgvyapam.html",
+    linkEn: "cgvyapam.html" },
+  { title:"KEA", sub:"Karnataka Exams", tag:"State SSC", img:"stetpse.png", linkHi: "#kea.html",
+    linkEn: "kea.html" },
+
+  /* ===================== OTHER STATE EXAMS ===================== */
+
+  { title:"State Police", sub:"SI / Constable", tag:"State", img:"stetpse.png", linkHi: "#state-police.html",
+    linkEn: "state-police.html" },
+  { title:"Judiciary", sub:"Civil Judge", tag:"State", img:"stetpse.png", linkHi: "#state-judiciary.html",
+    linkEn: "state-judiciary.html" },
+  { title:"State TET", sub:"Teacher Exams", tag:"State", img:"stetpse.png", linkHi: "#state-teacher.html",
+    linkEn: "state-teacher.html" },
+  { title:"State Engg", sub:"AE / JE", tag:"State", img:"stetpse.png", linkHi: "#state-engineering.html",
+    linkEn: "state-engineering.html" },
+  { title:"State Health", sub:"Medical Jobs", tag:"State", img:"stetpse.png", linkHi: "#state-health.html",
+    linkEn: "state-health.html" }
+],
+
+'District Exam':[
+  { title:"आंध्र", sub:"Andhra Pradesh", tag:"State", img:"districtsexam.png", linkHi: "#andhra_pradesh.html",
+    linkEn: "#andhra_pradesh.html" },
+  { title:"अरुणाचल", sub:"Arunachal", tag:"State", img:"districtsexam.png", linkHi: "#arunachal_pradesh.html",
+    linkEn: "#arunachal_pradesh.html" },
+  { title:"असम", sub:"Assam", tag:"State", img:"districtsexam.png", linkHi: "#assam.html",
+    linkEn: "#assam.html" },
+  { title:"बिहार", sub:"Bihar", tag:"State", img:"districtsexam.png", linkHi: "#bihar.html",
+    linkEn: "#bihar.html" },
+  { title:"छत्तीसगढ़", sub:"Chhattisgarh", tag:"State", img:"districtsexam.png", linkHi: "#chhattisgarh.html",
+    linkEn: "#chhattisgarh.html" },
+  { title:"गोवा", sub:"Goa", tag:"State", img:"districtsexam.png", linkHi: "#goa.html",
+    linkEn: "#goa.html" },
+  { title:"गुजरात", sub:"Gujarat", tag:"State", img:"districtsexam.png", linkHi: "#gujarat.html",
+    linkEn: "#gujarat.html" },
+  { title:"हरियाणा", sub:"Haryana", tag:"State", img:"districtsexam.png", linkHi: "#haryana.html",
+    linkEn: "#haryana.html" },
+  { title:"हिमाचल", sub:"Himachal", tag:"State", img:"districtsexam.png", linkHi: "#himachal_pradesh.html",
+    linkEn: "#himachal_pradesh.html" },
+  { title:"झारखंड", sub:"Jharkhand", tag:"State", img:"districtsexam.png", linkHi: "#jharkhand.html",
+    linkEn: "#jharkhand.html" },
+  { title:"कर्नाटक", sub:"Karnataka", tag:"State", img:"districtsexam.png", linkHi: "#karnataka.html",
+    linkEn: "#karnataka.html" },
+  { title:"केरल", sub:"Kerala", tag:"State", img:"districtsexam.png", linkHi: "#kerala.html",
+    linkEn: "#kerala.html" },
+  { title:"म.प्र.", sub:"Madhya Pradesh", tag:"State", img:"districtsexam.png", linkHi: "#madhya_pradesh.html",
+    linkEn: "#madhya_pradesh.html" },
+  { title:"महाराष्ट्र", sub:"Maharashtra", tag:"State", img:"districtsexam.png", linkHi: "#maharashtra.html",
+    linkEn: "#maharashtra.html" },
+  { title:"मणिपुर", sub:"Manipur", tag:"State", img:"districtsexam.png", linkHi: "#manipur.html",
+    linkEn: "#manipur.html" },
+  { title:"मेघालय", sub:"Meghalaya", tag:"State", img:"districtsexam.png", linkHi: "#meghalaya.html",
+    linkEn: "#meghalaya.html" },
+  { title:"मिजोरम", sub:"Mizoram", tag:"State", img:"districtsexam.png", linkHi: "#mizoram.html",
+    linkEn: "#mizoram.html" },
+  { title:"नागालैंड", sub:"Nagaland", tag:"State", img:"districtsexam.png", linkHi: "#nagaland.html",
+    linkEn: "#nagaland.html" },
+  { title:"ओडिशा", sub:"Odisha", tag:"State", img:"districtsexam.png", linkHi: "#odisha.html",
+    linkEn: "#odisha.html" },
+  { title:"पंजाब", sub:"Punjab", tag:"State", img:"districtsexam.png", linkHi: "#punjab.html",
+    linkEn: "#punjab.html" },
+  { title:"राजस्थान", sub:"Rajasthan", tag:"State", img:"districtsexam.png", linkHi: "#rajasthan.html",
+    linkEn: "#rajasthan.html" },
+  { title:"सिक्किम", sub:"Sikkim", tag:"State", img:"districtsexam.png", linkHi: "#sikkim.html",
+    linkEn: "#sikkim.html" },
+  { title:"तमिलनाडु", sub:"Tamil Nadu", tag:"State", img:"districtsexam.png", linkHi: "#tamil_nadu.html",
+    linkEn: "#tamil_nadu.html" },
+  { title:"तेलंगाना", sub:"Telangana", tag:"State", img:"districtsexam.png", linkHi: "#telangana.html",
+    linkEn: "#telangana.html" },
+  { title:"त्रिपुरा", sub:"Tripura", tag:"State", img:"districtsexam.png", linkHi: "#tripura.html",
+    linkEn: "#tripura.html" },
+  { title:"उ.प्र.", sub:"Uttar Pradesh", tag:"State", img:"districtsexam.png", linkHi: "#uttar_pradesh.html",
+    linkEn: "#uttar_pradesh.html" },
+  { title:"उत्तराखंड", sub:"Uttarakhand", tag:"State", img:"districtsexam.png", linkHi: "#uttarakhand.html",
+    linkEn: "#uttarakhand.html" },
+  { title:"प. बंगाल", sub:"West Bengal", tag:"State", img:"districtsexam.png", linkHi: "#west_bengal.html",
+    linkEn: "#west_bengal.html" }
+],
+       'NTA Exam': [
+  /* ===================== MEDICAL ENTRANCE ===================== */
+
+  {
+    title: "NEET-UG",
+    sub: "Medical UG",
+    tag: "Medical",
+    img: "ntaexam.png",
+    linkHi: "#medical-neet-ug-pg-neet-mds.html",
+    linkEn: "#medical-neet-ug-pg-neet-mds.html"
+  },
+  {
+    title: "NEET-PG",
+    sub: "Medical PG",
+    tag: "Medical",
+    img: "ntaexam.png",
+    linkHi: "#medical-neet-ug-pg-neet-mds.html",
+    linkEn: "#medical-neet-ug-pg-neet-mds.html"
+  },
+  {
+    title: "NEET-MDS",
+    sub: "Dental PG",
+    tag: "Medical",
+    img: "ntaexam.png",
+    linkHi: "#medical-neet-ug-pg-neet-mds.html",
+    linkEn: "#medical-neet-ug-pg-neet-mds.html"
+  },
+
+  /* ===================== ENGINEERING ENTRANCE ===================== */
+
+  {
+    title: "JEE Main",
+    sub: "Engg Main",
+    tag: "Engineering",
+    img: "ntaexam.png",
+    linkHi: "#engineering-entrance-exams-guide.html",
+    linkEn: "#engineering-entrance-exams-guide.html"
+  },
+  {
+    title: "JEE Adv",
+    sub: "IIT Entry",
+    tag: "Engineering",
+    img: "ntaexam.png",
+    linkHi: "#engineering-entrance-exams-guide.html",
+    linkEn: "#engineering-entrance-exams-guide.html"
+  },
+
+  /* ===================== UNIVERSITY / COLLEGE ===================== */
+
+  {
+    title: "CUET-UG",
+    sub: "University UG",
+    tag: "University",
+    img: "ntaexam.png",
+    linkHi: "#university-college-entrance-exams.html",
+    linkEn: "#university-college-entrance-exams.html"
+  },
+  {
+    title: "CUET-PG",
+    sub: "University PG",
+    tag: "University",
+    img: "ntaexam.png",
+    linkHi: "#university-college-entrance-exams.html",
+    linkEn: "#university-college-entrance-exams.html"
+  },
+  {
+    title: "DUET",
+    sub: "DU Entrance",
+    tag: "University",
+    img: "ntaexam.png",
+    linkHi: "#university-college-entrance-exams.html",
+    linkEn: "#university-college-entrance-exams.html"
+  },
+  {
+    title: "JNUEE",
+    sub: "JNU Entry",
+    tag: "University",
+    img: "ntaexam.png",
+    linkHi: "#university-college-entrance-exams.html",
+    linkEn: "#university-college-entrance-exams.html"
+  },
+
+  /* ===================== PROFESSIONAL / CERTIFICATION ===================== */
+
+  {
+    title: "UGC NET",
+    sub: "Lecturer",
+    tag: "Professional",
+    img: "ntaexam.png",
+    linkHi: "#professional-certification-exams.html",
+    linkEn: "#professional-certification-exams.html"
+  },
+  {
+    title: "CSIR NET",
+    sub: "Science NET",
+    tag: "Professional",
+    img: "ntaexam.png",
+    linkHi: "#professional-certification-exams.html",
+    linkEn: "#professional-certification-exams.html"
+  },
+  {
+    title: "CMAT",
+    sub: "MBA Entry",
+    tag: "Professional",
+    img: "ntaexam.png",
+    linkHi: "#professional-certification-exams.html",
+    linkEn: "#professional-certification-exams.html"
+  },
+  {
+    title: "GPAT",
+    sub: "Pharmacy",
+    tag: "Professional",
+    img: "ntaexam.png",
+    linkHi: "#professional-certification-exams.html",
+    linkEn: "#professional-certification-exams.html"
+  },
+
+  /* ===================== SCHOOL / SCHOLARSHIP ===================== */
+
+  {
+    title: "AISSEE",
+    sub: "Sainik School",
+    tag: "School",
+    img: "ntaexam.png",
+    linkHi: "#school-scholarship-exams.html",
+    linkEn: "#school-scholarship-exams.html"
+  },
+  {
+    title: "NTSE",
+    sub: "Scholarship",
+    tag: "School",
+    img: "ntaexam.png",
+    linkHi: "#school-scholarship-exams.html",
+    linkEn: "#school-scholarship-exams.html"
+  },
+  {
+    title: "NTA Tests",
+    sub: "Other Exams",
+    tag: "School",
+    img: "ntaexam.png",
+    linkHi: "#school-scholarship-exams.html",
+    linkEn: "#school-scholarship-exams.html"
+  }
+],        
+
+'CBSE exam': [
+  /* ===================== BOARD EXAMS ===================== */
+
+  {
+    title: "CBSE 10",
+    sub: "Class 10 Board",
+    tag: "Board",
+    img: "districtsexam.png",
+    linkHi: "#school-level-board-examinations.html",
+    linkEn: "#school-level-board-examinations.html"
+  },
+  {
+    title: "CBSE 12",
+    sub: "Class 12 Board",
+    tag: "Board",
+    img: "districtsexam.png",
+    linkHi: "#school-level-board-examinations.html",
+    linkEn: "#school-level-board-examinations.html"
+  },
+
+  /* ===================== TEACHER ELIGIBILITY ===================== */
+
+  {
+    title: "CTET",
+    sub: "Teacher Eligibility",
+    tag: "Teacher",
+    img: "districtsexam.png",
+    linkHi: "#ctet.html",
+    linkEn: "#ctet.html"
+  },
+
+  /* ===================== NATIONAL / NTA EXAMS ===================== */
+
+  {
+    title: "NEET-UG",
+    sub: "Medical UG",
+    tag: "NTA",
+    img: "districtsexam.png",
+    linkHi: "#medical-neet-ug-pg-neet-mds.html",
+    linkEn: "#medical-neet-ug-pg-neet-mds.html"
+  },
+  {
+    title: "JEE Main",
+    sub: "Engg Entry",
+    tag: "NTA",
+    img: "districtsexam.png",
+    linkHi: "#engineering-entrance-exams-guide.html",
+    linkEn: "#engineering-entrance-exams-guide.html"
+  },
+  {
+    title: "UGC NET",
+    sub: "Lecturer",
+    tag: "NTA",
+    img: "districtsexam.png",
+    linkHi: "#professional-certification-exams.html",
+    linkEn: "#professional-certification-exams.html"
+  },
+  {
+    title: "CMAT",
+    sub: "MBA Entry",
+    tag: "NTA",
+    img: "districtsexam.png",
+    linkHi: "#professional-certification-exams.html",
+    linkEn: "#professional-certification-exams.html"
+  },
+  {
+    title: "GPAT",
+    sub: "Pharmacy",
+    tag: "NTA",
+    img: "districtsexam.png",
+    linkHi: "#professional-certification-exams.html",
+    linkEn: "#professional-certification-exams.html"
+  }
+],
+
+'State Edu exam': [
+  /* ===================== STATE BOARDS ===================== */
+
+  { title:"UP Board", sub:"Class 10 & 12", tag:"Board", img:"districtsexam.png", linkHi: "#up-board.html",
+    linkEn: "#up-board.html" },
+  { title:"BSEB", sub:"Bihar Board", tag:"Board", img:"districtsexam.png", linkHi: "#bihar-board.html",
+    linkEn: "#bihar-board.html" },
+  { title:"RBSE", sub:"Rajasthan Board", tag:"Board", img:"districtsexam.png", linkHi: "#rajasthan-board.html",
+    linkEn: "#rajasthan-board.html" },
+  { title:"MPBSE", sub:"MP Board", tag:"Board", img:"districtsexam.png", linkHi: "#mp-board.html",
+    linkEn: "#mp-board.html" },
+  { title:"HBSE", sub:"Haryana Board", tag:"Board", img:"districtsexam.png", linkHi: "#haryana-board.html",
+    linkEn: "#haryana-board.html" },
+  { title:"PSEB", sub:"Punjab Board", tag:"Board", img:"districtsexam.png", linkHi: "#punjab-board.html",
+    linkEn: "#punjab-board.html" },
+  { title:"MSBSHSE", sub:"Maharashtra Board", tag:"Board", img:"districtsexam.png", linkHi: "#maharashtra-board.html",
+    linkEn: "#maharashtra-board.html" },
+  { title:"GSEB", sub:"Gujarat Board", tag:"Board", img:"districtsexam.png", linkHi: "#gujarat-board.html",
+    linkEn: "#gujarat-board.html" },
+  { title:"WB Board", sub:"WB 10/12", tag:"Board", img:"districtsexam.png", linkHi: "#west-bengal-board.html",
+    linkEn: "#west-bengal-board.html" },
+  { title:"Odisha Bd", sub:"BSE / CHSE", tag:"Board", img:"districtsexam.png", linkHi: "#odisha-board.html",
+    linkEn: "#odisha-board.html" },
+  { title:"TN Board", sub:"TN 10/12", tag:"Board", img:"districtsexam.png", linkHi: "#tamilnadu-board.html",
+    linkEn: "#tamilnadu-board.html" },
+  { title:"Kerala Bd", sub:"Kerala Board", tag:"Board", img:"districtsexam.png", linkHi: "#kerala-board.html",
+    linkEn: "#kerala-board.html" },
+  { title:"KSEEB", sub:"Karnataka Bd", tag:"Board", img:"districtsexam.png", linkHi: "#karnataka-board.html",
+    linkEn: "#karnataka-board.html" },
+
+  /* ===================== STATE PSC (MIXED IN LIST) ===================== */
+
+  { title:"KPSC (KL)", sub:"Kerala PSC", tag:"State PSC", img:"districtsexam.png", linkHi: "#kpsckrla.html",
+    linkEn: "#kpsckrla.html" },
+  { title:"TPSC", sub:"Tripura PSC", tag:"State PSC", img:"districtsexam.png", linkHi: "#tpsc.html",
+    linkEn: "#tpsc.html" },
+  { title:"APPSC", sub:"Andhra PSC", tag:"State PSC", img:"districtsexam.png", linkHi: "#appsc.html",
+    linkEn: "#appsc.html" },
+  { title:"TSPSC", sub:"Telangana PSC", tag:"State PSC", img:"districtsexam.png", linkHi: "#tspsc.html",
+    linkEn: "#tspsc.html" },
+  { title:"Manipur PSC", sub:"Manipur PSC", tag:"State PSC", img:"districtsexam.png", linkHi: "#manipur-psc.html",
+    linkEn: "#manipur-psc.html" },
+  { title:"Meghalaya PSC", sub:"Meghalaya PSC", tag:"State PSC", img:"districtsexam.png", linkHi: "#meghalaya-psc.html",
+    linkEn: "#meghalaya-psc.html" },
+  { title:"Mizoram PSC", sub:"Mizoram PSC", tag:"State PSC", img:"districtsexam.png", linkHi: "#mizoram-psc.html",
+    linkEn: "#mizoram-psc.html" },
+  { title:"Nagaland PSC", sub:"Nagaland PSC", tag:"State PSC", img:"districtsexam.png", linkHi: "#nagaland-psc.html",
+    linkEn: "#nagaland-psc.html" },
+  { title:"Sikkim PSC", sub:"Sikkim PSC", tag:"State PSC", img:"districtsexam.png", linkHi: "#sikkim-psc.html",
+    linkEn: "#sikkim-psc.html" },
+  { title:"Arunachal PSC", sub:"Arunachal PSC", tag:"State PSC", img:"districtsexam.png", linkHi: "#arunachal-pradesh-psc.html",
+    linkEn: "#arunachal-pradesh-psc.html" },
+  { title:"PPSC", sub:"Punjab PSC", tag:"State PSC", img:"districtsexam.png", linkHi: "#punjab-psc.html",
+    linkEn: "#punjab-psc.html" },
+
+  /* ===================== OTHER STATE EXAMS ===================== */
+
+  { title:"State TET", sub:"Teacher Eligibility", tag:"State", img:"districtsexam.png", linkHi: "#state-tet.html",
+    linkEn: "#state-tet.html" },
+  { title:"Scholarship", sub:"State Awards", tag:"State", img:"districtsexam.png", linkHi: "#state-scholarship.html",
+    linkEn: "#state-scholarship.html" },
+  { title:"State Entry", sub:"Entrance Exams", tag:"State", img:"districtsexam.png", linkHi: "#entrance-exams.html",
+    linkEn: "#entrance-exams.html" }
+],
+                'kvs/nvs Exam': [
+  /* ===================== KVS ===================== */
+
+  {
+    title: "KVS Principal",
+    sub: "School Head",
+    tag: "KVS",
+    img: "kvsnvs.png",
+    linkHi: "#kvs.html",
+    linkEn: "#kvs.html"
+  },
+  {
+    title: "KVS VP",
+    sub: "Vice Principal",
+    tag: "KVS",
+    img: "kvsnvs.png",
+    linkHi: "#kvs.html",
+    linkEn: "#kvs.html"
+  },
+  {
+    title: "KVS PGT",
+    sub: "PG Teacher",
+    tag: "KVS",
+    img: "kvsnvs.png",
+    linkHi: "#kvs.html",
+    linkEn: "#kvs.html"
+  },
+  {
+    title: "KVS TGT",
+    sub: "Graduate Teacher",
+    tag: "KVS",
+    img: "kvsnvs.png",
+    linkHi: "#kvs.html",
+    linkEn: "#kvs.html"
+  },
+  {
+    title: "KVS PRT",
+    sub: "Primary Teacher",
+    tag: "KVS",
+    img: "kvsnvs.png",
+    linkHi: "#kvs.html",
+    linkEn: "#kvs.html"
+  },
+  {
+    title: "KVS Non-Tech",
+    sub: "Clerk/Asst.",
+    tag: "KVS",
+    img: "kvsnvs.png",
+    linkHi: "#kvs.html",
+    linkEn: "#kvs.html"
+  },
+
+  /* ===================== NVS ===================== */
+
+  {
+    title: "NVS Principal",
+    sub: "School Head",
+    tag: "NVS",
+    img: "kvsnvs.png",
+    linkHi: "#nvs-exa.html",
+    linkEn: "#nvs-exa.html"
+  },
+  {
+    title: "NVS VP",
+    sub: "Vice Principal",
+    tag: "NVS",
+    img: "kvsnvs.png",
+    linkHi: "#nvs-exa.html",
+    linkEn: "#nvs-exa.html"
+  },
+  {
+    title: "NVS PGT",
+    sub: "PG Teacher",
+    tag: "NVS",
+    img: "kvsnvs.png",
+    linkHi: "#nvs-exa.html",
+    linkEn: "#nvs-exa.html"
+  },
+  {
+    title: "NVS TGT",
+    sub: "Graduate Teacher",
+    tag: "NVS",
+    img: "kvsnvs.png",
+    linkHi: "#nvs-exa.html",
+    linkEn: "#nvs-exa.html"
+  },
+  {
+    title: "NVS Misc",
+    sub: "Art/Music/PET",
+    tag: "NVS",
+    img: "kvsnvs.png",
+    linkHi: "#nvs-exa.html",
+    linkEn: "#nvs-exa.html"
+  },
+  {
+    title: "NVS Non-Tech",
+    sub: "Clerk/Nurse",
+    tag: "NVS",
+    img: "kvsnvs.png",
+    linkHi: "#nvs-exa.html",
+    linkEn: "#nvs-exa.html"
+  },
+
+  /* ===================== JNVST ===================== */
+
+  {
+    title: "JNVST 6",
+    sub: "Class 6 Entry",
+    tag: "JNVST",
+    img: "kvsnvs.png",
+    linkHi: "#jnvst.html",
+    linkEn: "#jnvst.html"
+  },
+  {
+    title: "JNVST 9",
+    sub: "Class 9 Entry",
+    tag: "JNVST",
+    img: "kvsnvs.png",
+    linkHi: "#jnvst.html",
+    linkEn: "#jnvst.html"
+  },
+  {
+    title: "JNVST 11",
+    sub: "Class 11 Entry",
+    tag: "JNVST",
+    img: "kvsnvs.png",
+    linkHi: "#jnvst.html",
+    linkEn: "#jnvst.html"
+  }
+],
+                'indian army': [
+  /* ===== Commissioned Officer Entries ===== */
+
+  { title:"NDA", sub:"UPSC Defence Entry", tag:"Officer", img:"ia.png", linkHi: "#upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps.html",
+    linkEn: "upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps.html" },
+  { title:"CDS", sub:"UPSC Defence Entry", tag:"Officer", img:"ia.png", linkHi: "#upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps.html",
+    linkEn: "upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps.html" },
+  { title:"TGC", sub:"Tech Graduates", tag:"Officer", img:"ia.png", linkHi: "#tgc.html",
+    linkEn: "#tgc.html" },
+  { title:"UES", sub:"University Entry", tag:"Officer", img:"ia.png", linkHi: "#ues.html",
+    linkEn: "#ues.html" },
+  { title:"JAG", sub:"Law Graduates", tag:"Officer", img:"ia.png", linkHi: "#jag.html",
+    linkEn: "#jag.html" },
+  { title:"NCC Entry", sub:"C Certificate", tag:"Officer", img:"ia.png", linkHi: "#ncc-special-entry.html",
+    linkEn: "#ncc-special-entry.html" },
+  { title:"SSC Tech", sub:"Short Service", tag:"Officer", img:"ia.png", linkHi: "#ssc-tech.html",
+    linkEn: "#ssc-tech.html" },
+  { title:"AFMC", sub:"Medical Officers", tag:"Officer", img:"ia.png", linkHi: "#afmc.html",
+    linkEn: "#afmc.html" },
+  { title:"AMC", sub:"Army Doctors", tag:"Officer", img:"ia.png", linkHi: "#amc-officers.html",
+    linkEn: "#amc-officers.html" },
+  { title:"MNS", sub:"Nursing Officers", tag:"Officer", img:"ia.png", linkHi: "#mns-officers.html",
+    linkEn: "#mns-officers.html" },
+
+  /* ===== Junior Commissioned Officer ===== */
+
+  { title:"Religious Teacher", sub:"Pandit / Maulvi", tag:"JCO", img:"ia.png", linkHi: "#religious-teacher.html",
+    linkEn: "#religious-teacher.html" },
+  { title:"Havildar Edu", sub:"Education JCO", tag:"JCO", img:"ia.png", linkHi: "#havildar-education.html",
+    linkEn: "#havildar-education.html" },
+
+  /* ===== Other Ranks (Soldier) ===== */
+
+  { title:"Soldier GD", sub:"General Duty", tag:"Soldier", img:"ia.png", linkHi: "#soldier-gd.html",
+    linkEn: "#soldier-gd.html" },
+  { title:"Soldier Tech", sub:"Technical", tag:"Soldier", img:"ia.png", linkHi: "#soldier-gd.html",
+    linkEn: "#soldier-gd.html" },
+  { title:"Soldier Clerk", sub:"Clerk / SKT", tag:"Soldier", img:"ia.png", linkHi: "#soldier-gd.html",
+    linkEn: "#soldier-gd.html" },
+  { title:"Nursing Asst.", sub:"Medical", tag:"Soldier", img:"ia.png", linkHi: "#soldier-gd.html",
+    linkEn: "#soldier-gd.html" },
+  { title:"Tradesman", sub:"All Trades", tag:"Soldier", img:"ia.png", linkHi: "#soldier-gd.html",
+    linkEn: "#soldier-gd.html" },
+
+  /* ===== Agniveer ===== */
+
+  { title:"Agniveer GD", sub:"General Duty", tag:"Agniveer", img:"ia.png", linkHi: "#agniveer-indian-army.html",
+    linkEn: "#agniveer-indian-army.html" },
+  { title:"Agniveer Tech", sub:"Technical", tag:"Agniveer", img:"ia.png", linkHi: "#agniveer-indian-army.html",
+    linkEn: "#agniveer-indian-army.html" },
+  { title:"Agniveer Clerk", sub:"Clerk / SKT", tag:"Agniveer", img:"ia.png", linkHi: "#agniveer-indian-army.html",
+    linkEn: "#agniveer-indian-army.html" },
+  { title:"Agniveer Trades", sub:"Tradesman", tag:"Agniveer", img:"ia.png", linkHi: "#agniveer-indian-army.html",
+    linkEn: "#agniveer-indian-army.html" },
+
+  /* ===== Recruitment Rallies ===== */
+
+  { title:"Army GD Rally", sub:"Soldier GD", tag:"Rally", img:"ia.png", linkHi: "#army-all-rally.html",
+    linkEn: "#army-all-rally.html" },
+  { title:"Army Tech Rally", sub:"Technical", tag:"Rally", img:"ia.png", linkHi: "#army-all-rally.html",
+    linkEn: "#army-all-rally.html" },
+  { title:"Army Clerk Rally", sub:"Clerk / SKT", tag:"Rally", img:"ia.png", linkHi: "#army-all-rally.html",
+    linkEn: "#army-all-rally.html" },
+  { title:"Army NA Rally", sub:"Nursing Asst.", tag:"Rally", img:"ia.png", linkHi: "#army-all-rally.html",
+    linkEn: "#army-all-rally.html" },
+  { title:"Agniveer Rally", sub:"All Trades", tag:"Rally", img:"ia.png", linkHi: "#army-all-rally.html",
+    linkEn: "#army-all-rally.html" }
+],
+                'indian navy': [
+  /* ===== Commissioned Officer Entries ===== */
+
+  { title:"NDA", sub:"UPSC Defence Entry", tag:"Officer", img:"inavy.png", linkHi: "#upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps.html",
+    linkEn: "upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps.html" },
+  { title:"CDS", sub:"UPSC Defence Entry", tag:"Officer", img:"inavy.png", linkHi: "#upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps.html",
+    linkEn: "upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps.html" },
+  { title:"TGC", sub:"Tech Graduates", tag:"Officer", img:"inavy.png", linkHi: "#in-tgc.html",
+    linkEn: "#in-tgc.html" },
+  { title:"UES", sub:"University Entry", tag:"Officer", img:"inavy.png", linkHi: "#in-ues.html",
+    linkEn: "#in-ues.html" },
+  { title:"JAG", sub:"Law Graduates", tag:"Officer", img:"inavy.png", linkHi: "#in-jag.html",
+    linkEn: "#in-jag.html" },
+  { title:"NCC Entry", sub:"C Certificate", tag:"Officer", img:"inavy.png", linkHi: "#in-ncc-special-entry.html",
+    linkEn: "#in-ncc-special-entry.html" },
+  { title:"SSC Tech", sub:"Short Service", tag:"Officer", img:"inavy.png", linkHi: "#in-ssc-tech.html",
+    linkEn: "#in-ssc-tech.html" },
+  { title:"AFMC", sub:"Medical Officers", tag:"Officer", img:"inavy.png", linkHi: "#in-afmc.html",
+    linkEn: "#in-afmc.html" },
+  { title:"AMC", sub:"Army Doctors", tag:"Officer", img:"inavy.png", linkHi: "#in-amc-officers.html",
+    linkEn: "#in-amc-officers.html" },
+  { title:"MNS", sub:"Nursing Officers", tag:"Officer", img:"inavy.png", linkHi: "#in-mns-officers.html",
+    linkEn: "#in-mns-officers.html" },
+
+  /* ===== Sailor / Agniveer ===== */
+
+  { title:"Agniveer SSR", sub:"12th Pass", tag:"Sailor", img:"inavy.png", linkHi: "#agniveer-sailor.html",
+    linkEn: "#agniveer-sailor.html" },
+  { title:"Agniveer MR", sub:"10th Pass", tag:"Sailor", img:"inavy.png", linkHi: "#agniveer-sailor.html",
+    linkEn: "#agniveer-sailor.html" },
+  { title:"Musician", sub:"Navy Band", tag:"Sailor", img:"inavy.png", linkHi: "#agniveer-sailor.html",
+    linkEn: "#agniveer-sailor.html" },
+  { title:"Artificer AA", sub:"Tech Sailor", tag:"Sailor", img:"inavy.png", linkHi: "#agniveer-sailor.html",
+    linkEn: "#agniveer-sailor.html" },
+
+  /* ===== Special Entries ===== */
+
+  { title:"Sports Quota", sub:"Outstanding Players", tag:"Special", img:"inavy.png", linkHi: "#in-special-entries.html",
+    linkEn: "#in-special-entries.html" },
+  { title:"IT / Cyber", sub:"Tech Officers", tag:"Special", img:"inavy.png", linkHi: "#in-special-entries.html",
+    linkEn: "#in-special-entries.html" },
+  { title:"Law Cadre", sub:"JAG Branch", tag:"Special", img:"inavy.png", linkHi: "#in-special-entries.html",
+    linkEn: "#in-special-entries.html" },
+  { title:"Education", sub:"Education Branch", tag:"Special", img:"inavy.png", linkHi: "#in-special-entries.html",
+    linkEn: "#in-special-entries.html" },
+
+  /* ===== Recruitment Rallies ===== */
+
+  { title:"Navy Rally", sub:"State / Zone Wise", tag:"Rally", img:"inavy.png", linkHi: "#navy-rally.html",
+    linkEn: "#navy-rally.html" }
+],
+                'indian air force': [
+  /* ===== Officer Entries ===== */
+
+  { title:"AFCAT", sub:"Flying / Tech / GD", tag:"Officer", img:"iaf.png", linkHi: "#iaf-top-four-post.html",
+    linkEn: "#iaf-top-four-post.html" },
+  { title:"NDA (IAF)", sub:"Air Force Wing", tag:"Officer", img:"iaf.png", linkHi: "#iaf-top-four-post.html",
+    linkEn: "#iaf-top-four-post.html" },
+  { title:"CDS (IAF)", sub:"Air Force Academy", tag:"Officer", img:"iaf.png", linkHi: "#iaf-top-four-post.html",
+    linkEn: "#iaf-top-four-post.html" },
+  { title:"NCC Entry", sub:"Flying Branch", tag:"Officer", img:"iaf.png", linkHi: "#iaf-top-four-post.html",
+    linkEn: "#iaf-top-four-post.html" },
+  { title:"Meteorology", sub:"Ground Duty", tag:"Officer", img:"iaf.png", linkHi: "#iaf-top-four-post.html",
+    linkEn: "#iaf-top-four-post.html" },
+
+  /* ===== Airmen / Other Ranks ===== */
+
+  { title:"Airmen X", sub:"Technical Trades", tag:"Airmen", img:"iaf.png", linkHi: "#iaf-airmen-group-all.html",
+    linkEn: "#iaf-airmen-group-all.html" },
+  { title:"Airmen Y", sub:"Non-Technical", tag:"Airmen", img:"iaf.png", linkHi: "#iaf-airmen-group-all.html",
+    linkEn: "#iaf-airmen-group-all.html" },
+  { title:"Airmen Musician", sub:"Band Trade", tag:"Airmen", img:"iaf.png", linkHi: "#iaf-airmen-group-all.html",
+    linkEn: "#iaf-airmen-group-all.html" },
+
+  /* ===== Agniveer Vayu ===== */
+
+  { title:"Agniveer Vayu", sub:"General Duty", tag:"Agniveer", img:"iaf.png", linkHi: "#iaf-agniveer-vayu-all.html",
+    linkEn: "#iaf-agniveer-vayu-all.html" },
+  { title:"Agniveer Vayu", sub:"Technical", tag:"Agniveer", img:"iaf.png", linkHi: "#iaf-agniveer-vayu-all.html",
+    linkEn: "#iaf-agniveer-vayu-all.html" },
+  { title:"Agniveer Vayu", sub:"Non-Technical", tag:"Agniveer", img:"iaf.png", linkHi: "#iaf-agniveer-vayu-all.html",
+    linkEn: "#iaf-agniveer-vayu-all.html" },
+  { title:"Agniveer Music", sub:"Musician Trade", tag:"Agniveer", img:"iaf.png", linkHi: "#iaf-agniveer-vayu-all.html",
+    linkEn: "#iaf-agniveer-vayu-all.html" },
+
+  /* ===== Recruitment Rallies ===== */
+
+  { title:"IAF Rally", sub:"Zone / State Wise", tag:"Rally", img:"iaf.png", linkHi: "#iaf-rally.html",
+    linkEn: "#iaf-rally.html" }
+],
+                'DRDO Exam': [
+  /* ===== Scientist Recruitment (RAC) ===== */
+
+  { title:"Scientist B", sub:"GATE / Written", tag:"Scientist", img:"drdo.png", linkHi: "#drdo-scientist-cde-b.html",
+    linkEn: "#drdo-scientist-cde-b.html" },
+  { title:"Scientist C–E", sub:"Lateral Entry", tag:"Scientist", img:"drdo.png", linkHi: "#drdo-scientist-cde-b.html",
+    linkEn: "#drdo-scientist-cde-b.html" },
+
+  /* ===== Technical Cadre (CEPTAM) ===== */
+
+  { title:"Technician A", sub:"CEPTAM Tech", tag:"Technical", img:"drdo.png", linkHi: "#drdo-ceptam-tech-sta-b-a.html",
+    linkEn: "#drdo-ceptam-tech-sta-b-a.html" },
+  { title:"STA-B", sub:"Senior Tech Asst.", tag:"Technical", img:"drdo.png", linkHi: "#drdo-ceptam-tech-sta-b-a.html",
+    linkEn: "#drdo-ceptam-tech-sta-b-a.html" },
+
+  /* ===== Admin & Allied (CEPTAM) ===== */
+
+  { title:"Admin Asst.", sub:"Clerical Post", tag:"Admin", img:"drdo.png", linkHi: "#drdo-ceptam-admin-admin-all.html",
+    linkEn: "#drdo-ceptam-admin-admin-all.html" },
+  { title:"Store Asst.", sub:"Stores Cadre", tag:"Admin", img:"drdo.png", linkHi: "#drdo-ceptam-admin-admin-all.html",
+    linkEn: "#drdo-ceptam-admin-admin-all.html" },
+  { title:"Security Asst.", sub:"Security Cadre", tag:"Admin", img:"drdo.png", linkHi: "#drdo-ceptam-admin-admin-all.html",
+    linkEn: "#drdo-ceptam-admin-admin-all.html" },
+  { title:"Stenographer", sub:"Grade I & II", tag:"Admin", img:"drdo.png", linkHi: "#drdo-ceptam-admin-admin-all.html",
+    linkEn: "#drdo-ceptam-admin-admin-all.html" },
+  { title:"Vehicle Op A", sub:"Driver Post", tag:"Admin", img:"drdo.png", linkHi: "#drdo-ceptam-admin-admin-all.html",
+    linkEn: "#drdo-ceptam-admin-admin-all.html" },
+  { title:"Fireman", sub:"Fire Services", tag:"Admin", img:"drdo.png", linkHi: "#drdo-ceptam-admin-admin-all.html",
+    linkEn: "#drdo-ceptam-admin-admin-all.html" },
+
+  /* ===== Multi Tasking Staff ===== */
+
+  { title:"MTS", sub:"Multi Tasking", tag:"Support", img:"drdo.png", linkHi: "#drdo-ceptam-mts.html",
+    linkEn: "#drdo-ceptam-mts.html" },
+
+  /* ===== Research & Fellowships ===== */
+
+  { title:"JRF", sub:"Junior Research", tag:"Research", img:"drdo.png", linkHi: "#drdo-jrf-srf-ra.html",
+    linkEn: "#drdo-jrf-srf-ra.html" },
+  { title:"SRF", sub:"Senior Research", tag:"Research", img:"drdo.png", linkHi: "#drdo-jrf-srf-ra.html",
+    linkEn: "#drdo-jrf-srf-ra.html" },
+  { title:"RA", sub:"Research Associate", tag:"Research", img:"drdo.png", linkHi: "#drdo-jrf-srf-ra.html",
+    linkEn: "#drdo-jrf-srf-ra.html" }
+],
+                'isro exam': [
+  /* ===== Scientist / Engineer (SC) ===== */
+
+  { title:"Scientist SC", sub:"Electronics", tag:"Scientist", img:"isro.png", linkHi: "#isro-scientist-engineer-all.html",
+    linkEn: "#isro-scientist-engineer-all.html" },
+  { title:"Scientist SC", sub:"Mechanical", tag:"Scientist", img:"isro.png", linkHi: "#isro-scientist-engineer-all.html",
+    linkEn: "#isro-scientist-engineer-all.html" },
+  { title:"Scientist SC", sub:"Computer Sci.", tag:"Scientist", img:"isro.png", linkHi: "#isro-scientist-engineer-all.html",
+    linkEn: "#isro-scientist-engineer-all.html" },
+  { title:"Scientist SC", sub:"Electrical", tag:"Scientist", img:"isro.png", linkHi: "#isro-scientist-engineer-all.html",
+    linkEn: "#isro-scientist-engineer-all.html" },
+  { title:"Scientist SC", sub:"Civil", tag:"Scientist", img:"isro.png", linkHi: "#isro-scientist-engineer-all.html",
+    linkEn: "#isro-scientist-engineer-all.html" },
+
+  /* ===== Technical Cadre ===== */
+
+  { title:"Tech Asst.", sub:"Technical Cadre", tag:"Technical", img:"isro.png", linkHi: "#isro-technical-all.html",
+    linkEn: "#isro-technical-all.html" },
+  { title:"Technician B", sub:"Skilled Trade", tag:"Technical", img:"isro.png", linkHi: "#isro-technical-all.html",
+    linkEn: "#isro-technical-all.html" },
+  { title:"Draughtsman B", sub:"Design Cadre", tag:"Technical", img:"isro.png", linkHi: "#isro-technical-all.html",
+    linkEn: "#isro-technical-all.html" },
+  { title:"Library Asst.", sub:"Library Services", tag:"Technical", img:"isro.png", linkHi: "#isro-technical-all.html",
+    linkEn: "#isro-technical-all.html" },
+
+  /* ===== Administrative & Support ===== */
+
+  { title:"Admin Officer", sub:"Administration", tag:"Admin", img:"isro.png", linkHi: "#isro-administrative-all.html",
+    linkEn: "#isro-administrative-all.html" },
+  { title:"Accounts Officer", sub:"Finance", tag:"Admin", img:"isro.png", linkHi: "#isro-administrative-all.html",
+    linkEn: "#isro-administrative-all.html" },
+  { title:"Stores Officer", sub:"Purchase & Stores", tag:"Admin", img:"isro.png", linkHi: "#isro-administrative-all.html",
+    linkEn: "#isro-administrative-all.html" },
+  { title:"Assistant", sub:"Admin / Accounts", tag:"Admin", img:"isro.png", linkHi: "#isro-administrative-all.html",
+    linkEn: "#isro-administrative-all.html" },
+  { title:"JPA", sub:"Personal Assistant", tag:"Admin", img:"isro.png", linkHi: "#isro-administrative-all.html",
+    linkEn: "#isro-administrative-all.html" },
+  { title:"Stenographer", sub:"Steno Cadre", tag:"Admin", img:"isro.png", linkHi: "#isro-administrative-all.html",
+    linkEn: "#isro-administrative-all.html" },
+  { title:"UDC", sub:"Upper Div. Clerk", tag:"Admin", img:"isro.png", linkHi: "#isro-administrative-all.html",
+    linkEn: "#isro-administrative-all.html" },
+
+  /* ===== Driver & Security ===== */
+
+  { title:"LVD", sub:"Light Vehicle", tag:"Support", img:"isro.png", linkHi: "#isro-light-driver-security.html",
+    linkEn: "#isro-light-driver-security.html" },
+  { title:"HVD", sub:"Heavy Vehicle", tag:"Support", img:"isro.png", linkHi: "#isro-light-driver-security.html",
+    linkEn: "#isro-light-driver-security.html" },
+  { title:"Staff Driver", sub:"Official Vehicle", tag:"Support", img:"isro.png", linkHi: "#isro-light-driver-security.html",
+    linkEn: "#isro-light-driver-security.html" },
+  { title:"Security Guard", sub:"Security Post", tag:"Support", img:"isro.png", linkHi: "#isro-light-driver-security.html",
+    linkEn: "#isro-light-driver-security.html" },
+  { title:"Fireman", sub:"Fire Services", tag:"Support", img:"isro.png", linkHi: "#isro-light-driver-security.html",
+    linkEn: "#isro-light-driver-security.html" },
+
+  /* ===== Apprenticeship / Training ===== */
+
+  { title:"Apprentice", sub:"ITI / Diploma / Grad", tag:"Training", img:"isro.png", linkHi: "#isro-apprenticeship-internship.html",
+    linkEn: "#isro-apprenticeship-internship.html" },
+  { title:"Internship", sub:"Project Training", tag:"Training", img:"isro.png", linkHi: "#isro-apprenticeship-internship.html",
+    linkEn: "#isro-apprenticeship-internship.html" },
+
+  /* ===== Research Fellowships ===== */
+
+  { title:"JRF", sub:"Junior Research", tag:"Research", img:"isro.png", linkHi: "#isro-research-fellowships.html",
+    linkEn: "#isro-research-fellowships.html" },
+  { title:"SRF", sub:"Senior Research", tag:"Research", img:"isro.png", linkHi: "#isro-research-fellowships.html",
+    linkEn: "#isro-research-fellowships.html" },
+  { title:"RA", sub:"Research Associate", tag:"Research", img:"isro.png", linkHi: "#isro-research-fellowships.html",
+    linkEn: "#isro-research-fellowships.html" }
+],
+                'BARC Exam': [
+  /* ===== Scientific Officer (Training School) ===== */
+
+  { title:"OCES", sub:"Engg & Sci PG", tag:"Scientist", img:"barc.png", linkHi: "#barc-ocse.html",
+    linkEn: "#barc-ocse.html" },
+  { title:"DGFS", sub:"DAE Fellowship", tag:"Scientist", img:"barc.png", linkHi: "#barc-dgfs.html",
+    linkEn: "#barc-dgfs.html" },
+  { title:"Scientific Officer", sub:"Group A", tag:"Scientist", img:"barc.png", linkHi: "#barc-scientific-officer.html",
+    linkEn: "#barc-scientific-officer.html" },
+
+  /* ===== Stipendiary Trainees ===== */
+
+  { title:"ST Cat-I", sub:"Diploma Holders", tag:"Trainee", img:"barc.png", linkHi: "#barc-stipendiary-trainee-cat.html",
+    linkEn: "#barc-stipendiary-trainee-cat.html" },
+  { title:"ST Cat-II", sub:"ITI / 12th Sci", tag:"Trainee", img:"barc.png", linkHi: "#barc-stipendiary-trainee-cat.html",
+    linkEn: "#barc-stipendiary-trainee-cat.html" },
+
+  /* ===== Technical & Scientific Staff ===== */
+
+  { title:"Sci Assistant", sub:"Various Fields", tag:"Technical", img:"barc.png", linkHi: "#barc-scientific-assistant.html",
+    linkEn: "#barc-scientific-assistant.html" },
+  { title:"Technician", sub:"All Trades", tag:"Technical", img:"barc.png", linkHi: "#barc-scientific-assistant.html",
+    linkEn: "#barc-scientific-assistant.html" },
+
+  /* ===== Medical & Paramedical ===== */
+
+  { title:"Medical Officer", sub:"Doctor", tag:"Medical", img:"barc.png", linkHi: "#barc-medical-officer.html",
+    linkEn: "#barc-medical-officer.html" },
+  { title:"Dental Surgeon", sub:"Dental", tag:"Medical", img:"barc.png", linkHi: "#barc-medical-officer.html",
+    linkEn: "#barc-medical-officer.html" },
+  { title:"Nurse", sub:"Grade A/B", tag:"Medical", img:"barc.png", linkHi: "#barc-medical-officer.html",
+    linkEn: "#barc-medical-officer.html" },
+  { title:"Pharmacist", sub:"Pharmacy", tag:"Medical", img:"barc.png", linkHi: "#barc-medical-officer.html",
+    linkEn: "#barc-medical-officer.html" },
+  { title:"Lab Technician", sub:"Laboratory", tag:"Medical", img:"barc.png", linkHi: "#barc-medical-officer.html",
+    linkEn: "#barc-medical-officer.html" },
+  { title:"Radiographer", sub:"Imaging", tag:"Medical", img:"barc.png", linkHi: "#barc-medical-officer.html",
+    linkEn: "#barc-medical-officer.html" },
+
+  /* ===== Administrative & Support ===== */
+
+  { title:"ASO", sub:"Security Officer", tag:"Admin", img:"barc.png", linkHi: "#barc-assistant-security-officer.html",
+    linkEn: "#barc-assistant-security-officer.html" },
+  { title:"Security Guard", sub:"Security", tag:"Admin", img:"barc.png", linkHi: "#barc-assistant-security-officer.html",
+    linkEn: "#barc-assistant-security-officer.html" },
+  { title:"Stenographer", sub:"Steno Cadre", tag:"Admin", img:"barc.png", linkHi: "#barc-assistant-security-officer.html",
+    linkEn: "#barc-assistant-security-officer.html" },
+  { title:"UDC", sub:"Upper Div Clerk", tag:"Admin", img:"barc.png", linkHi: "#barc-assistant-security-officer.html",
+    linkEn: "#barc-assistant-security-officer.html" },
+  { title:"Driver", sub:"Ordinary Grade", tag:"Admin", img:"barc.png", linkHi: "#barc-assistant-security-officer.html",
+    linkEn: "#barc-assistant-security-officer.html" },
+
+  /* ===== Apprenticeship / Training ===== */
+
+  { title:"Apprentice", sub:"ITI / Dip / Grad", tag:"Training", img:"barc.png", linkHi: "#barc-apprentice-internship.html",
+    linkEn: "#barc-apprentice-internship.html" },
+  { title:"Internship", sub:"Project Training", tag:"Training", img:"barc.png", linkHi: "#barc-apprentice-internship.html",
+    linkEn: "#barc-apprentice-internship.html" },
+
+  /* ===== Research Fellowships ===== */
+
+  { title:"JRF", sub:"Junior Research", tag:"Research", img:"barc.png", linkHi: "#barc-jrf-srf-ra.html",
+    linkEn: "#barc-jrf-srf-ra.html" },
+  { title:"SRF", sub:"Senior Research", tag:"Research", img:"barc.png", linkHi: "#barc-jrf-srf-ra.html",
+    linkEn: "#barc-jrf-srf-ra.html" },
+  { title:"RA", sub:"Research Associate", tag:"Research", img:"barc.png", linkHi: "#barc-jrf-srf-ra.html",
+    linkEn: "#barc-jrf-srf-ra.html" }
+],
+
+                'lic Exam': [
+  /* ===== AAO (Assistant Administrative Officer) ===== */
+
+  { title:"LIC AAO", sub:"Generalist", tag:"Officer", img:"lic.png", linkHi: "#lic-aao-generalist.html",
+    linkEn: "#lic-aao-generalist.html" },
+  { title:"LIC AAO IT", sub:"IT Officer", tag:"Officer", img:"lic.png", linkHi: "#lic-aao-generalist.html",
+    linkEn: "#lic-aao-generalist.html" },
+  { title:"LIC AAO CA", sub:"Chartered Accountant", tag:"Officer", img:"lic.png", linkHi: "#lic-aao-generalist.html",
+    linkEn: "#lic-aao-generalist.html" },
+  { title:"LIC AAO Actuarial", sub:"Actuarial Stream", tag:"Officer", img:"lic.png", linkHi: "#lic-aao-generalist.html",
+    linkEn: "#lic-aao-generalist.html" },
+  { title:"LIC AAO Legal", sub:"Legal Officer", tag:"Officer", img:"lic.png", linkHi: "#lic-aao-generalist.html",
+    linkEn: "#lic-aao-generalist.html" },
+  { title:"LIC AAO Hindi", sub:"Rajbhasha", tag:"Officer", img:"lic.png", linkHi: "#lic-aao-generalist.html",
+    linkEn: "#lic-aao-generalist.html" },
+
+  /* ===== Specialist / Professional ===== */
+
+  { title:"LIC AAO (Spec.)", sub:"Specialist Posts", tag:"Officer", img:"lic.png", linkHi: "#lic-aao-specialist.html",
+    linkEn: "#lic-aao-specialist.html" },
+  { title:"LIC Actuarial App.", sub:"Actuarial Apprentice", tag:"Officer", img:"lic.png", linkHi: "#lic-aao-specialist.html",
+    linkEn: "#lic-aao-specialist.html" },
+
+  /* ===== Development & Marketing ===== */
+
+  { title:"LIC ADO", sub:"Dev. Officer", tag:"Marketing", img:"lic.png", linkHi: "#lic-insurance-advisor.html",
+    linkEn: "#lic-insurance-advisor.html" },
+  { title:"LIC Agent", sub:"Insurance Advisor", tag:"Marketing", img:"lic.png", linkHi: "#lic-insurance-advisor.html",
+    linkEn: "#lic-insurance-advisor.html" },
+
+  /* ===== Clerical Cadre ===== */
+
+  { title:"LIC Assistant", sub:"Clerk / Cashier", tag:"Clerk", img:"lic.png", linkHi: "#lic-assistant-typist.html",
+    linkEn: "#lic-assistant-typist.html" },
+  { title:"LIC Typist", sub:"Support Staff", tag:"Clerk", img:"lic.png", linkHi: "#lic-assistant-typist.html",
+    linkEn: "#lic-assistant-typist.html" },
+
+  /* ===== Apprenticeship / Internship ===== */
+
+  { title:"LIC Intern", sub:"Mgmt Trainee", tag:"Training", img:"lic.png", linkHi: "#lic-internship.html",
+    linkEn: "#lic-internship.html" }
+],
+
+                'fci exam': [
+  /* ===== Category I — Managerial ===== */
+
+  { title:"FCI Manager", sub:"General", tag:"Manager", img:"fci.png", linkHi: "#fci-all-post-general.html",
+    linkEn: "#fci-all-post-general.html" },
+  { title:"FCI Manager", sub:"Depot", tag:"Manager", img:"fci.png", linkHi: "#fci-all-post-general.html",
+    linkEn: "#fci-all-post-general.html" },
+  { title:"FCI Manager", sub:"Movement", tag:"Manager", img:"fci.png", linkHi: "#fci-all-post-general.html",
+    linkEn: "#fci-all-post-general.html" },
+  { title:"FCI Manager", sub:"Accounts", tag:"Manager", img:"fci.png", linkHi: "#fci-all-post-general.html",
+    linkEn: "#fci-all-post-general.html" },
+  { title:"FCI Manager", sub:"Technical", tag:"Manager", img:"fci.png", linkHi: "#fci-all-post-general.html",
+    linkEn: "#fci-all-post-general.html" },
+  { title:"FCI Manager", sub:"Civil Engg.", tag:"Manager", img:"fci.png", linkHi: "#fci-all-post-general.html",
+    linkEn: "#fci-all-post-general.html" },
+  { title:"FCI Manager", sub:"Elec & Mech", tag:"Manager", img:"fci.png", linkHi: "#fci-all-post-general.html",
+    linkEn: "#fci-all-post-general.html" },
+  { title:"FCI Manager", sub:"Hindi", tag:"Manager", img:"fci.png", linkHi: "#fci-all-post-general.html",
+    linkEn: "#fci-all-post-general.html" },
+
+  /* ===== Category II — Assistant Grade ===== */
+
+  { title:"AG-III", sub:"General", tag:"Assistant", img:"fci.png", linkHi: "#fci-ag3-general-all.html",
+    linkEn: "#fci-ag3-general-all.html" },
+  { title:"AG-III", sub:"Depot", tag:"Assistant", img:"fci.png", linkHi: "#fci-ag3-general-all.html",
+    linkEn: "#fci-ag3-general-all.html" },
+  { title:"AG-III", sub:"Accounts", tag:"Assistant", img:"fci.png", linkHi: "#fci-ag3-general-all.html",
+    linkEn: "#fci-ag3-general-all.html" },
+  { title:"AG-III", sub:"Technical", tag:"Assistant", img:"fci.png", linkHi: "#fci-ag3-general-all.html",
+    linkEn: "#fci-ag3-general-all.html" },
+  { title:"Steno G-II", sub:"Stenographer", tag:"Assistant", img:"fci.png", linkHi: "#fci-ag3-general-all.html",
+    linkEn: "#fci-ag3-general-all.html" },
+
+  /* ===== Category III — JE & Typist ===== */
+
+  { title:"JE Civil", sub:"Engineering", tag:"Engineer", img:"fci.png", linkHi: "#fci-je-civil-all.html",
+    linkEn: "#fci-je-civil-all.html" },
+  { title:"JE Electrical", sub:"Engineering", tag:"Engineer", img:"fci.png", linkHi: "#fci-je-civil-all.html",
+    linkEn: "#fci-je-civil-all.html" },
+  { title:"JE Mechanical", sub:"Engineering", tag:"Engineer", img:"fci.png", linkHi: "#fci-je-civil-all.html",
+    linkEn: "#fci-je-civil-all.html" },
+  { title:"Typist", sub:"Hindi", tag:"Clerk", img:"fci.png", linkHi: "#fci-je-civil-all.html",
+    linkEn: "#fci-je-civil-all.html" },
+
+  /* ===== Watchman & Support ===== */
+
+  { title:"Watchman", sub:"Security", tag:"Support", img:"fci.png", linkHi: "#fci-watchman-all.html",
+    linkEn: "#fci-watchman-all.html" },
+  { title:"Group D", sub:"Support Staff", tag:"Support", img:"fci.png", linkHi: "#fci-watchman-all.html",
+    linkEn: "#fci-watchman-all.html" }
+],
+
+                'ESIC Exam': [
+  /* ===== Administrative Cadre ===== */
+
+  { title:"ESIC SSO", sub:"SSO / Mgr-II", tag:"Officer", img:"esic.png", linkHi: "#esic-ssomanager.html",
+    linkEn: "#esic-ssomanager.html" },
+  { title:"Insurance Insp.", sub:"SS Inspector", tag:"Inspector", img:"esic.png", linkHi: "#esic-insurance-inspector-etc.html",
+    linkEn: "#esic-insurance-inspector-etc.html" },
+  { title:"ESIC Assistant", sub:"Administrative", tag:"Clerk", img:"esic.png", linkHi: "#esic-insurance-inspector-etc.html",
+    linkEn: "#esic-insurance-inspector-etc.html" },
+  { title:"UDC", sub:"Upper Div Clerk", tag:"Clerk", img:"esic.png", linkHi: "#esic-insurance-inspector-etc.html",
+    linkEn: "#esic-insurance-inspector-etc.html" },
+  { title:"LDC", sub:"Lower Div Clerk", tag:"Clerk", img:"esic.png", linkHi: "#esic-insurance-inspector-etc.html",
+    linkEn: "#esic-insurance-inspector-etc.html" },
+  { title:"Stenographer", sub:"Steno Cadre", tag:"Clerk", img:"esic.png", linkHi: "#esic-insurance-inspector-etc.html",
+    linkEn: "#esic-insurance-inspector-etc.html" },
+  { title:"MTS", sub:"Multi Tasking", tag:"Support", img:"esic.png", linkHi: "#esic-insurance-inspector-etc.html",
+    linkEn: "#esic-insurance-inspector-etc.html" },
+
+  /* ===== Medical Cadre ===== */
+
+  { title:"IMO", sub:"Medical Officer", tag:"Medical", img:"esic.png", linkHi: "#esic-insurance-medical-officer-etc.html",
+    linkEn: "#esic-insurance-medical-officer-etc.html" },
+  { title:"Specialist G-II", sub:"Doctor", tag:"Medical", img:"esic.png", linkHi: "#esic-insurance-medical-officer-etc.html",
+    linkEn: "#esic-insurance-medical-officer-etc.html" },
+  { title:"Staff Nurse", sub:"Nursing", tag:"Medical", img:"esic.png", linkHi: "#esic-insurance-medical-officer-etc.html",
+    linkEn: "#esic-insurance-medical-officer-etc.html" },
+  { title:"Pharmacist", sub:"Pharmacy", tag:"Medical", img:"esic.png", linkHi: "#esic-insurance-medical-officer-etc.html",
+    linkEn: "#esic-insurance-medical-officer-etc.html" },
+  { title:"Lab Technician", sub:"Laboratory", tag:"Medical", img:"esic.png", linkHi: "#esic-insurance-medical-officer-etc.html",
+    linkEn: "#esic-insurance-medical-officer-etc.html" },
+  { title:"Radiographer", sub:"Imaging", tag:"Medical", img:"esic.png", linkHi: "#esic-insurance-medical-officer-etc.html",
+    linkEn: "#esic-insurance-medical-officer-etc.html" },
+
+  /* ===== Paramedical & Other Staff ===== */
+
+  { title:"Dresser", sub:"Nursing Orderly", tag:"Paramedical", img:"esic.png", linkHi: "#esic-dresser-etc.html",
+    linkEn: "#esic-dresser-etc.html" },
+  { title:"Cook", sub:"Kitchen Staff", tag:"Support", img:"esic.png", linkHi: "#esic-dresser-etc.html",
+    linkEn: "#esic-dresser-etc.html" },
+  { title:"Ward Boy", sub:"Attendant", tag:"Support", img:"esic.png", linkHi: "#esic-dresser-etc.html",
+    linkEn: "#esic-dresser-etc.html" },
+
+  /* ===== Apprenticeship / Training ===== */
+
+  { title:"ESIC Apprentice", sub:"ITI / Dip / Grad", tag:"Training", img:"esic.png", linkHi: "#esic-apprentice-internship.html",
+    linkEn: "#esic-apprentice-internship.html" },
+  { title:"ESIC Intern", sub:"Project Training", tag:"Training", img:"esic.png", linkHi: "#esic-apprentice-internship.html",
+    linkEn: "#esic-apprentice-internship.html" }
+],
+
+                'NABARD Exam': [
+  /* ===== Officer Cadre ===== */
+
+  { title:"NABARD Grade A", sub:"Asst Manager", tag:"Officer", img:"nabard.png", linkHi: "#nabard-gradea-a-b.html",
+    linkEn: "#nabard-gradea-a-b.html" },
+  { title:"NABARD Grade B", sub:"Manager (RDBS)", tag:"Officer", img:"nabard.png", linkHi: "#nabard-gradea-a-b.html",
+    linkEn: "#nabard-gradea-a-b.html" },
+
+  /* ===== Development & Research ===== */
+
+  { title:"Dev Assistant", sub:"Development Cadre", tag:"Assistant", img:"nabard.png", linkHi: "#nabard-development-assistant-all.html",
+    linkEn: "#nabard-development-assistant-all.html" },
+  { title:"Dev Asst Hindi", sub:"Hindi Stream", tag:"Assistant", img:"nabard.png", linkHi: "#nabard-development-assistant-all.html",
+    linkEn: "#nabard-development-assistant-all.html" },
+  { title:"Research Officer", sub:"Research / Project", tag:"Research", img:"nabard.png", linkHi: "#nabard-development-assistant-all.html",
+    linkEn: "#nabard-development-assistant-all.html" },
+
+  /* ===== Specialist / Technical ===== */
+
+  { title:"IT Officer", sub:"Information Tech", tag:"Specialist", img:"nabard.png", linkHi: "#nabard-it-officer-technical.html",
+    linkEn: "#nabard-it-officer-technical.html" },
+  { title:"Agri Expert", sub:"Rural Development", tag:"Specialist", img:"nabard.png", linkHi: "#nabard-it-officer-technical.html",
+    linkEn: "#nabard-it-officer-technical.html" },
+  { title:"Finance Spec.", sub:"Accounts / Finance", tag:"Specialist", img:"nabard.png", linkHi: "#nabard-it-officer-technical.html",
+    linkEn: "#nabard-it-officer-technical.html" },
+  { title:"Env & Social", sub:"Impact Studies", tag:"Specialist", img:"nabard.png", linkHi: "#nabard-it-officer-technical.html",
+    linkEn: "#nabard-it-officer-technical.html" },
+  { title:"Stats / Eco", sub:"Economics", tag:"Specialist", img:"nabard.png", linkHi: "#nabard-it-officer-technical.html",
+    linkEn: "#nabard-it-officer-technical.html" },
+
+  /* ===== Support Staff ===== */
+
+  { title:"Office Attendant", sub:"Support Staff", tag:"Support", img:"nabard.png", linkHi: "#nabard-office-attendant.html",
+    linkEn: "#nabard-office-attendant.html" },
+  { title:"NABARD Driver", sub:"Driver / Support", tag:"Support", img:"nabard.png", linkHi: "#nabard-office-attendant.html",
+    linkEn: "#nabard-office-attendant.html" },
+
+  /* ===== Apprenticeship & Internship ===== */
+
+  { title:"NABARD Intern", sub:"Grade A Aspirants", tag:"Training", img:"nabard.png", linkHi: "#nabard-gradea-internship-all.html",
+    linkEn: "#nabard-gradea-internship-all.html" },
+  { title:"NABARD Apprentice", sub:"Finance / Agri / IT", tag:"Training", img:"nabard.png", linkHi: "#nabard-gradea-internship-all.html",
+    linkEn: "#nabard-gradea-internship-all.html" },
+  { title:"Research Intern", sub:"Research Scheme", tag:"Training", img:"nabard.png", linkHi: "#nabard-gradea-internship-all.html",
+    linkEn: "#nabard-gradea-internship-all.html" }
+],
+
+                'SEBI Exam': [
+  /* ===== Grade A — Assistant Manager ===== */
+
+  { title:"SEBI Grade A", sub:"General Stream", tag:"Officer", img:"sebi.png", linkHi: "#sebi-gradea-general-all.html",
+    linkEn: "#sebi-gradea-general-all.html" },
+  { title:"SEBI Grade A", sub:"Legal Stream", tag:"Officer", img:"sebi.png", linkHi: "#sebi-gradea-general-all.html",
+    linkEn: "#sebi-gradea-general-all.html" },
+  { title:"SEBI Grade A", sub:"IT Stream", tag:"Officer", img:"sebi.png", linkHi: "#sebi-gradea-general-all.html",
+    linkEn: "#sebi-gradea-general-all.html" },
+  { title:"SEBI Grade A", sub:"Research Stream", tag:"Officer", img:"sebi.png", linkHi: "#sebi-gradea-general-all.html",
+    linkEn: "#sebi-gradea-general-all.html" },
+  { title:"SEBI Grade A", sub:"Official Language", tag:"Officer", img:"sebi.png", linkHi: "#sebi-gradea-general-all.html",
+    linkEn: "#sebi-gradea-general-all.html" },
+  { title:"SEBI Grade A", sub:"Engineering", tag:"Officer", img:"sebi.png", linkHi: "#sebi-gradea-general-all.html",
+    linkEn: "#sebi-gradea-general-all.html" },
+
+  /* ===== Grade B — Manager ===== */
+
+  { title:"SEBI Grade B", sub:"Manager", tag:"Manager", img:"sebi.png", linkHi: "#sebi-gradeb.html",
+    linkEn: "#sebi-gradeb.html" },
+
+  /* ===== Specialist / Technical ===== */
+
+  { title:"IT Specialist", sub:"Cyber Security", tag:"Specialist", img:"sebi.png", linkHi: "#sebi-it-specialist-all-tech.html",
+    linkEn: "#sebi-it-specialist-all-tech.html" },
+  { title:"Finance Specialist", sub:"Accounts / Finance", tag:"Specialist", img:"sebi.png", linkHi: "#sebi-it-specialist-all-tech.html",
+    linkEn: "#sebi-it-specialist-all-tech.html" },
+  { title:"Risk Officer", sub:"Risk Management", tag:"Specialist", img:"sebi.png", linkHi: "#sebi-it-specialist-all-tech.html",
+    linkEn: "#sebi-it-specialist-all-tech.html" },
+  { title:"Market Analyst", sub:"Market Research", tag:"Specialist", img:"sebi.png", linkHi: "#sebi-it-specialist-all-tech.html",
+    linkEn: "#sebi-it-specialist-all-tech.html" },
+  { title:"Data Scientist", sub:"AI / Data", tag:"Specialist", img:"sebi.png", linkHi: "#sebi-it-specialist-all-tech.html",
+    linkEn: "#sebi-it-specialist-all-tech.html" },
+
+  /* ===== Support Staff ===== */
+
+  { title:"Office Assistant", sub:"Support Staff", tag:"Support", img:"sebi.png", linkHi: "#sebi-office-assistant-both.html",
+    linkEn: "#sebi-office-assistant-both.html" },
+  { title:"SEBI Driver", sub:"Driver / Support", tag:"Support", img:"sebi.png", linkHi: "#sebi-office-assistant-both.html",
+    linkEn: "#sebi-office-assistant-both.html" },
+
+  /* ===== Internship & Fellowship ===== */
+
+  { title:"SEBI Intern", sub:"Law / Fin / IT", tag:"Training", img:"sebi.png", linkHi: "#sebi-internship-fellowship.html",
+    linkEn: "#sebi-internship-fellowship.html" },
+  { title:"SEBI Fellow", sub:"Research Program", tag:"Training", img:"sebi.png", linkHi: "#sebi-internship-fellowship.html",
+    linkEn: "#sebi-internship-fellowship.html" }
+],
+
+                'Individual PSUs': [
+  /* ===== ONGC ===== */
+  { title:"ONGC GET", sub:"Engineer (GATE)", tag:"PSU", img:"ongc.png", linkHi: "#ongc-graduate-engineer-trainee-all.html",
+    linkEn: "#ongc-graduate-engineer-trainee-all.html" },
+  { title:"ONGC AEE", sub:"Assistant Engineer", tag:"PSU", img:"ongc.png", linkHi: "#ongc-graduate-engineer-trainee-all.html",
+    linkEn: "#ongc-graduate-engineer-trainee-all.html" },
+  { title:"ONGC Scientist", sub:"Geo / Chem", tag:"PSU", img:"ongc.png", linkHi: "#ongc-graduate-engineer-trainee-all.html",
+    linkEn: "#ongc-graduate-engineer-trainee-all.html" },
+  { title:"ONGC Doctor", sub:"Medical Officer", tag:"PSU", img:"ongc.png", linkHi: "#ongc-graduate-engineer-trainee-all.html",
+    linkEn: "#ongc-graduate-engineer-trainee-all.html" },
+  { title:"ONGC Non-Tech", sub:"HR / Finance", tag:"PSU", img:"ongc.png", linkHi: "#ongc-graduate-engineer-trainee-all.html",
+    linkEn: "#ongc-graduate-engineer-trainee-all.html" },
+
+  /* ===== NTPC ===== */
+  { title:"NTPC ET", sub:"Engineer (GATE)", tag:"PSU", img:"ntpc.png", linkHi: "#ntpc-executive-trainee-ntpc.html",
+    linkEn: "#ntpc-executive-trainee-ntpc.html" },
+  { title:"NTPC DET", sub:"Diploma Engineer", tag:"PSU", img:"ntpc.png", linkHi: "#ntpc-executive-trainee-ntpc.html",
+    linkEn: "#ntpc-executive-trainee-ntpc.html" },
+  { title:"NTPC Chemist", sub:"Assistant Chemist", tag:"PSU", img:"ntpc.png", linkHi: "#ntpc-executive-trainee-ntpc.html",
+    linkEn: "#ntpc-executive-trainee-ntpc.html" },
+  { title:"NTPC HR/Fin", sub:"Executive", tag:"PSU", img:"ntpc.png", linkHi: "#ntpc-executive-trainee-ntpc.html",
+    linkEn: "#ntpc-executive-trainee-ntpc.html" },
+
+  /* ===== GAIL ===== */
+  { title:"GAIL ET", sub:"Engineer (GATE)", tag:"PSU", img:"gail.png", linkHi: "#gail-executive-trainee-gail.html",
+    linkEn: "#gail-executive-trainee-gail.html" },
+  { title:"GAIL Manager", sub:"HR / Fin / Law", tag:"PSU", img:"gail.png", linkHi: "#gail-executive-trainee-gail.html",
+    linkEn: "#gail-executive-trainee-gail.html" },
+  { title:"GAIL JE", sub:"Foreman / Tech", tag:"PSU", img:"gail.png", linkHi: "#gail-executive-trainee-gail.html",
+    linkEn: "#gail-executive-trainee-gail.html" },
+
+  /* ===== SAIL ===== */
+  { title:"SAIL MT", sub:"Tech / Admin", tag:"PSU", img:"sail.png", linkHi: "#sail-management-trainee-sail.html",
+    linkEn: "#sail-management-trainee-sail.html" },
+  { title:"SAIL OCTT", sub:"Operator Trainee", tag:"PSU", img:"sail.png", linkHi: "#sail-management-trainee-sail.html",
+    linkEn: "#sail-management-trainee-sail.html" },
+  { title:"SAIL ACTT", sub:"Attendant Trainee", tag:"PSU", img:"sail.png", linkHi: "#sail-management-trainee-sail.html",
+    linkEn: "#sail-management-trainee-sail.html" },
+  { title:"SAIL Doctor", sub:"Medical Officer", tag:"PSU", img:"sail.png", linkHi: "#sail-management-trainee-sail.html",
+    linkEn: "#sail-management-trainee-sail.html" },
+
+  /* ===== BHEL ===== */
+  { title:"BHEL ET", sub:"Engineer (GATE)", tag:"PSU", img:"bhel.png", linkHi: "#bhel-engineer-trainee-bhel.html",
+    linkEn: "#bhel-engineer-trainee-bhel.html" },
+  { title:"BHEL ST", sub:"Supervisor", tag:"PSU", img:"bhel.png", linkHi: "#bhel-engineer-trainee-bhel.html",
+    linkEn: "#bhel-engineer-trainee-bhel.html" },
+  { title:"BHEL Exec", sub:"HR / Finance", tag:"PSU", img:"bhel.png", linkHi: "#bhel-engineer-trainee-bhel.html",
+    linkEn: "#bhel-engineer-trainee-bhel.html" },
+
+  /* ===== IOCL ===== */
+  { title:"IOCL Officer", sub:"Engineer (GATE)", tag:"PSU", img:"iocl.png", linkHi: "#iocl-engineer-officer-iocl-all.html",
+    linkEn: "#iocl-engineer-officer-iocl-all.html" },
+  { title:"IOCL Apprentice", sub:"Tech / Trade", tag:"PSU", img:"iocl.png", linkHi: "#iocl-engineer-officer-iocl-all.html",
+    linkEn: "#iocl-engineer-officer-iocl-all.html" },
+  { title:"IOCL QC", sub:"Quality Officer", tag:"PSU", img:"iocl.png", linkHi: "#iocl-engineer-officer-iocl-all.html",
+    linkEn: "#iocl-engineer-officer-iocl-all.html" },
+  { title:"IOCL Doctor", sub:"Medical Officer", tag:"PSU", img:"iocl.png", linkHi: "#iocl-engineer-officer-iocl-all.html",
+    linkEn: "#iocl-engineer-officer-iocl-all.html" },
+
+  /* ===== HPCL ===== */
+  { title:"HPCL Engineer", sub:"GATE Entry", tag:"PSU", img:"hpcl.png", linkHi: "#hpcl-engineer-hpcl-all.html",
+    linkEn: "#hpcl-engineer-hpcl-all.html" },
+  { title:"HPCL Officer", sub:"HR / Fin / Law", tag:"PSU", img:"hpcl.png", linkHi: "#hpcl-engineer-hpcl-all.html",
+    linkEn: "#hpcl-engineer-hpcl-all.html" },
+  { title:"HPCL Apprentice", sub:"Technician", tag:"PSU", img:"hpcl.png", linkHi: "#hpcl-engineer-hpcl-all.html",
+    linkEn: "#hpcl-engineer-hpcl-all.html" },
+
+  /* ===== BPCL ===== */
+  { title:"BPCL Apprentice", sub:"Grad / Tech", tag:"PSU", img:"bpcl.png", linkHi: "#bpcl-graduate-apprentice-bpcl-all.html",
+    linkEn: "#bpcl-graduate-apprentice-bpcl-all.html" },
+  { title:"BPCL MT", sub:"Management", tag:"PSU", img:"bpcl.png", linkHi: "#bpcl-graduate-apprentice-bpcl-all.html",
+    linkEn: "#bpcl-graduate-apprentice-bpcl-all.html" },
+  { title:"BPCL Executive", sub:"HR / Fin / Legal", tag:"PSU", img:"bpcl.png", linkHi: "#bpcl-graduate-apprentice-bpcl-all.html",
+    linkEn: "#bpcl-graduate-apprentice-bpcl-all.html" },
+
+  /* ===== PGCIL ===== */
+  { title:"PGCIL ET", sub:"Engineer (GATE)", tag:"PSU", img:"pgcil.png", linkHi: "#pgcil-executive-trainee-pgcil-all.html",
+    linkEn: "#pgcil-executive-trainee-pgcil-all.html" },
+  { title:"PGCIL DT", sub:"Diploma Trainee", tag:"PSU", img:"pgcil.png", linkHi: "#pgcil-executive-trainee-pgcil-all.html",
+    linkEn: "#pgcil-executive-trainee-pgcil-all.html" },
+  { title:"PGCIL Apprentice", sub:"Training", tag:"PSU", img:"pgcil.png", linkHi: "#pgcil-executive-trainee-pgcil-all.html",
+    linkEn: "#pgcil-executive-trainee-pgcil-all.html" }
+],
+                
+
+ },
+            private: {
+                'IT/Software Jobs': [
+  {
+    title: "Software Engineer",
+    sub: "Developer Roles",
+    tag: "Career",
+    img: "software.png",
+    linkHi: "#software-engineer.html",
+    linkEn: "#software-engineer.html"
+  },
+  {
+    title: "Web / App Developer",
+    sub: "Frontend & Mobile",
+    tag: "Career",
+    img: "webapp.png",
+    linkHi: "#web-developer.html",
+    linkEn: "#web-developer.html"
+  },
+  {
+    title: "Data Scientist",
+    sub: "Analysis & Insights",
+    tag: "Career",
+    img: "data.png",
+    linkHi: "#data-scientist.html",
+    linkEn: "#data-scientist.html"
+  },
+  {
+    title: "AI / ML Engineer",
+    sub: "Model Development",
+    tag: "Career",
+    img: "aiml.png",
+    linkHi: "#ai-ml-engineer.html",
+    linkEn: "#ai-ml-engineer.html"
+  },
+  {
+    title: "Cybersecurity Analyst",
+    sub: "Security & Defense",
+    tag: "Career",
+    img: "cyber.png",
+    linkHi: "#cybersecurity-analyst.html",
+    linkEn: "#cybersecurity-analyst.html"
+  },
+  {
+    title: "Cloud Engineer",
+    sub: "Cloud Infrastructure",
+    tag: "Career",
+    img: "cloud.png",
+    linkHi: "#cloud-engineer.html",
+    linkEn: "#cloud-engineer.html"
+  },
+  {
+    title: "UI/UX Designer",
+    sub: "Design & Experience",
+    tag: "Career",
+    img: "uiux.png",
+    linkHi: "#ui-ux-designer.html",
+    linkEn: "#ui-ux-designer.html"
+  },
+  {
+    title: "Tech Support Engineer",
+    sub: "IT Support",
+    tag: "Career",
+    img: "support.png",
+    linkHi: "#tech-support-engineer.html",
+    linkEn: "#tech-support-engineer.html"
+  }
+],
+                'Sales/Marketing': [
+  {
+    title: "Sales Executive",
+    sub: "Sales & Management",
+    tag: "Career",
+    img: "sales.png",
+    linkHi: "#sales-executive.html",
+    linkEn: "#sales-executive.html"
+  },
+  {
+    title: "Digital Marketer",
+    sub: "Online Marketing",
+    tag: "Career",
+    img: "digital-marketing.png",
+    linkHi: "#digital-marketing-specialist.html",
+    linkEn: "#digital-marketing-specialist.html"
+  },
+  {
+    title: "SEO / SEM Analyst",
+    sub: "Search Marketing",
+    tag: "Career",
+    img: "seo.png",
+    linkHi: "#seo-sem-analyst.html",
+    linkEn: "#seo-sem-analyst.html"
+  },
+  {
+    title: "Social Media Manager",
+    sub: "Social Platforms",
+    tag: "Career",
+    img: "social-media.png",
+    linkHi: "#social-media-manager.html",
+    linkEn: "#social-media-manager.html"
+  },
+  {
+    title: "Brand Manager",
+    sub: "Brand Strategy",
+    tag: "Career",
+    img: "brand.png",
+    linkHi: "#brand-manager.html",
+    linkEn: "#brand-manager.html"
+  },
+  {
+    title: "Content Marketer",
+    sub: "Content Strategy",
+    tag: "Career",
+    img: "content.png",
+    linkHi: "#content-marketing-executive.html",
+    linkEn: "#content-marketing-executive.html"
+  },
+  {
+    title: "Product Marketer",
+    sub: "Product Growth",
+    tag: "Career",
+    img: "product-marketing.png",
+    linkHi: "#product-marketing-manager.html",
+    linkEn: "#product-marketing-manager.html"
+  }
+],
+
+                'Finance/Accounting': [
+  {
+    title: "Accountant",
+    sub: "Accounts & Books",
+    tag: "Career",
+    img: "accountant.png",
+    linkHi: "#accountant.html",
+    linkEn: "#accountant.html"
+  },
+  {
+    title: "Financial Analyst",
+    sub: "Financial Analysis",
+    tag: "Career",
+    img: "financial-analyst.png",
+    linkHi: "#financial-analyst.html",
+    linkEn: "#financial-analyst.html"
+  },
+  {
+    title: "Chartered Accountant",
+    sub: "CA Professional",
+    tag: "Career",
+    img: "ca.png",
+    linkHi: "#chartered-accountant.html",
+    linkEn: "#chartered-accountant.html"
+  },
+  {
+    title: "Investment Banker",
+    sub: "Capital Markets",
+    tag: "Career",
+    img: "investment-banker.png",
+    linkHi: "#investment-banker.html",
+    linkEn: "#investment-banker.html"
+  },
+  {
+    title: "Audit Executive",
+    sub: "Audit & Compliance",
+    tag: "Career",
+    img: "audit.png",
+    linkHi: "#audit-executive.html",
+    linkEn: "#audit-executive.html"
+  },
+  {
+    title: "Payroll Manager",
+    sub: "Salary & Payroll",
+    tag: "Career",
+    img: "payroll.png",
+    linkHi: "#payroll-manager.html",
+    linkEn: "#payroll-manager.html"
+  },
+  {
+    title: "Tax Consultant",
+    sub: "Taxation & GST",
+    tag: "Career",
+    img: "tax.png",
+    linkHi: "#tax-consultant.html",
+    linkEn: "#tax-consultant.html"
+  }
+],
+
+                'Human Resource':[
+  {
+    title: "HR Executive",
+    sub: "Human Resources",
+    tag: "Career",
+    img: "hr.png",
+    linkHi: "#hr-executive.html",
+    linkEn: "#hr-executive.html"
+  },
+  {
+    title: "Talent Acquisition",
+    sub: "Hiring & Recruitment",
+    tag: "Career",
+    img: "talent.png",
+    linkHi: "#talent-acquisition-specialist.html",
+    linkEn: "#talent-acquisition-specialist.html"
+  },
+  {
+    title: "HR Manager",
+    sub: "HR Leadership",
+    tag: "Career",
+    img: "hr-manager.png",
+    linkHi: "#hr-manager.html",
+    linkEn: "#hr-manager.html"
+  },
+  {
+    title: "Training Officer",
+    sub: "Learning & Development",
+    tag: "Career",
+    img: "training.png",
+    linkHi: "#training-development-officer.html",
+    linkEn: "#training-development-officer.html"
+  },
+  {
+    title: "Payroll Officer",
+    sub: "Payroll & Compliance",
+    tag: "Career",
+    img: "payroll.png",
+    linkHi: "#payroll-compliance-officer.html",
+    linkEn: "#payroll-compliance-officer.html"
+  },
+  {
+    title: "Employee Relations",
+    sub: "Workplace Relations",
+    tag: "Career",
+    img: "employee-relations.png",
+    linkHi: "#employee-relations-manager.html",
+    linkEn: "#employee-relations-manager.html"
+  }
+],
+
+                'Customer/BPO/KPO': [
+  {
+    title: "Customer Care Executive",
+    sub: "Customer Support",
+    tag: "Career",
+    img: "customer-care.png",
+    linkHi: "#customer-care-executive.html",
+    linkEn: "#customer-care-executive.html"
+  },
+  {
+    title: "Technical Support",
+    sub: "IT Assistance",
+    tag: "Career",
+    img: "technical-support.png",
+    linkHi: "#technical-support-agent.html",
+    linkEn: "#technical-support-agent.html"
+  },
+  {
+    title: "Chat Executive",
+    sub: "Chat Support",
+    tag: "Career",
+    img: "chat-support.png",
+    linkHi: "#chat-process-executive.html",
+    linkEn: "#chat-process-executive.html"
+  },
+  {
+    title: "Voice Agent",
+    sub: "Call Process",
+    tag: "Career",
+    img: "voice-process.png",
+    linkHi: "#voice-process-agent.html",
+    linkEn: "#voice-process-agent.html"
+  },
+  {
+    title: "Team Leader",
+    sub: "BPO Leadership",
+    tag: "Career",
+    img: "team-leader.png",
+    linkHi: "#team-leader.html",
+    linkEn: "#team-leader.html"
+  },
+  {
+    title: "Process Trainer",
+    sub: "Training & QA",
+    tag: "Career",
+    img: "process-trainer.png",
+    linkHi: "#process-trainer.html",
+    linkEn: "#process-trainer.html"
+  }
+],
+
+                'Banking/Insurance': [
+  {
+    title: "Relationship Manager",
+    sub: "Client Relations",
+    tag: "Career",
+    img: "relationship.png",
+    linkHi: "#relationship-manager.html",
+    linkEn: "#relationship-manager.html"
+  },
+  {
+    title: "Loan Officer",
+    sub: "Loans & Credit",
+    tag: "Career",
+    img: "loan.png",
+    linkHi: "#loan-officer.html",
+    linkEn: "#loan-officer.html"
+  },
+  {
+    title: "Credit Analyst",
+    sub: "Credit Evaluation",
+    tag: "Career",
+    img: "credit.png",
+    linkHi: "#credit-analyst.html",
+    linkEn: "#credit-analyst.html"
+  },
+  {
+    title: "Branch Manager",
+    sub: "Bank Operations",
+    tag: "Career",
+    img: "branch-manager.png",
+    linkHi: "#branch-manager.html",
+    linkEn: "#branch-manager.html"
+  },
+  {
+    title: "Insurance Advisor",
+    sub: "Policy & Sales",
+    tag: "Career",
+    img: "insurance.png",
+    linkHi: "#insurance-advisor.html",
+    linkEn: "#insurance-advisor.html"
+  },
+  {
+    title: "Underwriter",
+    sub: "Risk Assessment",
+    tag: "Career",
+    img: "underwriter.png",
+    linkHi: "#underwriter.html",
+    linkEn: "#underwriter.html"
+  }
+],
+
+                'Healthcare/Pharma': [
+  {
+    title: "Medical Representative",
+    sub: "Pharma Sales",
+    tag: "Career",
+    img: "medical-rep.png",
+    linkHi: "#medical-representative.html",
+    linkEn: "#medical-representative.html"
+  },
+  {
+    title: "Lab Technician",
+    sub: "Diagnostics",
+    tag: "Career",
+    img: "lab-tech.png",
+    linkHi: "#lab-technician.html",
+    linkEn: "#lab-technician.html"
+  },
+  {
+    title: "Pharmacist",
+    sub: "Medicines & Dispensing",
+    tag: "Career",
+    img: "pharmacist.png",
+    linkHi: "#pharmacist.html",
+    linkEn: "#pharmacist.html"
+  },
+  {
+    title: "Nurse",
+    sub: "Patient Care",
+    tag: "Career",
+    img: "nurse.png",
+    linkHi: "#nurse.html",
+    linkEn: "#nurse.html"
+  },
+  {
+    title: "Doctor",
+    sub: "Clinical Practice",
+    tag: "Career",
+    img: "doctor.png",
+    linkHi: "#doctor.html",
+    linkEn: "#doctor.html"
+  },
+  {
+    title: "Clinical Research Associate",
+    sub: "Clinical Trials",
+    tag: "Career",
+    img: "clinical-research.png",
+    linkHi: "#clinical-research-associate.html",
+    linkEn: "#clinical-research-associate.html"
+  },
+  {
+    title: "Healthcare Admin",
+    sub: "Hospital Operations",
+    tag: "Career",
+    img: "healthcare-admin.png",
+    linkHi: "#healthcare-admin.html",
+    linkEn: "#healthcare-admin.html"
+  }
+],
+
+                'Education/Training': [
+  {
+    title: "School Teacher",
+    sub: "Private Schools",
+    tag: "Career",
+    img: "teacher.png",
+    linkHi: "#private-school-teacher.html",
+    linkEn: "#private-school-teacher.html"
+  },
+  {
+    title: "Online Tutor",
+    sub: "Remote Teaching",
+    tag: "Career",
+    img: "online-tutor.png",
+    linkHi: "#online-tutor.html",
+    linkEn: "#online-tutor.html"
+  },
+  {
+    title: "Corporate Trainer",
+    sub: "Professional Training",
+    tag: "Career",
+    img: "corporate-trainer.png",
+    linkHi: "#corporate-trainer.html",
+    linkEn: "#corporate-trainer.html"
+  },
+  {
+    title: "Admission Counselor",
+    sub: "Student Guidance",
+    tag: "Career",
+    img: "admission.png",
+    linkHi: "#admission-counselor.html",
+    linkEn: "#admission-counselor.html"
+  },
+  {
+    title: "Education Consultant",
+    sub: "Academic Consulting",
+    tag: "Career",
+    img: "education-consultant.png",
+    linkHi: "#education-consultant.html",
+    linkEn: "#education-consultant.html"
+  },
+  {
+    title: "E-learning Developer",
+    sub: "Digital Courses",
+    tag: "Career",
+    img: "elearning.png",
+    linkHi: "#e-learning-content-developer.html",
+    linkEn: "#e-learning-content-developer.html"
+  }
+],
+
+                'Engineering Jobs': [
+  {
+    title: "Mechanical Engineer",
+    sub: "Mechanical Systems",
+    tag: "Career",
+    img: "mechanical.png",
+    linkHi: "#mechanical-engineer.html",
+    linkEn: "#mechanical-engineer.html"
+  },
+  {
+    title: "Civil Engineer",
+    sub: "Construction & Infra",
+    tag: "Career",
+    img: "civil.png",
+    linkHi: "#civil-engineer.html",
+    linkEn: "#civil-engineer.html"
+  },
+  {
+    title: "Electrical Engineer",
+    sub: "Electrical Systems",
+    tag: "Career",
+    img: "electrical.png",
+    linkHi: "#electrical-engineer.html",
+    linkEn: "#electrical-engineer.html"
+  },
+  {
+    title: "Design Engineer",
+    sub: "CAD / Modeling",
+    tag: "Career",
+    img: "design.png",
+    linkHi: "#design-engineer.html",
+    linkEn: "#design-engineer.html"
+  },
+  {
+    title: "Production Engineer",
+    sub: "Manufacturing",
+    tag: "Career",
+    img: "production.png",
+    linkHi: "#production-engineer.html",
+    linkEn: "#production-engineer.html"
+  },
+  {
+    title: "Site Engineer",
+    sub: "On-site Execution",
+    tag: "Career",
+    img: "site-engineer.png",
+    linkHi: "#site-engineer.html",
+    linkEn: "#site-engineer.html"
+  }
+],
+
+                'Manufacturing Jobs': [
+  {
+    title: "Machine Operator",
+    sub: "Machinery Handling",
+    tag: "Career",
+    img: "machine-operator.png",
+    linkHi: "#machine-operator.html",
+    linkEn: "#machine-operator.html"
+  },
+  {
+    title: "Plant Supervisor",
+    sub: "Plant Operations",
+    tag: "Career",
+    img: "plant-supervisor.png",
+    linkHi: "#plant-supervisor.html",
+    linkEn: "#plant-supervisor.html"
+  },
+  {
+    title: "Quality Control Executive",
+    sub: "Quality Assurance",
+    tag: "Career",
+    img: "quality-control.png",
+    linkHi: "#quality-control-executive.html",
+    linkEn: "#quality-control-executive.html"
+  },
+  {
+    title: "Production Manager",
+    sub: "Production Planning",
+    tag: "Career",
+    img: "production-manager.png",
+    linkHi: "#production-manager.html",
+    linkEn: "#production-manager.html"
+  },
+  {
+    title: "Maintenance Technician",
+    sub: "Equipment Maintenance",
+    tag: "Career",
+    img: "maintenance.png",
+    linkHi: "#maintenance-technician.html",
+    linkEn: "#maintenance-technician.html"
+  }
+],
+
+                'Logistics Jobs': [
+  {
+    title: "Logistics Executive",
+    sub: "Logistics Operations",
+    tag: "Career",
+    img: "logistics.png",
+    linkHi: "#logistics-executive.html",
+    linkEn: "#logistics-executive.html"
+  },
+  {
+    title: "Warehouse Manager",
+    sub: "Warehouse Operations",
+    tag: "Career",
+    img: "warehouse.png",
+    linkHi: "#warehouse-manager.html",
+    linkEn: "#warehouse-manager.html"
+  },
+  {
+    title: "Inventory Controller",
+    sub: "Stock Management",
+    tag: "Career",
+    img: "inventory.png",
+    linkHi: "#inventory-controller.html",
+    linkEn: "#inventory-controller.html"
+  },
+  {
+    title: "Procurement Specialist",
+    sub: "Vendor & Purchasing",
+    tag: "Career",
+    img: "procurement.png",
+    linkHi: "#procurement-specialist.html",
+    linkEn: "#procurement-specialist.html"
+  },
+  {
+    title: "Supply Chain Analyst",
+    sub: "Supply Chain Planning",
+    tag: "Career",
+    img: "supply-chain.png",
+    linkHi: "#supply-chain-analyst.html",
+    linkEn: "#supply-chain-analyst.html"
+  },
+  {
+    title: "Fleet Manager",
+    sub: "Transport & Fleet",
+    tag: "Career",
+    img: "fleet.png",
+    linkHi: "#fleet-manager.html",
+    linkEn: "#fleet-manager.html"
+  }
+],
+
+                'RealEstate/Construction': [
+  {
+    title: "Sales Executive (Real Estate)",
+    sub: "Property Sales",
+    tag: "Career",
+    img: "real-estate-sales.png",
+    linkHi: "#real-estate-sales-executive.html",
+    linkEn: "#real-estate-sales-executive.html"
+  },
+  {
+    title: "Site Supervisor",
+    sub: "Construction Site",
+    tag: "Career",
+    img: "site-supervisor.png",
+    linkHi: "#site-supervisor.html",
+    linkEn: "#site-supervisor.html"
+  },
+  {
+    title: "Civil Engineer",
+    sub: "Construction & Planning",
+    tag: "Career",
+    img: "civil-engineer.png",
+    linkHi: "#civil-engineer.html",
+    linkEn: "#civil-engineer.html"
+  },
+  {
+    title: "Architect",
+    sub: "Building Design",
+    tag: "Career",
+    img: "architect.png",
+    linkHi: "#architect.html",
+    linkEn: "#architect.html"
+  },
+  {
+    title: "Property Advisor",
+    sub: "Real Estate Consulting",
+    tag: "Career",
+    img: "property-advisor.png",
+    linkHi: "#property-advisor.html",
+    linkEn: "#property-advisor.html"
+  },
+  {
+    title: "Interior Designer",
+    sub: "Interior Planning",
+    tag: "Career",
+    img: "interior-designer.png",
+    linkHi: "#interior-designer.html",
+    linkEn: "#interior-designer.html"
+  }
+],
+
+                'Retail/E-commerce': [
+  {
+    title: "Store Manager",
+    sub: "Retail Operations",
+    tag: "Career",
+    img: "store-manager.png",
+    linkHi: "#store-manager.html",
+    linkEn: "#store-manager.html"
+  },
+  {
+    title: "Cashier",
+    sub: "Billing & POS",
+    tag: "Career",
+    img: "cashier.png",
+    linkHi: "#cashier.html",
+    linkEn: "#cashier.html"
+  },
+  {
+    title: "Visual Merchandiser",
+    sub: "Store Display",
+    tag: "Career",
+    img: "visual-merchandiser.png",
+    linkHi: "#visual-merchandiser.html",
+    linkEn: "#visual-merchandiser.html"
+  },
+  {
+    title: "Inventory Executive",
+    sub: "Stock Management",
+    tag: "Career",
+    img: "inventory-executive.png",
+    linkHi: "#inventory-executive.html",
+    linkEn: "#inventory-executive.html"
+  },
+  {
+    title: "Customer Executive",
+    sub: "Customer Relations",
+    tag: "Career",
+    img: "customer-relationship.png",
+    linkHi: "#customer-relationship-executive.html",
+    linkEn: "#customer-relationship-executive.html"
+  },
+  {
+    title: "Delivery Executive",
+    sub: "E-Commerce Delivery",
+    tag: "Career",
+    img: "delivery-executive.png",
+    linkHi: "#delivery-executive.html",
+    linkEn: "#delivery-executive.html"
+  }
+],
+
+                'Media Jobs': [
+  {
+    title: "Content Writer",
+    sub: "Writing & Copy",
+    tag: "Career",
+    img: "content-writer.png",
+    linkHi: "#content-writer.html",
+    linkEn: "#content-writer.html"
+  },
+  {
+    title: "Graphic Designer",
+    sub: "Visual Design",
+    tag: "Career",
+    img: "graphic-designer.png",
+    linkHi: "#graphic-designer.html",
+    linkEn: "#graphic-designer.html"
+  },
+  {
+    title: "Video Editor",
+    sub: "Video Production",
+    tag: "Career",
+    img: "video-editor.png",
+    linkHi: "#video-editor.html",
+    linkEn: "#video-editor.html"
+  },
+  {
+    title: "Creative Director",
+    sub: "Creative Leadership",
+    tag: "Career",
+    img: "creative-director.png",
+    linkHi: "#creative-director.html",
+    linkEn: "#creative-director.html"
+  },
+  {
+    title: "Journalist",
+    sub: "Media & Reporting",
+    tag: "Career",
+    img: "journalist.png",
+    linkHi: "#journalist.html",
+    linkEn: "#journalist.html"
+  },
+  {
+    title: "Photographer",
+    sub: "Photo & Cinema",
+    tag: "Career",
+    img: "photographer.png",
+    linkHi: "#photographer.html",
+    linkEn: "#photographer.html"
+  },
+  {
+    title: "PR Executive",
+    sub: "Public Relations",
+    tag: "Career",
+    img: "pr-executive.png",
+    linkHi: "#pr-executive.html",
+    linkEn: "#pr-executive.html"
+  }
+],
+
+                'Legal/Law Jobs': [
+  {
+    title: "Legal Advisor",
+    sub: "Legal Consulting",
+    tag: "Career",
+    img: "legal-advisor.png",
+    linkHi: "#legal-advisor.html",
+    linkEn: "#legal-advisor.html"
+  },
+  {
+    title: "Corporate Lawyer",
+    sub: "Corporate Law",
+    tag: "Career",
+    img: "corporate-lawyer.png",
+    linkHi: "#corporate-lawyer.html",
+    linkEn: "#corporate-lawyer.html"
+  },
+  {
+    title: "Contract Manager",
+    sub: "Contracts & Policy",
+    tag: "Career",
+    img: "contract-manager.png",
+    linkHi: "#contract-manager.html",
+    linkEn: "#contract-manager.html"
+  },
+  {
+    title: "Legal Associate",
+    sub: "Law Firms",
+    tag: "Career",
+    img: "legal-associate.png",
+    linkHi: "#legal-associate.html",
+    linkEn: "#legal-associate.html"
+  },
+  {
+    title: "Compliance Officer",
+    sub: "Regulatory",
+    tag: "Career",
+    img: "compliance-officer.png",
+    linkHi: "#compliance-officer.html",
+    linkEn: "#compliance-officer.html"
+  }
+],
+
+                'Travel/Tourism': [
+  {
+    title: "Hotel Manager",
+    sub: "Hospitality Ops",
+    tag: "Career",
+    img: "hotel-manager.png",
+    linkHi: "#hotel-manager.html",
+    linkEn: "#hotel-manager.html"
+  },
+  {
+    title: "Front Office Exec",
+    sub: "Hotel Front Desk",
+    tag: "Career",
+    img: "front-office-executive.png",
+    linkHi: "#front-office-executive.html",
+    linkEn: "#front-office-executive.html"
+  },
+  {
+    title: "Travel Agent",
+    sub: "Tours & Travel",
+    tag: "Career",
+    img: "travel-agent.png",
+    linkHi: "#travel-agent.html",
+    linkEn: "#travel-agent.html"
+  },
+  {
+    title: "Chef / Cook",
+    sub: "Food & Kitchen",
+    tag: "Career",
+    img: "chef-cook.png",
+    linkHi: "#chef-cook.html",
+    linkEn: "#chef-cook.html"
+  },
+  {
+    title: "Housekeeping Sup",
+    sub: "Hotel Services",
+    tag: "Career",
+    img: "housekeeping-supervisor.png",
+    linkHi: "#housekeeping-supervisor.html",
+    linkEn: "#housekeeping-supervisor.html"
+  },
+  {
+    title: "Tour Guide",
+    sub: "Travel Guide",
+    tag: "Career",
+    img: "tour-guide.png",
+    linkHi: "#tour-guide.html",
+    linkEn: "#tour-guide.html"
+  },
+  {
+    title: "Event Manager",
+    sub: "Events & Planning",
+    tag: "Career",
+    img: "event-manager.png",
+    linkHi: "#event-manager.html",
+    linkEn: "#event-manager.html"
+  }
+],
+                'Security Services': [
+  {
+    title: "Security Guard",
+    sub: "Private Security",
+    tag: "Career",
+    img: "private-security-guard.png",
+    linkHi: "#private-security-guard.html",
+    linkEn: "#private-security-guard.html"
+  },
+  {
+    title: "CCTV Operator",
+    sub: "Surveillance",
+    tag: "Career",
+    img: "cctv-operator.png",
+    linkHi: "#cctv-operator.html",
+    linkEn: "#cctv-operator.html"
+  },
+  {
+    title: "Security Supervisor",
+    sub: "Security Ops",
+    tag: "Career",
+    img: "security-supervisor.png",
+    linkHi: "#security-supervisor.html",
+    linkEn: "#security-supervisor.html"
+  },
+  {
+    title: "Bouncer",
+    sub: "Events & Clubs",
+    tag: "Career",
+    img: "bouncer.png",
+    linkHi: "#bouncer.html",
+    linkEn: "#bouncer.html"
+  }
+],
+                'Driving/Delivery/Field': [
+  {
+    title: "Cab Driver",
+    sub: "Ola / Uber",
+    tag: "Career",
+    img: "cab-driver.png",
+    linkHi: "#cab-driver.html",
+    linkEn: "#cab-driver.html"
+  },
+  {
+    title: "Delivery Executive",
+    sub: "Zomato / Swiggy",
+    tag: "Career",
+    img: "delivery-executive.png",
+    linkHi: "#delivery-executive.html",
+    linkEn: "#delivery-executive.html"
+  },
+  {
+    title: "Field Sales Exec",
+    sub: "Field Sales",
+    tag: "Career",
+    img: "field-sales-executive.png",
+    linkHi: "#field-sales-executive.html",
+    linkEn: "#field-sales-executive.html"
+  },
+  {
+    title: "Service Technician",
+    sub: "AC / Fridge Repair",
+    tag: "Career",
+    img: "service-technician.png",
+    linkHi: "#service-technician.html",
+    linkEn: "#service-technician.html"
+  }
+]
+            },
+
+
+
+
+
+
+            trending: {
+                'New Recruitment': [
+  { title:"IBPS Clerk", sub:"Clerk IX · 2026", tag:"Banking", img:"ibps.png", linkHi: "#https://www.ibps.in/clerk2026",
+    linkEn: "#https://www.ibps.in/clerk2026" },
+  { title:"HAL Apprentice", sub:"Trade · 2025", tag:"PSU", img:"upsc.png", linkHi: "#https://hal-india.co.in/trade-apprentice",
+    linkEn: "#https://hal-india.co.in/trade-apprentice" },
+  { title:"AFCAT", sub:"IAF · 1/2026", tag:"Defence", img:"iaf.png", linkHi: "#https://afcat.cdac.in/afcat",
+    linkEn: "#https://afcat.cdac.in/afcat" },
+  { title:"SBI PO", sub:"Probationary Officer", tag:"Banking", img:"ibps.png", linkHi: "#https://sbi.co.in/careers",
+    linkEn: "#https://sbi.co.in/careers" },
+  { title:"HSSC Group D", sub:"Haryana", tag:"State Job", img:"upsc.png", linkHi: "#https://www.hssc.gov.in/group-d",
+    linkEn: "#https://www.hssc.gov.in/group-d" },
+  { title:"Navy Tradesman", sub:"Mate · 2026", tag:"Defence", img:"inavy.png", linkHi: "#https://joinindiannavy.gov.in/tradesman",
+    linkEn: "#https://joinindiannavy.gov.in/tradesman" },
+  { title:"HDFC RM", sub:"Relationship Manager", tag:"Private Bank", img:"ibps.png", linkHi: "#https://www.hdfcbank.com/careers",
+    linkEn: "#https://www.hdfcbank.com/careers" },
+  { title:"HAL Design Trainee", sub:"Engineer", tag:"PSU", img:"upsc.png", linkHi: "#https://hal-india.co.in/design-trainee",
+    linkEn: "#https://hal-india.co.in/design-trainee" },
+  { title:"Union Bank IT", sub:"IT Officer", tag:"Banking", img:"ibps.png", linkHi: "#https://www.unionbankofindia.co.in/english/Careers.aspx",
+    linkEn: "#https://www.unionbankofindia.co.in/english/Careers.aspx" },
+  { title:"AAI Jr Assistant", sub:"Fire Service", tag:"Aviation", img:"upsc.png", linkHi: "#https://www.aai.aero/junior-assistant-fs",
+    linkEn: "#https://www.aai.aero/junior-assistant-fs" },
+
+  { title:"NCC Entry", sub:"SSC-NCC", tag:"Army", img:"ia.png", linkHi: "#ttps://joinindianarmy.nic.in/ssc-ncc",
+    linkEn: "#ttps://joinindianarmy.nic.in/ssc-ncc" },
+  { title:"SAIL MT", sub:"Technical", tag:"PSU", img:"upsc.png", linkHi: "#https://www.sailcareers.com/management-trainee",
+    linkEn: "#https://www.sailcareers.com/management-trainee" },
+  { title:"PNB SO", sub:"Specialist Officer", tag:"Banking", img:"ibps.png", linkHi: "#https://www.pnbindia.in/recruitment.html",
+    linkEn: "#https://www.pnbindia.in/recruitment.html" },
+  { title:"IOCL JEA", sub:"Engineering Asst", tag:"PSU", img:"upsc.png", linkHi: "#https://iocl.com/junior-engineering-assistant",
+    linkEn: "#https://iocl.com/junior-engineering-assistant" },
+  { title:"RBI Assistant", sub:"Clerical", tag:"Banking", img:"nabard.png", linkHi: "#https://www.rbi.org.in/careers",
+    linkEn: "#https://www.rbi.org.in/careers" },
+  { title:"SSC CHSL", sub:"10+2 Level", tag:"SSC", img:"ssc.png", linkHi: "#https://ssc.nic.in/chsl/2026",
+    linkEn: "#https://ssc.nic.in/chsl/2026" },
+  { title:"CRPF HC", sub:"Head Constable", tag:"Defence", img:"upsc.png", linkHi: "#https://crpf.gov.in/head-constable",
+    linkEn: "#https://crpf.gov.in/head-constable" },
+  { title:"UP Police SI", sub:"Sub-Inspector", tag:"Police", img:"ssc.png", linkHi: "#https://uppbpb.gov.in/si-recruitment",
+    linkEn: "#https://uppbpb.gov.in/si-recruitment" },
+  { title:"AIIMS Nurse", sub:"Staff Nurse", tag:"Medical", img:"upsc.png", linkHi: "#https://aiimsexams.ac.in/nursingofficer",
+    linkEn: "#https://aiimsexams.ac.in/nursingofficer" },
+  { title:"GAIL ET", sub:"Executive Trainee", tag:"PSU", img:"upsc.png", linkHi: "#https://gailonline.com/executive-trainee",
+    linkEn: "#https://gailonline.com/executive-trainee" },
+
+  { title:"BPSC 69th", sub:"CCE", tag:"State PSC", img:"upsc.png", linkHi: "#https://bpsc.bih.nic.in/69th-cce",
+    linkEn: "#https://bpsc.bih.nic.in/69th-cce" },
+  { title:"India Post GDS", sub:"Postal Job", tag:"Postal", img:"indiapost.png", linkHi: "#https://indiapostgdsonline.gov.in/gdscycle",
+    linkEn: "#https://indiapostgdsonline.gov.in/gdscycle" },
+  { title:"ONGC Apprentice", sub:"ITI/Diploma", tag:"PSU", img:"upsc.png", linkHi: "#https://www.ongcindia.com/apprentice",
+    linkEn: "#https://www.ongcindia.com/apprentice" },
+  { title:"Coast Guard Navik", sub:"GD", tag:"Defence", img:"upsc.png", linkHi: "#https://joinindiancoastguard.gov.in/navik-gd",
+    linkEn: "#https://joinindiancoastguard.gov.in/navik-gd" },
+  { title:"Agniveer Army", sub:"General Entry", tag:"Defence", img:"ia.png", linkHi: "#https://joinindianarmy.nic.in/agniveer",
+    linkEn: "#https://joinindianarmy.nic.in/agniveer" },
+  { title:"DSSSB PGT", sub:"Teacher", tag:"Teaching", img:"ssc.png", linkHi: "#https://dsssb.delhi.gov.in/pgt-recruitment",
+    linkEn: "#https://dsssb.delhi.gov.in/pgt-recruitment" },
+  { title:"Indian Bank Guard", sub:"Security", tag:"Banking", img:"ibps.png", linkHi: "#https://www.indianbank.in/career",
+    linkEn: "#https://www.indianbank.in/career" },
+  { title:"Coal India MT", sub:"Management Trainee", tag:"PSU", img:"upsc.png", linkHi: "#https://www.coalindia.in/management-trainee",
+    linkEn: "#https://www.coalindia.in/management-trainee" },
+  { title:"KVS TGT/PGT", sub:"Teacher", tag:"Teaching", img:"kvsnvs.png", linkHi: "#https://kvsangathan.nic.in/recruitment",
+    linkEn: "#https://kvsangathan.nic.in/recruitment" },
+  { title:"Punjab Patwari", sub:"Revenue", tag:"State Job", img:"ssc.png", linkHi: "#https://sssb.punjab.gov.in/patwari",
+    linkEn: "#https://sssb.punjab.gov.in/patwari" },
+
+  { title:"MPSC", sub:"State Service", tag:"State PSC", img:"upsc.png", linkHi: "#https://mpsc.gov.in/state-services",
+    linkEn: "#https://mpsc.gov.in/state-services" },
+  { title:"BSF SI", sub:"Technical", tag:"Defence", img:"ai.png", linkHi: "#https://rectt.bsf.gov.in/si-technical",
+    linkEn: "#https://rectt.bsf.gov.in/si-technical" },
+  { title:"NTPC ET", sub:"Executive Trainee", tag:"PSU", img:"rrb.png", linkHi: "#https://www.ntpc.co.in/careers",
+    linkEn: "#https://www.ntpc.co.in/careers" },
+  { title:"Bank of Baroda", sub:"Wealth Mgmt", tag:"Banking", img:"ibps.png", linkHi: "#https://www.bankofbaroda.in/careers",
+    linkEn: "#https://www.bankofbaroda.in/careers" },
+  { title:"BHEL ET", sub:"Engineer Trainee", tag:"PSU", img:"upsc.png", linkHi: "#https://careers.bhel.in/engineer-trainee",
+    linkEn: "#https://careers.bhel.in/engineer-trainee" },
+  { title:"Railway NTPC", sub:"Graduate/12th", tag:"Railway", img:"rrb.png", linkHi: "#https://www.rrbcdg.gov.in/ntpc/2026",
+    linkEn: "#https://www.rrbcdg.gov.in/ntpc/2026" },
+  { title:"RPSF Constable", sub:"Railway Police", tag:"Defence", img:"upsc.png", linkHi: "#https://www.indianrailways.gov.in/rpsf",
+    linkEn: "#https://www.indianrailways.gov.in/rpsf" },
+  { title:"BSSC Inter", sub:"12th Level", tag:"State Job", img:"upsc.png", linkHi: "#https://bssc.bih.nic.in/inter-level",
+    linkEn: "#https://bssc.bih.nic.in/inter-level" },
+  { title:"Railway Group D", sub:"Level-1", tag:"Railway", img:"rrb.png", linkHi: "#https://www.rrbcdg.gov.in/group-d",
+    linkEn: "#https://www.rrbcdg.gov.in/group-d" },
+
+  { title:"DRDO MTS", sub:"Multi Tasking", tag:"Defence", img:"drdo.png", linkHi: "#https://drdo.gov.in/mts-recruitment",
+    linkEn: "#https://drdo.gov.in/mts-recruitment" },
+  { title:"RAS/RTS", sub:"Rajasthan PSC", tag:"State PSC", img:"upsc.png", linkHi: "#https://rpsc.rajasthan.gov.in/ras-rts",
+    linkEn: "#https://rpsc.rajasthan.gov.in/ras-rts" },
+  { title:"SSC GD", sub:"Constable", tag:"SSC", img:"ssc.png", linkHi: "#https://ssc.nic.in/gdconstable/2026",
+    linkEn: "#https://ssc.nic.in/gdconstable/2026" },
+  { title:"ESIC SSO", sub:"Officer", tag:"Insurance", img:"esic.png", linkHi: "#https://www.esic.gov.in/recruitment",
+    linkEn: "#https://www.esic.gov.in/recruitment" },
+  { title:"UPSC CSE", sub:"Prelims 2026", tag:"UPSC", img:"upsc.png", linkHi: "#https://www.upsc.gov.in/exams/civil-services",
+    linkEn: "#https://www.upsc.gov.in/exams/civil-services" },
+  { title:"UPPSC PCS", sub:"State Service", tag:"State PSC", img:"uppsc.png", linkHi: "#https://uppsc.up.nic.in/pcs2026",
+    linkEn: "#https://uppsc.up.nic.in/pcs2026" },
+  { title:"ISRO SC", sub:"Scientist/Engineer", tag:"Space", img:"isro.png", linkHi: "#https://www.isro.gov.in/scientist-engineer",
+    linkEn: "#https://www.isro.gov.in/scientist-engineer" },
+  { title:"CBI SI", sub:"Sub-Inspector", tag:"Investigation", img:"upsc.png", linkHi: "#https://cbi.gov.in/recruitment",
+    linkEn: "#https://cbi.gov.in/recruitment" },
+  { title:"MPPSC", sub:"State Service", tag:"State PSC", img:"upsc.png", linkHi: "#https://mppsc.mp.gov.in/state-services",
+    linkEn: "#https://mppsc.mp.gov.in/state-services" },
+  { title:"Maha Police", sub:"Constable", tag:"Police", img:"upsc.png", linkHi: "#https://mahapolice.gov.in/constable",
+    linkEn: "#https://mahapolice.gov.in/constable" }
+],
+
+                'Admit Cards': [
+                     { title: "SSC CGL Mains", sub: "Download Now", tag: "Urgent", img: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=600", linkHi: "#",
+    linkEn: "#" }
+                ]
+            },
+
+
+
+
+
+
+            news: {
+                'Education': [
+                    { title: "NEP 2026 Update", sub: "New Guidelines", tag: "Policy", img: "#https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600", linkHi: "#",
+    linkEn: "#" },
+                    { title: "CBSE Datesheet", sub: "Class 10 & 12", tag: "Board", img: "#https://images.unsplash.com/photo-1427504494785-3a9ca2801551?q=80&w=600", linkHi: "#",
+    linkEn: "#" }
+                ],
+                'Tech': [
+                    { title: "AI Jobs Rise", sub: "Market Report", tag: "Report", img: "#https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=600", linkHi: "#",
+    linkEn: "#" }
+                ]
+            },
+
+
+
+
+
+
+             ai: {
+                'ALL AI TOOLS': [
+  
+  {
+    title: "ChatGPT",
+    sub: "AI Chat Assistant",
+    tag: "AI",
+    img: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",
+    linkHi: "#https://chat.openai.com/",
+    linkEn: "#https://chat.openai.com/"
+  },
+  {
+    title: "Claude 3",
+    sub: "Anthropic AI",
+    tag: "AI",
+    img: "https://avatars.githubusercontent.com/u/49796472?s=200&v=4",
+    linkHi: "#https://claude.ai/",
+    linkEn: "#https://claude.ai/"
+  },
+  {
+    title: "Gemini",
+    sub: "Google AI",
+    tag: "AI",
+    img: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Google_Gemini_logo.svg",
+    linkHi: "#https://gemini.google.com/",
+    linkEn: "#https://gemini.google.com/"
+  },
+  {
+    title: "Microsoft Copilot",
+    sub: "AI Assistant",
+    tag: "AI",
+    img: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Microsoft_Copilot_Logo.svg",
+    linkHi: "#https://copilot.microsoft.com/",
+    linkEn: "#https://copilot.microsoft.com/"
+  },
+  {
+    title: "Midjourney",
+    sub: "AI Image Generator",
+    tag: "AI",
+    img: "https://seeklogo.com/images/M/midjourney-logo-0C0F3E51C3-seeklogo.com.png",
+    linkHi: "#https://www.midjourney.com/",
+    linkEn: "#https://www.midjourney.com/"
+  },
+  {
+    title: "DALL·E",
+    sub: "AI Image Creator",
+    tag: "AI",
+    img: "https://seeklogo.com/images/D/dall-e-logo-7C2C5E6E3C-seeklogo.com.png",
+    linkHi: "#https://openai.com/dall-e",
+    linkEn: "#https://openai.com/dall-e"
+  },
+  {
+    title: "Leonardo AI",
+    sub: "AI Art Tool",
+    tag: "AI",
+    img: "https://leonardo.ai/favicon.ico",
+    linkHi: "#https://leonardo.ai/",
+    linkEn: "#https://leonardo.ai/"
+  },
+  {
+    title: "Runway",
+    sub: "AI Video Generator",
+    tag: "AI",
+    img: "https://seeklogo.com/images/R/runway-logo-52C5E1A9F4-seeklogo.com.png",
+    linkHi: "#https://runwayml.com/",
+    linkEn: "#https://runwayml.com/"
+  },
+  {
+    title: "Pika",
+    sub: "AI Video Tool",
+    tag: "AI",
+    img: "https://pika.art/favicon.ico",
+    linkHi: "#https://pika.art/",
+    linkEn: "#https://pika.art/"
+  },
+  {
+    title: "ElevenLabs",
+    sub: "AI Voice Generator",
+    tag: "AI",
+    img: "https://seeklogo.com/images/E/elevenlabs-logo-5A92F0C7C3-seeklogo.com.png",
+    linkHi: "#https://elevenlabs.io/",
+    linkEn: "#https://elevenlabs.io/"
+  },
+  {
+    title: "Perplexity AI",
+    sub: "AI Search Engine",
+    tag: "AI",
+    img: "https://seeklogo.com/images/P/perplexity-ai-logo-3B2F8E0E5B-seeklogo.com.png",
+    linkHi: "#https://www.perplexity.ai/",
+    linkEn: "#https://www.perplexity.ai/"
+  },
+  {
+    title: "Notion AI",
+    sub: "AI Productivity Tool",
+    tag: "AI",
+    img: "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png",
+    linkHi: "#https://www.notion.so/product/ai",
+    linkEn: "#https://www.notion.so/product/ai"
+  },
+  {
+    title: "DeepSeek",
+    sub: "AI Reasoning Model",
+    tag: "AI",
+    img: "https://avatars.githubusercontent.com/u/166817244?s=200&v=4",
+    linkHi: "#https://www.deepseek.com/",
+    linkEn: "#https://www.deepseek.com/"
+  }
+                ]
+            }
+        };
+
+        const categoryBackgrounds = {
+            govt: 'skilligovtbck.webp',
+            private: 'skillipvtbck.webp',
+            ai: 'skilliaibck.webp',
+            trending: 'skillirequirebck.webp',
+            news: 'skillinewsbck.webp'
+        };
+
+        // ----- GLOBAL HANDLER: GOVT shows popup, OTHERS direct navigation -----
+        function handleCardClick(catName, title, img, linkHi, linkEn) {
+            if (catName === 'govt') {
+                // Only government category shows language selection popup
+                showLangPopup(title, img, linkHi, linkEn);
+            } else {
+                // All other categories: direct link (prefer English, fallback Hindi)
+                const targetUrl = linkEn && linkEn !== '#' ? linkEn : (linkHi || '#');
+                if (targetUrl && targetUrl !== '#') {
+                    window.location.href = targetUrl;
+                }
+            }
+        }
+
+        // Original popup function (image param kept but not used)
+        function showLangPopup(title, img, linkHi, linkEn) {
+            document.getElementById('pop-title').innerText = title;
+            // img is ignored as per design (no image in popup)
+            document.getElementById('link-hi').href = linkHi;
+            document.getElementById('link-en').href = linkEn;
+            document.getElementById('lang-popup').classList.add('active');
+        }
+
+        function closePopup() {
+            document.getElementById('lang-popup').classList.remove('active');
+        }
+
+        // Render cards with conditional navigation
+        function renderCards(catName, subKey, btnElement) {
+            if(btnElement) {
+                document.querySelectorAll('.sub-item').forEach(el => el.classList.remove('active'));
+                btnElement.classList.add('active');
+            }
+
+            const grid = document.getElementById('cards-grid');
+            const items = dataBase[catName]?.[subKey] || [];
+
+            grid.innerHTML = items.map((item, i) => {
+                const t = item.title.replace(/'/g, "\\'");
+                const img = item.img;
+                const lh = item.linkHi;
+                const le = item.linkEn;
+                // IMPORTANT: Pass catName, title, img, linkHi, linkEn to handler
+                return `
+                <div class="card-11d" style="animation: fadeInUp 0.4s ease backwards ${i * 0.05}s" 
+                     onclick="handleCardClick('${catName}', '${t}', '${img}', '${lh}', '${le}')">
+                    <div class="card-img-box">
+                        <img src="${img}" onerror="this.src='https://via.placeholder.com/150/000000/F4C430?text=SKILLI'">
+                        <span class="card-tag">${item.tag}</span>
+                    </div>
+                    <div class="card-content">
+                        <div>
+                            <div class="card-title">${item.title}</div>
+                            <div class="card-sub">${item.sub}</div>
+                        </div>
+                        <div class="card-action">VIEW DETAILS <i class="fas fa-chevron-right"></i></div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+        }
+
+        // Open category and populate subnav + cards
+        function openCategory(catName, btnElement) {
+            if (btnElement) {
+                document.querySelectorAll('.dock-item').forEach(el => el.classList.remove('active'));
+                btnElement.classList.add('active');
+            }
+
+            const modalBox = document.getElementById('dynamic-modal-box');
+            const bgImage = categoryBackgrounds[catName] || 'skilligovtbck.png';
+            modalBox.style.backgroundImage = `url('${bgImage}')`;
+
+            // Updated titles: Trending -> LATEST REQUIREMENT, News -> TEST SERIES
+            const titles = { 
+                govt: "GOVT EXAMS", 
+                private: "PVT JOBS", 
+                ai: "AI TOOLS", 
+                trending: "LATEST REQUIREMENT", 
+                news: "TEST SERIES" 
+            };
+            document.getElementById('cat-title').innerText = titles[catName] || "GOVT EXAMS";
+
+            const subNav = document.getElementById('sub-nav-container');
+            const subKeys = Object.keys(dataBase[catName] || {});
+            
+            if(subKeys.length > 0) {
+                subNav.innerHTML = subKeys.map((key, idx) => 
+                    `<div class="sub-item ${idx===0?'active':''}" onclick="renderCards('${catName}', '${key}', this)">${key}</div>`
+                ).join('');
+                renderCards(catName, subKeys[0]);
+            } else {
+                subNav.innerHTML = '';
+                document.getElementById('cards-grid').innerHTML = '<div style="color:#fff; text-align:center; width:200%; padding-top:40px;">No Data Available</div>';
+            }
+        }
+
+        // Popup close on background click
+        document.getElementById('lang-popup').addEventListener('click', function(e) {
+            if(e.target === this) closePopup();
+        });
+
+       // =============================================
+// FORCE PWA MODE - All links open inside app
+// =============================================
+
+// Yeh function ensure karta hai ki saare internal links app ke andar khulein
+document.addEventListener('click', function(e) {
+  // Check karo ki click link par hua ya nahi
+  let clickedLink = e.target.closest('a');
+  
+  if (clickedLink && clickedLink.href) {
+    const linkUrl = new URL(clickedLink.href);
+    const currentUrl = new URL(window.location.href);
+    
+    // Sirf internal links ko handle karo (same domain)
+    if (linkUrl.origin === currentUrl.origin) {
+      // Prevent default browser navigation
+      e.preventDefault();
+      
+      // App ke andar navigate karo
+      window.location.href = clickedLink.href;
+      
+      console.log('PWA Navigation:', clickedLink.href);
+    }
+    // External links browser mein khulenge (yeh theek hai)
+  }
+});
+
+// Extra security: Ensure har link mein target="_self" set ho
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a').forEach(function(link) {
+    // Agar link internal hai toh target="_self" set kar do
+    if (link.href && link.href.startsWith(window.location.origin)) {
+      if (!link.hasAttribute('target')) {
+        link.setAttribute('target', '_self');
+      }
+    }
+  });
+});
+
+       // =============================================
+// SERVICE WORKER REGISTRATION
+// =============================================
+
+if ('serviceWorker' in navigator) {
+    console.log('🔍 Checking service worker support...');
+    
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/pwabuilder-sw.js')
+            .then(function(registration) {
+                console.log('✅ Service Worker registered successfully!');
+                console.log('📍 Scope:', registration.scope);
+                
+                // Check if service worker is active
+                if (registration.active) {
+                    console.log('🎯 Service Worker is ACTIVE');
+                }
+            })
+            .catch(function(error) {
+                console.log('❌ Service Worker registration failed:', error);
+            });
+    });
+} else {
+    console.log('⚠️ Service Worker not supported in this browser');
+}
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const defaultBtn = document.getElementById('nav-govt');
+            if(defaultBtn) {
+                openCategory('govt', defaultBtn);
+            }
+        });
+    </script>
+   <script src="social-bar.js"></script>
+    <script src="golden-float-form.js"></script>
+</body>
+</html>
