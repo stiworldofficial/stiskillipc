@@ -1,4 +1,4 @@
-{
+one{
   "id": "/?app=stiskilli",
   "background_color": "#ffffff",
   "dir": "ltr",
@@ -112,5 +112,5 @@
   ],
   "prefer_related_applications": false,
 
-  "iarc_rating_id": "e"
+  "iarc_rating_id": "everyone"
 }
