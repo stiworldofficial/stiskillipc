@@ -3,6 +3,7 @@
   "background_color": "#ffffff",
   "dir": "ltr",
   "display": "standalone",
+  "display_override": ["standalone", "fullscreen"],
   "name": "STI Skilli - Exam Preparation Platform",
   "short_name": "STI Skilli",
   "description": "STI Skilli is an all-in-one exam preparation platform for India, offering latest government and private job updates, exam notifications, previous year questions (PYQs), mock tests, syllabus, results, and career guidance with a fast and seamless experience.",
@@ -10,6 +11,7 @@
   "scope": "/",
   "start_url": "/",
   "theme_color": "#ff6600",
+  "lang": "en",
 
   "icons": [
     {
@@ -61,9 +63,39 @@
       "type": "image/png",
       "form_factor": "wide",
       "label": "User dashboard"
+    },
+
+    {
+      "src": "/mobile1.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile Home"
+    },
+    {
+      "src": "/mobile2.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile Features"
     }
   ],
 
   "categories": ["education", "productivity"],
-  "prefer_related_applications": false
+
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "com.ai.skillaura"
+    }
+  ],
+  "prefer_related_applications": false,
+
+  "iarc_rating_id": "e",
+
+  "scope_extensions": [
+    {
+      "origin": "https://stiworldofficial.com"
+    }
+  ]
 }
