@@ -1,65 +1,121 @@
 {
-  "background_color": "#ffffff",
-  "dir": "ltr",
-  "display": "standalone",
-  "name": "stiskillipc.stiworldofficial",
-  "orientation": "any",
-  "scope": "/",
-  "short_name": "stiskillipc.stiworldofficial",
+  "name": "STI Skilli - Exam Preparation Platform",
+  "short_name": "STI Skilli",
+  "description": "Prepare for competitive exams with PYQs, mock tests, and study materials on STI Skilli.",
+  
   "start_url": "/",
-  "theme_color": "#ffffff"
-}
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  
+  "background_color": "#ffffff",
+  "theme_color": "#ff6600",
+  
+  "lang": "en",
+  "dir": "ltr",
+  
   "icons": [
     {
-      "src": "https://pc.stiworldofficial.com/icon-192.png",
+      "src": "/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "https://pc.stiworldofficial.com/icon-512.png",
+      "src": "/icon-384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
   ],
+
   "screenshots": [
     {
-      "src": "https://pc.stiworldofficial.com/oneo.png",
+      "src": "/oneo.png",
       "sizes": "1366x768",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Home page of Stiskilli"
+      "label": "Home Page"
     },
     {
-      "src": "https://pc.stiworldofficial.com/twoo.png",
+      "src": "/twoo.png",
       "sizes": "1366x768",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Courses available on Stiskilli"
+      "label": "Courses Section"
     },
     {
-      "src": "https://pc.stiworldofficial.com/threeo.png",
+      "src": "/threeo.png",
       "sizes": "1366x768",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Exam preparation materials"
+      "label": "Study Materials"
     },
     {
-      "src": "https://pc.stiworldofficial.com/fouro.png",
+      "src": "/fouro.png",
       "sizes": "1366x768",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Practice tests section"
-    },
-    {
-      "src": "https://pc.stiworldofficial.com/fiveo.png",
-      "sizes": "1366x768",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "User dashboard"
+      "label": "Practice Tests"
     }
   ],
+
   "categories": ["education", "productivity"],
+  
+  "shortcuts": [
+    {
+      "name": "Mock Tests",
+      "short_name": "Tests",
+      "url": "/mock-tests.html",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "PYQs",
+      "short_name": "PYQs",
+      "url": "/pyq.html",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+
   "prefer_related_applications": false
 }
