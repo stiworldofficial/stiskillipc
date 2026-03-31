@@ -112,11 +112,5 @@
   ],
   "prefer_related_applications": false,
 
-  "iarc_rating_id": "e",
-
-  "scope_extensions": [
-    {
-      "origin": "https://stiworldofficial.com"
-    }
-  ]
+  "iarc_rating_id": "e"
 }
