@@ -1,55 +1,20 @@
 {
-  "name": "STI Skilli - Exam Preparation Platform",
-  "short_name": "STI Skilli",
-  "description": "Prepare for competitive exams with PYQs, mock tests, and study materials on STI Skilli.",
-  
-  "start_url": "/",
-  "scope": "/",
-  "display": "standalone",
-  "orientation": "portrait",
-  
   "background_color": "#ffffff",
-  "theme_color": "#ff6600",
-  
-  "lang": "en",
   "dir": "ltr",
-  
+  "display": "standalone",
+  "name": "stiskillipc.stiworldofficial",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "stiskillipc.stiworldofficial",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+
   "icons": [
-    {
-      "src": "/icon-72.png",
-      "sizes": "72x72",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon-96.png",
-      "sizes": "96x96",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon-128.png",
-      "sizes": "128x128",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon-144.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon-152.png",
-      "sizes": "152x152",
-      "type": "image/png"
-    },
     {
       "src": "/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
-    },
-    {
-      "src": "/icon-384.png",
-      "sizes": "384x384",
-      "type": "image/png"
     },
     {
       "src": "/icon-512.png",
@@ -65,57 +30,38 @@
       "sizes": "1366x768",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Home Page"
+      "label": "Home page of Stiskilli"
     },
     {
       "src": "/twoo.png",
       "sizes": "1366x768",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Courses Section"
+      "label": "Courses available on Stiskilli"
     },
     {
       "src": "/threeo.png",
       "sizes": "1366x768",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Study Materials"
+      "label": "Exam preparation materials"
     },
     {
       "src": "/fouro.png",
       "sizes": "1366x768",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Practice Tests"
+      "label": "Practice tests section"
+    },
+    {
+      "src": "/fiveo.png",
+      "sizes": "1366x768",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "User dashboard"
     }
   ],
 
   "categories": ["education", "productivity"],
-  
-  "shortcuts": [
-    {
-      "name": "Mock Tests",
-      "short_name": "Tests",
-      "url": "/mock-tests.html",
-      "icons": [
-        {
-          "src": "/icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
-    },
-    {
-      "name": "PYQs",
-      "short_name": "PYQs",
-      "url": "/pyq.html",
-      "icons": [
-        {
-          "src": "/icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
-    }
-  ],
-
   "prefer_related_applications": false
 }
