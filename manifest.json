@@ -66,18 +66,39 @@
     },
 
     {
-      "src": "/mobile1.png",
-      "sizes": "720x1280",
+      "src": "/mobileone.png",
+      "sizes": "341x512",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "Mobile Home"
+      "label": "Mobile Home Screen"
     },
     {
-      "src": "/mobile2.png",
-      "sizes": "720x1280",
+      "src": "/mobiletwo.png",
+      "sizes": "341x512",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "Mobile Features"
+      "label": "Mobile Courses"
+    },
+    {
+      "src": "/mobilethree.png",
+      "sizes": "341x512",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile Exams Section"
+    },
+    {
+      "src": "/mobilefour.png",
+      "sizes": "341x512",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile Practice Tests"
+    },
+    {
+      "src": "/mobilefive.png",
+      "sizes": "341x512",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile Dashboard"
     }
   ],
 
