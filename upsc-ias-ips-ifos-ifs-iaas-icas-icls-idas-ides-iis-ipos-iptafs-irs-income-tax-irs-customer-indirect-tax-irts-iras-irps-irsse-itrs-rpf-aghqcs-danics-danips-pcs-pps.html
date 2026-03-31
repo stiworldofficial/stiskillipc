@@ -1,0 +1,2590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>StiSkilli App – UPSC Civil Services (IAS, IPS, IFS) & 24 Group A/B Services</title>
+<link rel="canonical" href="https://play.google.com/store/apps/details?id=com.ai.skillaura">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<meta name="description" content="StiSkilli Android App tracks all 24 UPSC Civil Services including IAS, IPS, IFS, IRS & Railway Services. Get latest Exam Notifications, Admit Cards, Results, Syllabus and Answer Keys for UPSC CSE Group A & B Exams.">
+<meta name="keywords" content="upsc, civil services exam, cse, ias, ips, ifs, indian administrative service, indian police service, indian foreign service, irs, indian revenue service, ia&as, idas,
+    ides, iis, iofs, ipos, indian postal service, danics, danips, armed forces hq civil service, pondicherry civil service, upsc notification, upsc syllabus, upsc result, group a services, group b services">
+<meta name="application-name" content="StiSkilli">
+<meta name="theme-color" content="#F4C430">
+<meta name="mobile-web-app-capable" content="yes">
+<meta property="og:type" content="website">
+<meta property="og:title" content="StiSkilli App – UPSC Civil Services (IAS, IPS, IFS) & All 24 Services">
+<meta property="og:description" content="Track all 24 UPSC Civil Services (IAS, IPS, IFS, IRS). Get Exam Notifications, Admit Cards, Results and Syllabus in one app. Download StiSkilli now.">
+<meta property="og:url" content="https://play.google.com/store/apps/details?id=com.ai.skillaura">
+<meta property="og:image" content="https://play-lh.googleusercontent.com/your-app-icon.png">
+<meta property="og:site_name" content="StiSkilli">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="StiSkilli App – UPSC Civil Services">
+<meta name="twitter:description" content="Latest updates for IAS, IPS, IFS, IRS and all 24 UPSC Group A & B Services.">
+<meta name="twitter:image" content="https://play-lh.googleusercontent.com/your-app-icon.png">
+<link rel="alternate"
+href="android-app://com.ai.skillaura/https/play.google.com/store/apps/details?id=com.ai.skillaura">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "StiSkilli",
+  "operatingSystem": "Android",
+  "applicationCategory": "EducationApplication",
+  "url": "https://play.google.com/store/apps/details?id=com.ai.skillaura",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "INR"
+  }
+}
+</script>
+<link rel="me" href="https://www.facebook.com/stiworldofficial/">
+<link rel="me" href="https://www.instagram.com/stiworldofficial">
+<link rel="icon" type="image/png" href="https://play-lh.googleusercontent.com/your-app-icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- QUIZ DATA (External File) -->
+    <script src="currentaffairsquizdataenglish.js"></script>
+    
+    <!-- NEWS DATA (External File) -->
+    <script src="latestnewsdata.js"></script>
+    
+    <style>
+        /* --- MAIN APP THEME (Green/Neon) --- */
+        :root {
+            --primary: #39ff14;
+            --primary-dim: rgba(57, 255, 20, 0.4); 
+            --bg-dark: #020202;
+            --gold: #FFD700; 
+            --gold-dim: rgba(255, 215, 0, 0.3);
+            --header-offset: calc(15px + env(safe-area-inset-top));
+            --header-height: 70px; 
+            --footer-offset: calc(30px + env(safe-area-inset-bottom));
+            --footer-height: 75px; 
+            --text-light: #ffffff; 
+            --card-bg: #1A1C20;
+            --success: #10B981;
+            --error: #EF4444;
+            --info: #3B82F6;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            overflow: hidden; 
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* --- BACKGROUND --- */
+        #fixed-media-background {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -10; background-size: cover; background-position: center;
+            opacity: 0.5; 
+            background-image: url('https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?q=80&w=1374&auto=format&fit=crop');
+            filter: brightness(25%) hue-rotate(85deg) contrast(130%) saturate(160%);
+        }
+
+        /* --- HEADER --- */
+        .iphone-header {
+            position: fixed; top: var(--header-offset); left: 50%; transform: translateX(-50%);
+            width: 92%; max-width: 600px; height: var(--header-height);
+            background: rgba(5, 4, 1, 0.96); backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 215, 0, 0.25); border-radius: 24px;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 20px; z-index: 3000; box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+        }
+        .header-left img, .header-right img { 
+            width: 38px; height: 38px; border-radius: 10px; 
+            border: 2px solid var(--primary); box-shadow: 0 4px 6px rgba(0,0,0,0.5); 
+            object-fit: cover;
+        }
+        .header-center { font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; font-weight: 800; color: #fff; letter-spacing: 2px; }
+        .header-center span { color: var(--gold); }
+
+        /* --- DOCK NAVIGATION --- */
+        .iphone-dock-wrapper { 
+            position: fixed; bottom: var(--footer-offset); 
+            left: 0; width: 100%; display: flex; justify-content: center; z-index: 3000; padding: 0 15px; 
+        }
+        .iphone-dock { 
+            width: 100%; max-width: 500px; height: var(--footer-height); 
+            background: rgba(5, 4, 1, 0.95); backdrop-filter: blur(40px); 
+            border-radius: 35px; border: 1px solid rgba(255, 215, 0, 0.15); 
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.9); padding: 0 12px; 
+        }
+        
+        .nav-item { 
+            flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; 
+            color: #666; cursor: pointer; height: 100%; transition: all 0.3s ease;
+            position: relative;
+        }
+        .nav-item .icon-box {
+            width: 42px; height: 42px; display: flex; align-items: center; justify-content: center;
+            border-radius: 14px; transition: all 0.3s; margin-bottom: 3px;
+        }
+        .nav-item i { font-size: 1.25rem; transition: 0.3s; }
+        .nav-item span { font-size: 0.55rem; font-weight: 700; text-transform: uppercase; opacity: 0.7; }
+
+        /* Locked State Visuals */
+        .nav-item.locked { opacity: 0.3; pointer-events: none; filter: grayscale(100%); }
+        
+        /* Active State */
+        .nav-item.active { color: var(--gold); opacity: 1; pointer-events: auto; filter: none; }
+        .nav-item.active .icon-box {
+            background: rgba(255, 215, 0, 0.15); border: 1px solid var(--gold); 
+            transform: translateY(-5px); 
+        }
+        
+        /* UPSC Center Tab Specific Active State (Legacy override if needed) */
+        .nav-item.upsc-tab.active { color: var(--gold); }
+        .nav-item.upsc-tab.active .icon-box {
+            background: rgba(255, 215, 0, 0.15); border: 1px solid var(--gold);
+            box-shadow: 0 0 15px var(--gold-dim);
+        }
+
+        /* --- MAIN CONTENT MODALS --- */
+        .modal-overlay { 
+            position: fixed; 
+            top: calc(var(--header-offset) + var(--header-height) + 12px);
+            bottom: calc(var(--footer-offset) + var(--footer-height) + 12px);
+            left: 0; right: 0; z-index: 2500; 
+            display: none; justify-content: center; padding: 0 12px; pointer-events: none;
+        }
+        .modal-overlay.active { display: flex !important; }
+        .modal-box { 
+            pointer-events: auto; background: rgba(10, 8, 2, 0.95); border: 1px solid rgba(255,215,0,0.3); 
+            border-radius: 32px; width: 100%; max-width: 600px; height: 100%; 
+            padding: 20px; box-shadow: 0 0 50px rgba(0,0,0,0.8); 
+            display: flex; flex-direction: column; overflow: hidden; position: relative;
+        }
+
+        /* For larger screens */
+        @media (min-width: 768px) {
+            .modal-box {
+                max-width: 90%;
+                width: auto;
+                min-width: 600px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .modal-box {
+                max-width: 80%;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .modal-box {
+                max-width: 70%;
+            }
+        }
+
+        /* Scrollable Content Area */
+        .scroll-content { flex-grow: 1; overflow-y: auto; padding-right: 5px; -webkit-overflow-scrolling: touch; }
+        .scroll-content::-webkit-scrollbar { width: 4px; }
+        .scroll-content::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+        /* --- UPSC/CARD STYLES (Gold Theme) --- */
+        .upsc-container { color: #f3f4f6; font-family: 'Inter', sans-serif; }
+        .upsc-heading { 
+            color: var(--gold); font-family: 'Rajdhani', sans-serif; font-weight: 700; 
+            border-bottom: 2px solid var(--gold); padding-bottom: 5px; margin-bottom: 15px; display: inline-block;
+            font-size: 1.5rem;
+        }
+        .upsc-card {
+            background: var(--card-bg); border: 1px solid #A37A00; border-radius: 16px;
+            padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+        .upsc-card:hover { transform: translateY(-2px); }
+        .upsc-btn {
+            background: linear-gradient(135deg, #FFC107, #B8860B); color: #000; padding: 10px 20px; border-radius: 12px;
+            font-weight: 700; font-size: 0.9rem; cursor: pointer; border: none;
+            transition: all 0.2s; display: inline-block; margin-top: 10px; width: 100%;
+            text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        .upsc-btn:active { transform: scale(0.98); }
+        
+        /* Secondary Button Style */
+        .upsc-btn-secondary {
+            background: transparent; border: 1px solid var(--gold); color: var(--gold);
+            margin-top: 8px;
+        }
+        .upsc-btn-secondary:hover { background: rgba(255, 215, 0, 0.1); }
+        
+        /* Flowchart */
+        .flowchart-flex { display: flex; flex-direction: column; align-items: center; gap: 15px; margin: 20px 0; }
+        @media(min-width: 600px) { .flowchart-flex { flex-direction: row; justify-content: center; } }
+        .flowchart-step {
+            width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--gold);
+            display: flex; align-items: center; justify-content: center; text-align: center;
+            font-weight: 700; color: var(--gold); background: #26292E; cursor: pointer;
+            transition: all 0.3s; flex-shrink: 0;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+        }
+        .flowchart-step:hover { background: var(--gold); color: #000; box-shadow: 0 0 20px var(--gold); transform: scale(1.05); }
+        .arrow-down { font-size: 2rem; color: var(--gold); }
+        @media(min-width: 600px) { .arrow-down { transform: rotate(-90deg); } }
+
+        /* Timeline */
+        .timeline-item { 
+            border-left: 3px solid var(--gold); padding-left: 20px; margin-left: 10px; 
+            padding-bottom: 20px; position: relative; 
+        }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -10px; top: 0; width: 17px; height: 17px;
+            background: var(--gold); border-radius: 50%; border: 3px solid #1A1C20;
+        }
+
+        /* --- NESTED SUB-MODALS (For UPSC details) --- */
+        .upsc-sub-modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px); z-index: 4000;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden; transition: 0.3s; padding: 20px;
+        }
+        .upsc-sub-modal.active { opacity: 1; visibility: visible; }
+        .sub-modal-content {
+            background: #1A1C20; border: 1px solid var(--gold); width: 100%; max-width: 600px;
+            max-height: 85vh; overflow-y: auto; border-radius: 20px; padding: 25px;
+            position: relative; color: #fff; box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        }
+        .close-sub-btn {
+            position: absolute; top: 15px; right: 15px; font-size: 1.5rem; color: var(--gold);
+            background: none; border: none; cursor: pointer; z-index: 10;
+        }
+
+        /* --- VACANT/PLACEHOLDER TABS --- */
+        .vacant-msg {
+            height: 100%; display: flex; align-items: center; justify-content: center;
+            flex-direction: column; color: #555; text-align: center;
+        }
+        .vacant-msg i { font-size: 3rem; margin-bottom: 10px; color: #333; }
+        
+        /* --- IMPROVED PROFILE STYLES --- */
+        .profile-setup-card {
+            background: linear-gradient(180deg, rgba(30,30,30,0.9) 0%, rgba(10,10,10,0.95) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 20px;
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+        .profile-form-container {
+            display: flex; flex-direction: column; gap: 15px;
+        }
+        .form-group { position: relative; }
+        .form-group label { 
+            display: block; color: var(--gold); margin-bottom: 6px; font-size: 0.85rem; 
+            font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .form-group input, .form-group select {
+            width: 100%; padding: 14px 16px; background: rgba(0,0,0,0.4); 
+            border: 1px solid #444; color: #fff;
+            border-radius: 12px; outline: none; transition: 0.3s; font-size: 1rem;
+        }
+        .form-group input:focus, .form-group select:focus { 
+            border-color: var(--gold); box-shadow: 0 0 10px rgba(255, 215, 0, 0.1); 
+            background: rgba(0,0,0,0.6);
+        }
+        
+        /* Profile View Design */
+        .profile-header-card {
+            background: linear-gradient(135deg, #1a1c20 0%, #000 100%);
+            border: 1px solid var(--gold);
+            border-radius: 24px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .profile-header-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 80px;
+            background: linear-gradient(90deg, #B8860B, #FFD700);
+            opacity: 0.2;
+        }
+        .profile-avatar-large {
+            width: 90px; height: 90px; border-radius: 50%;
+            background: #000; border: 3px solid var(--gold);
+            margin: 30px auto 15px; position: relative; z-index: 2;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--gold); font-size: 2.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        .profile-info-grid {
+            display: grid; grid-cols-1 gap: 15px; margin-top: 25px;
+        }
+        .info-row {
+            display: flex; align-items: center; background: rgba(255,255,255,0.03);
+            padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);
+        }
+        .info-icon {
+            width: 40px; height: 40px; border-radius: 10px; background: rgba(255, 215, 0, 0.1);
+            color: var(--gold); display: flex; align-items: center; justify-content: center;
+            margin-right: 15px; font-size: 1.1rem;
+        }
+        .info-text label { display: block; font-size: 0.7rem; color: #888; text-transform: uppercase; }
+        .info-text span { display: block; font-size: 0.95rem; color: #fff; font-weight: 600; }
+
+        /* --- NEWS CARDS --- */
+        .news-card {
+            display: block; text-decoration: none;
+            background: #222; border-left: 4px solid var(--gold);
+            padding: 15px; margin-bottom: 15px; border-radius: 0 8px 8px 0;
+            transition: 0.2s;
+        }
+        .news-card:hover { background: #2a2a2a; transform: translateX(5px); }
+        .news-title { color: #fff; font-weight: 700; margin-bottom: 5px; font-size: 1rem; }
+        .news-desc { color: #aaa; font-size: 0.8rem; line-height: 1.4; }
+        .news-date { color: var(--gold); font-size: 0.7rem; margin-top: 8px; display: block; }
+
+        /* List Styling */
+        .styled-list li { margin-bottom: 8px; display: flex; align-items: flex-start; }
+        .styled-list li span.icon { margin-right: 10px; color: var(--gold); min-width: 20px; }
+        
+        .service-group { margin-bottom: 20px; }
+        .service-group h4 { color: var(--gold); border-bottom: 1px solid rgba(255,215,0,0.3); padding-bottom: 5px; margin-bottom: 10px; font-weight: 700; font-size: 1.1rem; }
+        
+        .service-item { margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .service-item:last-child { border-bottom: none; }
+        .service-item strong { color: var(--gold); display: block; margin-bottom: 4px; font-size: 0.95rem; }
+        .service-item p { color: #ccc; font-size: 0.85rem; line-height: 1.4; }
+
+        /* Loader */
+        .loader {
+            border: 3px solid #f3f3f3; border-top: 3px solid var(--gold);
+            border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite;
+            display: inline-block; vertical-align: middle; margin-left: 10px;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* --- MODERN CARD STYLES FOR PYQ TAB --- */
+        .pyq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .pyq-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .pyq-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .pyq-card {
+            background: linear-gradient(135deg, rgba(26,28,32,0.9) 0%, rgba(40,42,46,0.9) 100%);
+            border: 1px solid rgba(255,215,0,0.2);
+            border-radius: 20px;
+            padding: 20px 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pyq-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: 0 10px 25px rgba(255,215,0,0.2);
+        }
+
+        .pyq-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), #B8860B);
+        }
+
+        .pyq-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,215,0,0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+
+        .pyq-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+
+        .pyq-count {
+            font-size: 0.75rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* --- FREE YOUTUBE COURSES CARD STYLES --- */
+        .yt-course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        @media (min-width: 640px) {
+            .yt-course-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 20px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .yt-course-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .yt-course-card {
+            background: linear-gradient(135deg, rgba(26,28,32,0.95) 0%, rgba(40,42,46,0.95) 100%);
+            border: 1.5px solid rgba(255,215,0,0.25);
+            border-radius: 22px;
+            padding: 22px 18px;
+            text-align: center;
+            transition: all 0.35s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .yt-course-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: 0 15px 35px rgba(255,215,0,0.25);
+        }
+
+        .yt-course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold), #B8860B, #FFC107);
+        }
+
+        .yt-course-card::after {
+            content: 'YOUTUBE';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #FF0000;
+            color: white;
+            font-size: 0.6rem;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+        }
+
+        .yt-course-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.8rem;
+            color: var(--gold);
+            border: 2px solid rgba(255,215,0,0.3);
+        }
+
+        .yt-course-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 8px;
+            line-height: 1.3;
+            min-height: 2.6em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .yt-course-desc {
+            font-size: 0.75rem;
+            color: #bbb;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .yt-course-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+            color: #888;
+            margin-top: 10px;
+        }
+
+        .yt-course-channel {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .yt-course-views {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* --- CURRENT AFFAIRS QUIZ STYLES --- */
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quiz-header {
+            background: linear-gradient(135deg, #1a1c20 0%, #000 100%);
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .quiz-stats {
+            display: flex;
+            gap: 20px;
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .quiz-progress {
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .quiz-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold), #B8860B);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        .question-card {
+            background: rgba(26,28,32,0.8);
+            border: 2px solid rgba(255,215,0,0.3);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .question-timer {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: #000;
+            border: 2px solid var(--gold);
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-weight: 700;
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+
+        .question-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #fff;
+            margin-bottom: 25px;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        @media (min-width: 640px) {
+            .options-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .option-btn {
+            background: rgba(255,255,255,0.05);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: left;
+            font-size: 0.95rem;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option-btn:hover:not(.correct):not(.wrong) {
+            background: rgba(255,215,0,0.1);
+            border-color: rgba(255,215,0,0.3);
+        }
+
+        .option-btn.correct {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: var(--success);
+            color: var(--success);
+        }
+
+        .option-btn.wrong {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: var(--error);
+            color: var(--error);
+        }
+
+        .option-letter {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            text-align: center;
+            line-height: 28px;
+            font-weight: 700;
+            margin-right: 12px;
+            color: var(--gold);
+        }
+
+        .option-btn.correct .option-letter {
+            background: var(--success);
+            color: #000;
+        }
+
+        .option-btn.wrong .option-letter {
+            background: var(--error);
+            color: #000;
+        }
+
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, #FFC107, #B8860B);
+            color: #000;
+            padding: 12px 30px;
+            border-radius: 12px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .nav-btn:active:not(:disabled) {
+            transform: scale(0.98);
+        }
+
+        .reset-btn {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+        }
+
+        /* Quiz Results Modal - AUTO WIDTH */
+        .quiz-results-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(10px);
+            z-index: 5000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            padding: 20px;
+        }
+
+        .quiz-results-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+         .results-content {
+    background: #1A1C20;
+    border: 3px solid var(--gold);
+    border-radius: 25px;
+    width: auto; /* AUTO WIDTH */
+    max-width: 90%;
+    min-width: 300px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+        }
+
+        .results-title {
+            font-size: 1rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .results-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 30px 0;
+        }
+
+        .result-stat {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .result-value {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .result-label {
+            font-size: 0.5rem;
+            color: #aaa;
+            margin-top: 5px;
+        }
+
+        .results-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 15px;
+            border-radius: 11px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .action-btn.primary {
+            background: linear-gradient(135deg, #FFC107, #B8860B);
+            color: #000;
+        }
+
+        .action-btn.secondary {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+        }
+
+        /* Question counter badge */
+        .question-counter {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--gold);
+            color: #000;
+            padding: 4px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        /* Auto-next indicator */
+        .auto-next-indicator {
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #000;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* --- CUSTOM CONFIRMATION MODAL STYLES --- */
+        .confirmation-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 6000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            padding: 20px;
+        }
+
+        .confirmation-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .confirmation-content {
+            background: #1A1C20;
+            border: 3px solid var(--gold);
+            border-radius: 25px;
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .confirmation-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .confirmation-title {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .confirmation-message {
+            color: #fff;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        .confirmation-buttons {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .confirm-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 12px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .confirm-btn.yes {
+            background: linear-gradient(135deg, #FFC107, #B8860B);
+            color: #000;
+        }
+
+        .confirm-btn.no {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+        }
+
+        /* Ensure vertical and horizontal centering */
+        .confirmation-modal {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .confirmation-content {
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="fixed-media-background"></div>
+
+    <header class="iphone-header">
+        <div class="header-left"><img src="sti.png" alt="Logo" onerror="this.src='https://placehold.co/40x40/333/FFF?text=S'"></div>
+        <div class="header-center">UPSC-CSE<span></span></div>
+        <div class="header-right"><img src="ytglogo.png" alt="User" onerror="this.src='https://placehold.co/40x40/333/FFF?text=U'"></div>
+    </header>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal" class="confirmation-modal">
+        <div class="confirmation-content">
+            <div class="confirmation-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h3 class="confirmation-title" id="confirmation-title">Confirm Action</h3>
+            <p class="confirmation-message" id="confirmation-message"></p>
+            <div class="confirmation-buttons">
+                <button class="confirm-btn no" id="confirm-no">No</button>
+                <button class="confirm-btn yes" id="confirm-yes">Yes</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="iphone-dock-wrapper">
+        <nav class="iphone-dock">
+            <div class="nav-item active" id="nav-profile" onclick="activateTab(this, 'profile')">
+                <div class="icon-box"><i class="fas fa-user-circle"></i></div><span>Youtube</span>
+            </div>
+            <div class="nav-item locked" id="nav-pyq" onclick="activateTab(this, 'pyq')">
+                <div class="icon-box"><i class="fas fa-file-alt"></i></div><span>START</span>
+            </div>
+            
+            <div class="nav-item upsc-tab locked" id="nav-upsc" onclick="activateTab(this, 'upsc')">
+                <div class="icon-box"><i class="fas fa-graduation-cap"></i></div><span>UPSC</span>
+            </div>
+            
+            <div class="nav-item locked" id="nav-quiz" onclick="activateTab(this, 'quiz')">
+                <div class="icon-box"><i class="fas fa-brain"></i></div><span>CURRENT</span>
+            </div>
+            <div class="nav-item locked" id="nav-news" onclick="activateTab(this, 'news')">
+                <div class="icon-box"><i class="fas fa-newspaper"></i></div><span>LATEST</span>
+            </div>
+        </nav>
+    </div>
+
+    <div id="modal-profile" class="modal-overlay active">
+        <div class="modal-box" style="border-color: var(--gold);">
+            <div class="scroll-content upsc-container">
+                
+                <div id="profile-view">
+                    <h2 class="upsc-heading">Free YouTube Courses 🎓</h2>
+                    <p class="text-gray-400 text-sm mb-6">Ultra-premax, stylish and modern YouTube playlists for UPSC 2026 preparation. Click on any card to watch.</p>
+                    
+                    <div class="yt-course-grid">
+                        <!-- 1 -->
+                        <div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PLwxNM9U5Vy9XoToFQJvMtrYpFmJBPIqzS'">
+<div class="yt-course-icon"><i class="fas fa-landmark"></i></div>
+<div class="yt-course-title">Complete History for UPSC</div>
+<div class="yt-course-desc">Ancient to Modern India, Art & Culture, World History - One Playlist</div>
+<div class="yt-course-meta">
+<div class="yt-course-channel"><i class="fas fa-user-circle"></i> StudyIQ</div>
+<div class="yt-course-views"><i class="fas fa-eye"></i> 2.5M+</div>
+</div>
+</div>
+
+<div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PLXLQ6YfV4sCz7gV2el9oFhxBgGjYPmC8T'">
+<div class="yt-course-icon"><i class="fas fa-balance-scale"></i></div>
+<div class="yt-course-title">Indian Polity Masterclass</div>
+<div class="yt-course-desc">Constitution, Parliament, Judiciary, Governance - Laxmikant Simplified</div>
+<div class="yt-course-meta">
+<div class="yt-course-channel"><i class="fas fa-user-circle"></i> Unacademy</div>
+<div class="yt-course-views"><i class="fas fa-eye"></i> 3.1M+</div>
+</div>
+</div>
+
+<div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PL6-Oiy7l1HzJ2zfH6MYpL31xHqZbZc4xv'">
+<div class="yt-course-icon"><i class="fas fa-mountain"></i></div>
+<div class="yt-course-title">Geography Ultimate Series</div>
+<div class="yt-course-desc">Physical, Indian, World and Economic Geography with Maps</div>
+<div class="yt-course-meta">
+<div class="yt-course-channel"><i class="fas fa-user-circle"></i> OnlyIAS</div>
+<div class="yt-course-views"><i class="fas fa-eye"></i> 1.8M+</div>
+</div>
+</div>
+
+<div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PLpUXl1SnqLQ0Dcv7d1dDmKDfKjXW3GQm-'">
+<div class="yt-course-icon"><i class="fas fa-chart-line"></i></div>
+<div class="yt-course-title">Economics Simplified</div>
+<div class="yt-course-desc">Budget, GDP, Inflation, Schemes, Economic Survey - For GS-3</div>
+<div class="yt-course-meta">
+<div class="yt-course-channel"><i class="fas fa-user-circle"></i> Vision IAS</div>
+<div class="yt-course-views"><i class="fas fa-eye"></i> 2.2M+</div>
+</div>
+</div>
+
+<div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PL8gCwRr2r5zJ8Y8p5QvW7d6ZQ6Q0lZ6v6'">
+<div class="yt-course-icon"><i class="fas fa-seedling"></i></div>
+<div class="yt-course-title">Environment & Ecology</div>
+<div class="yt-course-desc">Climate Change, Biodiversity, Acts, IUCN, COP Meetings</div>
+<div class="yt-course-meta">
+<div class="yt-course-channel"><i class="fas fa-user-circle"></i> Drishti IAS</div>
+<div class="yt-course-views"><i class="fas fa-eye"></i> 1.5M+</div>
+</div>
+</div>
+
+<div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PL6-Oiy7l1HzKjWQ7gN9L9PzQ2v6q2Z6xv'">
+<div class="yt-course-icon"><i class="fas fa-atom"></i></div>
+<div class="yt-course-title">Science & Technology 2026</div>
+<div class="yt-course-desc">Space, IT, AI, Robotics, Defense, Nuclear Tech - Current Affairs</div>
+<div class="yt-course-meta">
+<div class="yt-course-channel"><i class="fas fa-user-circle"></i> Next IAS</div>
+<div class="yt-course-views"><i class="fas fa-eye"></i> 1.3M+</div>
+</div>
+</div>
+
+<div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PL8gCwRr2r5zJ8Y8p5QvW7d6ZQ6Q0lZ6v7'">
+<div class="yt-course-icon"><i class="fas fa-shield-alt"></i></div>
+<div class="yt-course-title">Internal Security</div>
+<div class="yt-course-desc">Terrorism, Cyber Security, Border Management, Naxalism</div>
+<div class="yt-course-meta">
+<div class="yt-course-channel"><i class="fas fa-user-circle"></i> Vajiram & Ravi</div>
+<div class="yt-course-views"><i class="fas fa-eye"></i> 980K+</div>
+</div>
+</div>
+
+<div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PL6-Oiy7l1HzJ2zfH6MYpL31xHqZbZc4xw'">
+<div class="yt-course-icon"><i class="fas fa-handshake"></i></div>
+<div class="yt-course-title">International Relations</div>
+<div class="yt-course-desc">India's Foreign Policy, Neighboring Countries, UN, WTO, Regional Groups</div>
+<div class="yt-course-meta">
+<div class="yt-course-channel"><i class="fas fa-user-circle"></i> Study Glows</div>
+<div class="yt-course-views"><i class="fas fa-eye"></i> 1.1M+</div>
+</div>
+</div>
+
+<div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PL8gCwRr2r5zJ8Y8p5QvW7d6ZQ6Q0lZ6v8'">
+<div class="yt-course-icon"><i class="fas fa-brain"></i></div>
+<div class="yt-course-title">Ethics, Integrity & Aptitude</div>
+<div class="yt-course-desc">Case Studies, Quotes, Theories, Emotional Intelligence - GS-4</div>
+<div class="yt-course-meta">
+<div class="yt-course-channel"><i class="fas fa-user-circle"></i> IASbaba</div>
+<div class="yt-course-views"><i class="fas fa-eye"></i> 750K+</div>
+</div>
+</div>
+
+<div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PL6-Oiy7l1HzKjWQ7gN9L9PzQ2v6q2Z6xy'">
+<div class="yt-course-icon"><i class="fas fa-pen-alt"></i></div>
+<div class="yt-course-title">Essay Writing Mastery</div>
+<div class="yt-course-desc">Structure, Quotes, Topics, Brainstorming - 250 Marks Paper</div>
+<div class="yt-course-meta">
+<div class="yt-course-channel"><i class="fas fa-user-circle"></i> ForumIAS</div>
+<div class="yt-course-views"><i class="fas fa-eye"></i> 1.4M+</div>
+</div>
+</div>
+
+<div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PL8gCwRr2r5zJ8Y8p5QvW7d6ZQ6Q0lZ6v9'">
+<div class="yt-course-icon"><i class="fas fa-clock"></i></div>
+<div class="yt-course-title">Daily Current Affairs 2026</div>
+<div class="yt-course-desc">The Hindu, PIB, IE, PRS - Analysis and MCQs for Prelims & Mains</div>
+<div class="yt-course-meta">
+<div class="yt-course-channel"><i class="fas fa-user-circle"></i> Byju's IAS</div>
+<div class="yt-course-views"><i class="fas fa-eye"></i> 2.8M+</div>
+</div>
+</div>
+
+<div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PL6-Oiy7l1HzJ2zfH6MYpL31xHqZbZc4xz'">
+<div class="yt-course-icon"><i class="fas fa-book-open"></i></div>
+<div class="yt-course-title">NCERT Foundation</div>
+<div class="yt-course-desc">Class 6-12 History, Geography, Polity, Economics - Animated Videos</div>
+<div class="yt-course-meta">
+<div class="yt-course-channel"><i class="fas fa-user-circle"></i> Khan GS</div>
+<div class="yt-course-views"><i class="fas fa-eye"></i> 4.2M+</div>
+</div>
+</div>
+                    </div>
+                    
+                    <div class="text-center mt-10 text-sm text-gray-500">
+                        <p><i class="fas fa-info-circle mr-2 text-[var(--gold)]"></i> All courses are free on YouTube. Updated for UPSC 2026.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-pyq" class="modal-overlay">
+        <div class="modal-box" style="border-color: var(--gold);">
+            <div class="scroll-content upsc-container">
+                <h2 class="upsc-heading">PYQ Master Collection 📚</h2>
+                <p class="text-gray-400 text-sm mb-6">Access 35+ categories of Previous Year Questions from 30+ years with detailed solutions</p>
+                
+                <div class="pyq-grid">
+                    <!-- 35 Modern Cards for PYQ Categories -->
+                   <div class="pyq-card" onclick="window.location.href='history-pyqs-gspluscsat-english.html'">
+    <div class="pyq-icon"><i class="fas fa-calendar-alt"></i></div>
+    <div class="pyq-title">Prelims = GS+CSAT PYQ OF Last 35 Years </div>
+    <div class="pyq-count">2000 Questions</div>
+</div>
+                    <div class="pyq-card" onclick="window.location.href='comprehension-part-one-english.html'">
+    <div class="pyq-icon"><i class="fas fa-balance-scale"></i></div>
+    <div class="pyq-title">Master The Complete Comprehension</div>
+    <div class="pyq-count">1000+ Questions</div>
+</div>
+                    <div class="pyq-card" onclick="window.location.href'#'">
+    <div class="pyq-icon"><i class="fas fa-balance-scale"></i></div>
+    <div class="pyq-title">Master The Interpesonal Skills</div>
+    <div class="pyq-count">1000+ Questions</div>
+</div>
+                    <div class="pyq-card" onclick="window.location.href'#'">
+    <div class="pyq-icon"><i class="fas fa-balance-scale"></i></div>
+    <div class="pyq-title">Master The Logical Reasoning</div>
+    <div class="pyq-count">1000+ Questions</div>
+</div>
+                    <div class="pyq-card" onclick="window.location.href'#'">
+    <div class="pyq-icon"><i class="fas fa-balance-scale"></i></div>
+    <div class="pyq-title">Master The Decision Making</div>
+    <div class="pyq-count">1000+ Questions</div>
+</div>
+                    <div class="pyq-card" onclick="window.location.href'#'">
+    <div class="pyq-icon"><i class="fas fa-balance-scale"></i></div>
+    <div class="pyq-title">Master The Genral Mental Ability</div>
+    <div class="pyq-count">1000+ Questions</div>
+</div>
+                    <div class="pyq-card" onclick="window.location.href'#'">
+    <div class="pyq-icon"><i class="fas fa-balance-scale"></i></div>
+    <div class="pyq-title">Master The Number System</div>
+    <div class="pyq-count">1000+ Questions</div>
+</div>
+                    <div class="pyq-card" onclick="window.location.href'#'">
+    <div class="pyq-icon"><i class="fas fa-balance-scale"></i></div>
+    <div class="pyq-title">Master The Data Interpretation</div>
+    <div class="pyq-count">1000+ Questions</div>
+</div>
+
+<div class="pyq-card" onclick="window.location.href='history-subjectwise-all-pyg-syllabus-subject-chaperwise-english.html'">
+    <div class="pyq-icon"><i class="fas fa-landmark"></i></div>
+    <div class="pyq-title">History Complete-MCQ</div>
+    <div class="pyq-count">3500+ Questions</div>
+</div>
+
+<div class="pyq-card" onclick="window.location.href='#'">
+    <div class="pyq-icon"><i class="fas fa-mountain"></i></div>
+    <div class="pyq-title">Geography-Complete-MCQ</div>
+    <div class="pyq-count">3000+ Questions</div>
+</div>
+
+<div class="pyq-card" onclick="window.location.href='#'">
+    <div class="pyq-icon"><i class="fas fa-balance-scale"></i></div>
+    <div class="pyq-title">Indian Polity & Constitution/Governance & Indian Society</div>
+    <div class="pyq-count">4000+ Questions</div>
+</div>
+
+<div class="pyq-card" onclick="window.location.href='#'">
+    <div class="pyq-icon"><i class="fas fa-chart-line"></i></div>
+    <div class="pyq-title">Economics</div>
+    <div class="pyq-count">3500+ Questions</div>
+</div>
+
+<div class="pyq-card" onclick="window.location.href='#'">
+    <div class="pyq-icon"><i class="fas fa-seedling"></i></div>
+    <div class="pyq-title">Environment & Ecology</div>
+    <div class="pyq-count">1000+ Questions</div>
+</div>
+
+<div class="pyq-card" onclick="window.location.href='#'">
+    <div class="pyq-icon"><i class="fas fa-atom"></i></div>
+    <div class="pyq-title">Science & Technology</div>
+    <div class="pyq-count">2800+ Questions</div>
+</div>
+
+<div class="pyq-card" onclick="window.location.href='#'">
+    <div class="pyq-icon"><i class="fas fa-tractor"></i></div>
+    <div class="pyq-title">Agriculture</div>
+    <div class="pyq-count">2000+ Questions</div>
+</div>
+
+<div class="pyq-card" onclick="window.location.href='#'">
+    <div class="pyq-icon"><i class="fas fa-shield-alt"></i></div>
+    <div class="pyq-title">Internal Security</div>
+    <div class="pyq-count">1200+ Questions</div>
+</div>
+
+<div class="pyq-card" onclick="window.location.href='#'">
+    <div class="pyq-icon"><i class="fas fa-handshake"></i></div>
+    <div class="pyq-title">International Relations</div>
+    <div class="pyq-count">1800+ Questions</div>
+</div>
+
+<div class="pyq-card" onclick="window.location.href='#'">
+    <div class="pyq-icon"><i class="fas fa-exclamation-triangle"></i></div>
+    <div class="pyq-title">Disaster Management</div>
+    <div class="pyq-count">1000+ Questions</div>
+</div>
+
+<div class="pyq-card" onclick="window.location.href='#'">
+    <div class="pyq-icon"><i class="fas fa-brain"></i></div>
+    <div class="pyq-title">Ethics, Integrity & Aptitude</div>
+    <div class="pyq-count">2000+ Questions</div>
+</div>
+
+<div class="pyq-card" onclick="window.location.href='#'">
+    <div class="pyq-icon"><i class="fas fa-palette"></i></div>
+    <div class="pyq-title">Art & Culture</div>
+    <div class="pyq-count">1500+ Questions</div>
+</div>
+
+<div class="pyq-card" onclick="window.location.href='#'">
+    <div class="pyq-icon"><i class="fas fa-palette"></i></div>
+    <div class="pyq-title">Mains</div>
+    <div class="pyq-count">Answer Writing</div>
+</div>
+
+<div class="pyq-card" onclick="window.location.href='#'">
+    <div class="pyq-icon"><i class="fas fa-palette"></i></div>
+    <div class="pyq-title">Optional</div>
+    <div class="pyq-count">Subject-wise</div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-quiz" class="modal-overlay">
+        <div class="modal-box" style="border-color: var(--gold);">
+            <div class="scroll-content upsc-container">
+                <div class="quiz-container">
+                    <!-- Quiz Header -->
+                    <div class="quiz-header">
+                        <div>
+                            <h2 class="text-2xl font-bold text-white">Current Affairs Quiz</h2>
+                            <p class="text-gray-400 text-sm">Test your knowledge with 1000+ questions</p>
+                        </div>
+                        <div class="quiz-stats">
+                            <div class="stat-box">
+                                <div class="stat-value" id="current-score">0</div>
+                                <div class="stat-label">Score</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-value" id="user-streak">0</div>
+                                <div class="stat-label">Streak</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Progress Bar -->
+                    <div class="quiz-progress">
+                        <div class="quiz-progress-fill" id="quiz-progress" style="width: 0%"></div>
+                    </div>
+                    
+                    <!-- Question Card -->
+                    <div class="question-card" id="question-card">
+                        <div class="question-counter">Question <span id="current-question">1</span>/<span id="total-questions">2000</span></div>
+                        <div class="question-timer" id="question-timer">72s</div>
+                        
+                        <div class="question-text" id="question-text">
+                            Loading question...
+                        </div>
+                        
+                        <div class="options-grid" id="options-container">
+                            <!-- Options will be inserted here -->
+                        </div>
+                        
+                        <div class="auto-next-indicator" id="auto-next-indicator" style="display: none;">
+                            Next question in <span id="next-countdown">3</span>s
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Buttons -->
+                    <div class="quiz-navigation" id="quiz-navigation">
+                        <button class="nav-btn reset-btn" id="reset-btn" onclick="showConfirmation('quiz')">
+                            <i class="fas fa-redo mr-2"></i> Reset
+                        </button>
+                        <button class="nav-btn" id="next-btn" onclick="nextQuestion()" style="display: none;">
+                            Next <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-news" class="modal-overlay">
+        <div class="modal-box" style="border-color: var(--gold);">
+            <div class="scroll-content upsc-container" id="news-container">
+                <!-- News will be dynamically injected from external JS file -->
+                <div class="text-center py-10">
+                    <div class="loader mx-auto mb-4"></div>
+                    <p class="text-gray-400">Loading latest updates...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- UPSC Main Content Modal (All 12 Steps) -->
+    <div id="modal-upsc" class="modal-overlay">
+        <div class="modal-box" style="border-color: var(--gold);">
+            <div class="scroll-content upsc-container">
+                
+                <section class="upsc-card">
+                    <h2 class="upsc-heading">1. What is UPSC? 🤔</h2>
+                    <p class="text-gray-300 text-sm mb-4 leading-relaxed">
+                        UPSC (Union Public Service Commission) is India's most prestigious government recruitment body. Its main function is to select the most qualified officers for <strong>20+ major government jobs</strong> like <strong>IAS, IPS, IFS</strong>.
+                    </p>
+                    <button class="upsc-btn" onclick="openSubModal('sub-services')">View All 24 Services</button>
+                    <button class="upsc-btn upsc-btn-secondary" onclick="activateTab(document.getElementById('nav-pyq'), 'pyq')">Start Preparation</button>
+                </section>
+
+                <section class="upsc-card">
+                    <h2 class="upsc-heading">2. Exam Process 🎯</h2>
+                    <p class="text-gray-300 text-sm text-center mb-4">UPSC Civil Services Examination lasts for one year and has 3 main stages.</p>
+                    <div class="flowchart-flex">
+                        <div class="flowchart-step" onclick="openSubModal('sub-prelims')">
+                            <div>Stage 1<br><span class="text-white text-xs opacity-80">Prelims</span></div>
+                        </div>
+                        <div class="arrow-down">➜</div>
+                        <div class="flowchart-step" onclick="openSubModal('sub-mains')">
+                            <div>Stage 2<br><span class="text-white text-xs opacity-80">Mains</span></div>
+                        </div>
+                        <div class="arrow-down">➜</div>
+                        <div class="flowchart-step" onclick="openSubModal('sub-interview')">
+                            <div>Stage 3<br><span class="text-white text-xs opacity-80">Interview</span></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="upsc-card">
+                    <h2 class="upsc-heading">3. Who Can Apply? ✅</h2>
+                    <ul class="styled-list text-sm text-gray-300 space-y-2">
+                        <li><span class="icon">🎓</span><strong>Education:</strong> Must be a graduate from any recognized university.</li>
+                        <li><span class="icon">🎂</span><strong>Age:</strong> Minimum 21 years. (As on 1st August).
+                            <ul class="list-disc ml-8 text-gray-400 text-xs mt-1">
+                                <li>General: 32 years</li>
+                                <li>OBC: 35 years</li>
+                                <li>SC/ST: 37 years</li>
+                            </ul>
+                        </li>
+                        <li><span class="icon">🇮🇳</span><strong>Nationality:</strong> Must be Indian citizen for IAS/IPS.</li>
+                    </ul>
+                    <div class="mt-4">
+                         <h3 class="text-[var(--gold)] text-sm font-bold mb-2">Attempts Allowed</h3>
+                         <div class="h-48 w-full">
+                            <canvas id="attemptsChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="upsc-card">
+                    <h2 class="upsc-heading">4. Main Subjects 📚</h2>
+                    <p class="text-sm text-gray-300 mb-4">Syllabus is vast. Here are the main pillars. Click button below for full details.</p>
+                    <div class="grid grid-cols-2 gap-3 text-xs text-center font-semibold text-gray-200 mb-4">
+                        <div class="bg-gray-800 p-3 rounded-lg border border-gray-700">📜 History & Culture</div>
+                        <div class="bg-gray-800 p-3 rounded-lg border border-gray-700">🏞️ Geography</div>
+                        <div class="bg-gray-800 p-3 rounded-lg border border-gray-700">🏛️ Polity & Governance</div>
+                        <div class="bg-gray-800 p-3 rounded-lg border border-gray-700">💰 Economy</div>
+                        <div class="bg-gray-800 p-3 rounded-lg border border-gray-700">🌲 Environment</div>
+                        <div class="bg-gray-800 p-3 rounded-lg border border-gray-700">🔬 Science & Technology</div>
+                        <div class="bg-gray-800 p-3 rounded-lg border border-gray-700">📝 Ethics & Essay</div>
+                        <div class="bg-gray-800 p-3 rounded-lg border border-gray-700">🌍 International Relations</div>
+                    </div>
+                    <button class="upsc-btn" onclick="openSubModal('sub-syllabus')">View Detailed Syllabus</button>
+                </section>
+
+                <section class="upsc-card">
+                    <h2 class="upsc-heading">5. Compulsory Languages 🗣️</h2>
+                    <p class="text-sm text-gray-300 mb-2">There are 2 compulsory qualifying papers in Mains. Marks are <strong>not added to merit</strong>, but passing (33%) is mandatory.</p>
+                    <div class="space-y-3 mt-3">
+                        <div class="p-3 bg-gray-900 rounded border border-gray-700">
+                            <strong class="text-[var(--gold)] block mb-1">1. Paper-A (Indian Language)</strong>
+                            <p class="text-xs text-gray-400">Any one of the 22 languages in 8th Schedule. (Essay, Comprehension, Translation).</p>
+                        </div>
+                        <div class="p-3 bg-gray-900 rounded border border-gray-700">
+                            <strong class="text-[var(--gold)] block mb-1">2. Paper-B (English)</strong>
+                            <p class="text-xs text-gray-400">Essay, Comprehension, Summary, Grammar.</p>
+                        </div>
+                    </div>
+                    <button class="upsc-btn" onclick="openSubModal('sub-languages')">View 8th Schedule Languages</button>
+                    <p class="text-xs text-red-400 mt-2 text-center">🚩 If you fail these, your other papers are not evaluated.</p>
+                </section>
+
+                <section class="upsc-card">
+                    <h2 class="upsc-heading">6. Optional Subjects 🌟</h2>
+                    <p class="text-sm text-gray-300 mb-3">
+                        You have to choose <strong>one</strong> subject (2 papers, total 500 marks). This subject plays crucial role in your final rank.
+                    </p>
+                    <button class="upsc-btn" onclick="openSubModal('sub-optionals')">View All 48 Subjects</button>
+                </section>
+
+                <section class="upsc-card">
+                    <h2 class="upsc-heading">7. Interview Qualities 🧠</h2>
+                    <p class="text-sm text-gray-300 mb-4">Personality Test (275 marks) assesses your qualities, not just knowledge.</p>
+                    <div class="h-56 w-full">
+                        <canvas id="interviewChart"></canvas>
+                    </div>
+                    <ul class="text-xs text-gray-400 mt-4 grid grid-cols-2 gap-2">
+                        <li>• Mental Alertness</li>
+                        <li>• Critical Thinking</li>
+                        <li>• Clear Communication</li>
+                        <li>• Leadership</li>
+                        <li>• Balance in Judgment</li>
+                        <li>• Integrity</li>
+                    </ul>
+                </section>
+
+                <section class="upsc-card">
+                    <h2 class="upsc-heading">8. Strategy: Smart Work 📈</h2>
+                    <div class="space-y-6 mt-4">
+                        <div class="timeline-item">
+                            <h4 class="text-[var(--gold)] font-bold text-sm">Stage 1: Foundation (December)</h4>
+                            <p class="text-xs text-gray-400 mt-1">Complete NCERTs (Class 6-12), History, Geography, Polity, Economy, Environment, and Science & Technology.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="text-[var(--gold)] font-bold text-sm">Stage 2: Core (March)</h4>
+                            <p class="text-xs text-gray-400 mt-1">Cover International Relations, General Science, Ethics, and Optional Subject.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="text-[var(--gold)] font-bold text-sm">Stage 3: Revision (April-Exam)</h4>
+                            <p class="text-xs text-gray-400 mt-1">Focus on revision and mock tests. "He who revises more succeeds!"</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="upsc-card">
+                    <h2 class="upsc-heading">9. What Not To Do 🚫</h2>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <div class="flex items-start bg-red-900/20 p-2 rounded">
+                            <span class="mr-2">❌</span><span>Don't change strategies frequently. Stick to one plan.</span>
+                        </div>
+                        <div class="flex items-start bg-red-900/20 p-2 rounded">
+                            <span class="mr-2">❌</span><span>Don't read 10 books for one subject. Read one book 10 times.</span>
+                        </div>
+                        <div class="flex items-start bg-red-900/20 p-2 rounded">
+                            <span class="mr-2">❌</span><span>Don't exhaust your brain. 8-9 hours of focused study is enough.</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="upsc-card">
+                    <h2 class="upsc-heading">10. Exam Timeline 🗓️</h2>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between border-b border-gray-700 pb-2">
+                            <span class="text-[var(--gold)] font-bold">February</span>
+                            <span class="text-gray-400">Notification & Forms</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-700 pb-2">
+                            <span class="text-[var(--gold)] font-bold">May/June</span>
+                            <span class="text-gray-400">Prelims Exam</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-700 pb-2">
+                            <span class="text-[var(--gold)] font-bold">September</span>
+                            <span class="text-gray-400">Mains Exam (5 days)</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-700 pb-2">
+                            <span class="text-[var(--gold)] font-bold">February-April</span>
+                            <span class="text-gray-400">Interview (Delhi)</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-[var(--gold)] font-bold">May</span>
+                            <span class="text-gray-400">Final Result</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="upsc-card">
+                    <h2 class="upsc-heading">11. Institutions 🏫</h2>
+                    <div class="mb-4">
+                        <h4 class="text-[var(--gold)] font-bold text-sm mb-2">Government Funded</h4>
+                        <p class="text-xs text-gray-400">State Administrative Training Institutes (ATIs), Jamia Millia Islamia (RCA), Haj Committee of India.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-[var(--gold)] font-bold text-sm mb-2">Private Centers (Delhi)</h4>
+                        <p class="text-xs text-gray-400">STISkilli, Vajiram & Ravi, Vision IAS, Drishti IAS, Next IAS, ForumIAS, Rau's IAS.</p>
+                    </div>
+                </section>
+
+                <section class="upsc-card">
+                    <h2 class="upsc-heading">12. Career Roadmap 🚀</h2>
+                    <p class="text-sm text-gray-300 mb-4">Cracking UPSC is just the beginning. A civil servant's career is progressive and highly impactful.</p>
+                    <button class="upsc-btn" onclick="openSubModal('sub-roadmap')">View Full Career Path</button>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Results Modal -->
+    <div id="quiz-results-modal" class="quiz-results-modal">
+        <div class="results-content">
+            <h2 class="results-title">Quiz Results 🏆</h2>
+            
+            <div class="results-stats">
+                <div class="result-stat">
+                    <div class="result-value" id="final-score">0</div>
+                    <div class="result-label">Score</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-value" id="correct-answers">0</div>
+                    <div class="result-label">Correct</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-value" id="wrong-answers">0</div>
+                    <div class="result-label">Wrong</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-value" id="accuracy">0%</div>
+                    <div class="result-label">Accuracy</div>
+                </div>
+            </div>
+            
+            <div class="results-actions">
+                <button class="action-btn secondary" onclick="closeResultsModal()">
+                    <i class="fas fa-redo mr-2"></i> Restart
+                </button>
+                <button class="action-btn primary" onclick="continueQuiz()">
+                    Continue <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- All UPSC Sub-modals remain exactly as before -->
+    <div id="sub-services" class="upsc-sub-modal">
+        <div class="sub-modal-content">
+            <button class="close-sub-btn" onclick="closeSubModal('sub-services')">&times;</button>
+            <h3 class="text-2xl font-bold text-[var(--gold)] mb-6 sticky top-0 bg-[#1A1C20] pb-2 border-b border-gray-700">All 24 Civil Services</h3>
+            
+            <div class="service-group">
+                <h4>A) All India Services</h4>
+                <div class="service-item">
+                    <strong>1. Indian Administrative Service (IAS)</strong>
+                    <p>Premier service of India. Responsible for policy making, implementation and administration. Roles include SDM, District Magistrate (DM), and Secretary in ministries.</p>
+                </div>
+                <div class="service-item">
+                    <strong>2. Indian Police Service (IPS)</strong>
+                    <p>Maintaining law and order, crime prevention and detection. Roles include SP, DIG, IGP, and Directors of intelligence agencies.</p>
+                </div>
+                <div class="service-item">
+                    <strong>3. Indian Forest Service (IFoS)</strong>
+                    <p>Manages country's natural resources, forests and wildlife. Ensures environmental sustainability and ecological balance.</p>
+                </div>
+            </div>
+
+            <div class="service-group">
+                <h4>B) Group 'A' Civil Services</h4>
+                <div class="service-item">
+                    <strong>4. Indian Foreign Service (IFS)</strong>
+                    <p>Represents India abroad. Manages diplomatic relations, trade and cultural relations in embassies and high commissions.</p>
+                </div>
+                <div class="service-item">
+                    <strong>5. Indian Audit and Accounts Service (IA&AS)</strong>
+                    <p>Audits accounts of central and state governments and public sector organizations. Works under CAG.</p>
+                </div>
+                <div class="service-item">
+                    <strong>6. Indian Civil Accounts Service (ICAS)</strong>
+                    <p>Manages financial administration, payment systems and accounting for the federal government.</p>
+                </div>
+                <div class="service-item">
+                    <strong>7. Indian Corporate Law Service (ICLS)</strong>
+                    <p>Regulates corporate sector in India. Ensures compliance with Companies Act.</p>
+                </div>
+                <div class="service-item">
+                    <strong>8. Indian Defence Accounts Service (IDAS)</strong>
+                    <p>Manages finance and accounts of defence services (Army, Navy, Air Force) and DRDO.</p>
+                </div>
+                 <div class="service-item">
+                    <strong>9. Indian Defence Estates Service (IDES)</strong>
+                    <p>Manages defence lands and cantonments across India.</p>
+                </div>
+                <div class="service-item">
+                    <strong>10. Indian Information Service (IIS)</strong>
+                    <p>Manages government media wing. Works in PIB, DD, AIR to disseminate information.</p>
+                </div>
+                <div class="service-item">
+                    <strong>11. Indian Postal Service (IPoS)</strong>
+                    <p>Runs India Post network, handles traditional postal services and banking/e-commerce logistics.</p>
+                </div>
+                 <div class="service-item">
+                    <strong>12. Indian Post & Telecommunication Accounts and Finance Service (IP&TAFS)</strong>
+                    <p>Handles finance for postal department and telecommunications department.</p>
+                </div>
+                <div class="service-item">
+                    <strong>13. Indian Railway Protection Force Service (IRPFS)</strong>
+                    <p>Ensures security of railway passengers and property.</p>
+                </div>
+                <div class="service-item">
+                    <strong>14. Indian Revenue Service (Customs & Indirect Taxes)</strong>
+                    <p>Administers GST, customs, and excise duties. Protects economic borders.</p>
+                </div>
+                <div class="service-item">
+                    <strong>15. Indian Revenue Service (Income Tax)</strong>
+                    <p>Administers direct tax laws (Income Tax). Crucial for revenue collection for the nation.</p>
+                </div>
+                <div class="service-item">
+                    <strong>16. Indian Trade Service (ITS)</strong>
+                    <p>Handles India's international trade and commerce. Works under DGFT.</p>
+                </div>
+                <div class="service-item">
+                    <strong>17. Indian Railway Accounts Service (IRAS)</strong>
+                    <p>Manages finance and accounts of Indian Railways.</p>
+                </div>
+                <div class="service-item">
+                    <strong>18. Indian Railway Personnel Service (IRPS)</strong>
+                    <p>Manages human resources (HR) for Indian Railways' vast workforce.</p>
+                </div>
+                <div class="service-item">
+                    <strong>19. Indian Railway Traffic Service (IRTS)</strong>
+                    <p>Operational backbone of railways. Manages freight and passenger train operations.</p>
+                </div>
+            </div>
+
+            <div class="service-group">
+                <h4>C) Group 'B' Civil Services</h4>
+                <div class="service-item">
+                    <strong>20. Armed Forces Headquarters Civil Service (AFHQCS)</strong>
+                    <p>Provides civilian auxiliary staff and administration in Armed Forces Headquarters.</p>
+                </div>
+                <div class="service-item">
+                    <strong>21. DANICS</strong>
+                    <p>Administrative services for Delhi, Andaman & Nicobar, Lakshadweep, Daman & Diu, Dadra & Nagar Haveli.</p>
+                </div>
+                <div class="service-item">
+                    <strong>22. DANIPS</strong>
+                    <p>Police services for Delhi and above Union Territories.</p>
+                </div>
+                <div class="service-item">
+                    <strong>23. Puducherry Civil Service (PCS)</strong>
+                    <p>Administrative service for Puducherry Union Territory.</p>
+                </div>
+                <div class="service-item">
+                    <strong>24. Puducherry Police Service (PPS)</strong>
+                    <p>Police service for Puducherry Union Territory.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sub-prelims" class="upsc-sub-modal">
+        <div class="sub-modal-content">
+            <button class="close-sub-btn" onclick="closeSubModal('sub-prelims')">&times;</button>
+            <h3 class="text-2xl font-bold text-[var(--gold)] mb-4">Stage 1: Prelims</h3>
+            <p class="text-sm text-gray-400 mb-6">Objective type (MCQ). Qualifying for Mains.</p>
+            
+            <div class="bg-gray-800 rounded-xl p-4 mb-4 border border-gray-600">
+                <h4 class="text-lg font-bold text-white mb-2">GS Paper I (200 Marks)</h4>
+                <p class="text-xs text-gray-400 mb-2">100 Questions | 2 Hours | Negative Marking: 1/3</p>
+                <ul class="text-sm text-gray-300 list-disc ml-5 space-y-1">
+                    <li><strong>Current Events:</strong> National and international importance.</li>
+                    <li><strong>History:</strong> Ancient, Medieval, Modern India and Indian National Movement.</li>
+                    <li><strong>Geography:</strong> Physical, Social, Economic Geography of India and World.</li>
+                    <li><strong>Polity:</strong> Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues.</li>
+                    <li><strong>Economy:</strong> Sustainable Development, Poverty, Inclusion, Demographics, Social Sector Initiatives.</li>
+                    <li><strong>Environment:</strong> Ecology, Biodiversity, Climate Change - General issues.</li>
+                    <li><strong>General Science:</strong> Basic science and technology developments.</li>
+                </ul>
+            </div>
+
+            <div class="bg-gray-800 rounded-xl p-4 border border-gray-600">
+                <h4 class="text-lg font-bold text-white mb-2">CSAT Paper II (200 Marks)</h4>
+                <p class="text-xs text-gray-400 mb-2">80 Questions | 2 Hours | Negative Marking: 1/3</p>
+                <ul class="text-sm text-gray-300 list-disc ml-5 space-y-1">
+                    <li><strong>Comprehension:</strong> Reading passages and understanding.</li>
+                    <li><strong>Interpersonal Skills:</strong> Including communication skills.</li>
+                    <li><strong>Logical Reasoning:</strong> Analytical ability.</li>
+                    <li><strong>Decision Making:</strong> Problem-solving.</li>
+                    <li><strong>General Mental Ability:</strong> Basic numeracy.</li>
+                    <li><strong>Basic Numeracy:</strong> Numbers, order of magnitude (Class X level).</li>
+                    <li><strong>Data Interpretation:</strong> Charts, graphs, tables (Class X level).</li>
+                    <li class="text-[var(--gold)] font-bold mt-2">Note: This is qualifying. You need 33% (66 marks).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="sub-mains" class="upsc-sub-modal">
+        <div class="sub-modal-content">
+            <button class="close-sub-btn" onclick="closeSubModal('sub-mains')">&times;</button>
+            <h3 class="text-2xl font-bold text-[var(--gold)] mb-4">Stage 2: Mains</h3>
+            <p class="text-sm text-gray-400 mb-6">Subjective (Written). 1750 marks counted for merit.</p>
+
+            <div class="space-y-4">
+                <div class="p-3 bg-gray-900 rounded border border-gray-700">
+                    <strong class="text-white block mb-1">Essay (250 Marks)</strong>
+                    <p class="text-xs text-gray-400">Candidates may be required to write essays on multiple topics. Tests expression, thought process and analytical skills.</p>
+                </div>
+                <div class="p-3 bg-gray-900 rounded border border-gray-700">
+                    <strong class="text-white block mb-1">GS I: Heritage & Geography (250 Marks)</strong>
+                    <p class="text-xs text-gray-400">Indian heritage and culture, history and society of the world, world geography.</p>
+                </div>
+                <div class="p-3 bg-gray-900 rounded border border-gray-700">
+                    <strong class="text-white block mb-1">GS II: Governance & Polity (250 Marks)</strong>
+                    <p class="text-xs text-gray-400">Governance, Constitution, Polity, Social Justice, and International Relations.</p>
+                </div>
+                <div class="p-3 bg-gray-900 rounded border border-gray-700">
+                    <strong class="text-white block mb-1">GS III: Technology & Economy (250 Marks)</strong>
+                    <p class="text-xs text-gray-400">Technology, Economic Development, Biodiversity, Environment, Security and Disaster Management.</p>
+                </div>
+                <div class="p-3 bg-gray-900 rounded border border-gray-700">
+                    <strong class="text-white block mb-1">GS IV: Ethics (250 Marks)</strong>
+                    <p class="text-xs text-gray-400">Ethics, Integrity, and Aptitude. Case studies on moral dilemmas.</p>
+                </div>
+                <div class="p-3 bg-gray-900 rounded border border-gray-700">
+                    <strong class="text-[var(--gold)] block mb-1">Optional Subject (500 Marks)</strong>
+                    <p class="text-xs text-gray-400">Paper VI and Paper VII (250 marks each). Based on subject chosen by candidate.</p>
+                </div>
+                <div class="p-3 bg-gray-900 rounded border border-gray-700 opacity-80">
+                    <strong class="text-gray-300 block mb-1">Qualifying Language Papers</strong>
+                    <p class="text-xs text-gray-500">Paper A: Indian Language (300 marks)<br>Paper B: English (300 marks)<br>Marks not counted for ranking, but passing is mandatory.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sub-interview" class="upsc-sub-modal">
+        <div class="sub-modal-content">
+            <button class="close-sub-btn" onclick="closeSubModal('sub-interview')">&times;</button>
+            <h3 class="text-2xl font-bold text-[var(--gold)] mb-4">Stage 3: Interview</h3>
+            <p class="text-sm text-gray-300 mb-4">
+                This is the <strong>final stage</strong> (Personality Test). It lasts about 30-45 minutes.
+            </p>
+            <ul class="list-disc ml-5 space-y-2 text-sm text-gray-400">
+                <li><strong>Marks:</strong> 275 marks. Added to Mains score (1750) for final ranking, out of total 2025.</li>
+                <li><strong>Purpose:</strong> To assess candidate's suitability for career in public service by a board of competent and unbiased observers.</li>
+                <li><strong>Main qualities assessed:</strong>
+                    <ul class="list-circle ml-5 mt-1 text-xs text-gray-500">
+                         <li>Mental alertness</li>
+                         <li>Critical powers of assimilation</li>
+                         <li>Clear and logical exposition</li>
+                         <li>Balance of judgment</li>
+                         <li>Variety and depth of interest</li>
+                         <li>Social cohesion and leadership ability</li>
+                         <li>Intellectual and moral integrity</li>
+                    </ul>
+                </li>
+                <li><strong>Location:</strong> Dholpur House, UPSC Shahjahan Road, New Delhi.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="sub-syllabus" class="upsc-sub-modal">
+        <div class="sub-modal-content">
+            <button class="close-sub-btn" onclick="closeSubModal('sub-syllabus')">&times;</button>
+            <h3 class="text-2xl font-bold text-[var(--gold)] mb-4">Detailed Syllabus Breakdown</h3>
+            
+            <div class="service-group">
+                <h4>1. History and Culture</h4>
+                <ul class="styled-list text-sm text-gray-300">
+                    <li><span class="icon">•</span> Art and Culture: Architecture, Literature, Music, Dance forms.</li>
+                    <li><span class="icon">•</span> Ancient India: Stone Age to Gupta Empire and South Indian Kingdoms.</li>
+                    <li><span class="icon">•</span> Medieval India: Delhi Sultanate to Mughals.</li>
+                    <li><span class="icon">•</span> Modern India: 17th Century to 1947 Independence Movement.</li>
+                    <li><span class="icon">•</span> World History: Industrial Revolution, World Wars, End of Colonialism.</li>
+                </ul>
+            </div>
+
+            <div class="service-group">
+                <h4>2. Geography and Society</h4>
+                <ul class="styled-list text-sm text-gray-300">
+                    <li><span class="icon">•</span> Indian Geography: Rivers, Climate, Soils, Agriculture.</li>
+                    <li><span class="icon">•</span> Physical Geography: Geomorphology, Climatology, Oceanography.</li>
+                    <li><span class="icon">•</span> Human Geography: Demographics, Urbanization, Industries.</li>
+                    <li><span class="icon">•</span> Indian Society: Diversity, Women's Role, Poverty, Globalization.</li>
+                </ul>
+            </div>
+
+            <div class="service-group">
+                <h4>3. Polity and Governance</h4>
+                <ul class="styled-list text-sm text-gray-300">
+                    <li><span class="icon">•</span> Indian Polity: Constitution, Parliament, Judiciary, Federalism.</li>
+                    <li><span class="icon">•</span> Social Justice: Welfare schemes for weaker sections, Health, Education.</li>
+                    <li><span class="icon">•</span> Governance: E-governance, Transparency, Accountability, Role of Civil Services.</li>
+                    <li><span class="icon">•</span> International Relations: India's Neighbors, Bilateral/Regional Groups (UN, WTO, etc).</li>
+                </ul>
+            </div>
+
+            <div class="service-group">
+                <h4>4. Economy and Science</h4>
+                <ul class="styled-list text-sm text-gray-300">
+                    <li><span class="icon">•</span> Indian Economy: Budgeting, Inclusive Growth, Agriculture, Food Processing.</li>
+                    <li><span class="icon">•</span> Science & Technology: Space, IT, Robotics, Nano-tech, Bio-tech, IPR issues.</li>
+                    <li><span class="icon">•</span> General Science: Basic Physics, Chemistry, Biology.</li>
+                </ul>
+            </div>
+
+            <div class="service-group">
+                <h4>5. Environment and Security</h4>
+                <ul class="styled-list text-sm text-gray-300">
+                    <li><span class="icon">•</span> Ecology: Biodiversity, Pollution, EIA, Conservation.</li>
+                    <li><span class="icon">•</span> Disaster Management: Earthquakes, Floods, Mitigation Strategies.</li>
+                    <li><span class="icon">•</span> Internal Security: Terrorism, Naxalism, Cyber Security, Money Laundering.</li>
+                </ul>
+            </div>
+            
+            <div class="service-group">
+                <h4>6. Ethics, Integrity and Aptitude</h4>
+                <ul class="styled-list text-sm text-gray-300">
+                    <li><span class="icon">•</span> Ethics in private and public relationships.</li>
+                    <li><span class="icon">•</span> Attitude, Emotional intelligence.</li>
+                    <li><span class="icon">•</span> Probity in Governance, Corruption.</li>
+                    <li><span class="icon">•</span> Case Studies.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="sub-optionals" class="upsc-sub-modal">
+        <div class="sub-modal-content">
+            <button class="close-sub-btn" onclick="closeSubModal('sub-optionals')">&times;</button>
+            <h3 class="text-2xl font-bold text-[var(--gold)] mb-4">All 48 Optional Subjects</h3>
+            <p class="text-sm text-gray-400 mb-4">Choose one subject. Total 500 marks.</p>
+
+            <div class="service-group">
+                <h4>Social Sciences and Humanities</h4>
+                <div class="grid grid-cols-2 gap-2 text-xs text-gray-300">
+                    <div>1. Anthropology</div>
+                    <div>2. Sociology</div>
+                    <div>3. Public Administration</div>
+                    <div>4. Political Science & International Relations</div>
+                    <div>5. Geography</div>
+                    <div>6. History</div>
+                    <div>7. Psychology</div>
+                    <div>8. Philosophy</div>
+                    <div>9. Economics</div>
+                    <div>10. Law</div>
+                    <div>11. Commerce & Accountancy</div>
+                    <div>12. Management</div>
+                </div>
+            </div>
+
+            <div class="service-group">
+                <h4>Science, Engineering and Medical</h4>
+                <div class="grid grid-cols-2 gap-2 text-xs text-gray-300">
+                    <div>13. Agriculture</div>
+                    <div>14. Animal Husbandry & Veterinary Science</div>
+                    <div>15. Botany</div>
+                    <div>16. Chemistry</div>
+                    <div>17. Civil Engineering</div>
+                    <div>18. Electrical Engineering</div>
+                    <div>19. Mechanical Engineering</div>
+                    <div>20. Geology</div>
+                    <div>21. Mathematics</div>
+                    <div>22. Medical Science</div>
+                    <div>23. Physics</div>
+                    <div>24. Statistics</div>
+                    <div>25. Zoology</div>
+                </div>
+            </div>
+
+            <div class="service-group">
+                <h4>Languages Literature (23)</h4>
+                <div class="grid grid-cols-3 gap-2 text-xs text-gray-300">
+                    <div>26. Assamese</div>
+                    <div>27. Bengali</div>
+                    <div>28. Bodo</div>
+                    <div>29. Dogri</div>
+                    <div>30. Gujarati</div>
+                    <div>31. Hindi</div>
+                    <div>32. Kannada</div>
+                    <div>33. Kashmiri</div>
+                    <div>34. Konkani</div>
+                    <div>35. Maithili</div>
+                    <div>36. Malayalam</div>
+                    <div>37. Manipuri</div>
+                    <div>38. Marathi</div>
+                    <div>39. Nepali</div>
+                    <div>40. Odia</div>
+                    <div>41. Punjabi</div>
+                    <div>42. Sanskrit</div>
+                    <div>43. Santali</div>
+                    <div>44. Sindhi</div>
+                    <div>45. Tamil</div>
+                    <div>46. Telugu</div>
+                    <div>47. Urdu</div>
+                    <div>48. English</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sub-languages" class="upsc-sub-modal">
+        <div class="sub-modal-content">
+            <button class="close-sub-btn" onclick="closeSubModal('sub-languages')">&times;</button>
+            <h3 class="text-xl font-bold text-[var(--gold)] mb-4">8th Schedule Languages</h3>
+            <p class="text-xs text-gray-400 mb-4">You can choose one of these for Paper-A:</p>
+            <div class="grid grid-cols-3 gap-2 text-xs text-gray-300">
+                <div class="bg-gray-800 p-2 rounded text-center">Assamese</div>
+                <div class="bg-gray-800 p-2 rounded text-center">Bengali</div>
+                <div class="bg-gray-800 p-2 rounded text-center">Bodo</div>
+                <div class="bg-gray-800 p-2 rounded text-center">Dogri</div>
+                <div class="bg-gray-800 p-2 rounded text-center">Gujarati</div>
+                <div class="bg-gray-800 p-2 rounded text-center">Hindi</div>
+                <div class="bg-gray-800 p-2 rounded text-center">Kannada</div>
+                <div class="bg-gray-800 p-2 rounded text-center">Kashmiri</div>
+                <div class="bg-gray-800 p-2 rounded text-center">Konkani</div>
+                <div class="bg-gray-800 p-2 rounded text-center">Maithili</div>
+                <div class="bg-gray-800 p-2 rounded text-center">Malayalam</div>
+                <div class="bg-gray-800 p-2 rounded text-center">Manipuri</div>
+                <div class="bg-gray-800 p-2 rounded text-center">Marathi</div>
+                <div class="bg-gray-800 p-2 rounded text-center">Nepali</div>
+                <div class="bg-gray-800 p-2 rounded text-center">Odia</div>
+                <div class="bg-gray-800 p-2 rounded text-center">Punjabi</div>
+                <div class="bg-gray-800 p-2 rounded text-center">Sanskrit</div>
+                <div class="bg-gray-800 p-2 rounded text-center">Santali</div>
+                <div class="bg-gray-800 p-2 rounded text-center">Sindhi</div>
+                <div class="bg-gray-800 p-2 rounded text-center">Tamil</div>
+                <div class="bg-gray-800 p-2 rounded text-center">Telugu</div>
+                <div class="bg-gray-800 p-2 rounded text-center">Urdu</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sub-roadmap" class="upsc-sub-modal">
+        <div class="sub-modal-content">
+            <button class="close-sub-btn" onclick="closeSubModal('sub-roadmap')">&times;</button>
+            <h3 class="text-2xl font-bold text-[var(--gold)] mb-6 text-center">IAS Career Progression</h3>
+            
+            <div class="space-y-6 relative border-l-2 border-[var(--gold)] pl-6 ml-4">
+                <div class="relative">
+                    <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-[var(--gold)] border-2 border-black"></div>
+                    <h4 class="text-lg font-bold text-white">1. Training (2 Years)</h4>
+                    <p class="text-sm text-gray-400">Mussoorie (LBSNAA). Foundation Course and Stage-1 Training.</p>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-[var(--gold)] border-2 border-black"></div>
+                    <h4 class="text-lg font-bold text-white">2. District Level (4-9 Years)</h4>
+                    <p class="text-sm text-gray-400">SDM, District Magistrate (Collector). <br>Manage law & order, revenue and development of a district.</p>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-[var(--gold)] border-2 border-black"></div>
+                    <h4 class="text-lg font-bold text-white">3. State Secretariat (10-18 Years)</h4>
+                    <p class="text-sm text-gray-400">Director, Joint Secretary. Policy making at state level.</p>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-[var(--gold)] border-2 border-black"></div>
+                    <h4 class="text-lg font-bold text-white">4. Central Secretariat (19+ Years)</h4>
+                    <p class="text-sm text-gray-400">Joint Secretary, Additional Secretary Government of India.</p>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-[var(--gold)] border-2 border-black"></div>
+                    <h4 class="text-lg font-bold text-white">5. Top Level</h4>
+                    <p class="text-sm text-gray-400">Chief Secretary (State) or Cabinet Secretary (Highest post in India).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- CONFIRMATION MODAL LOGIC ---
+        let currentConfirmationAction = null;
+        let currentConfirmationType = null;
+
+        function showConfirmation(type) {
+            currentConfirmationType = type;
+            
+            if (type === 'profile') {
+                document.getElementById('confirmation-title').textContent = 'Reset Profile';
+                document.getElementById('confirmation-message').innerHTML = 
+                    'Are you sure? <strong>StiSkilli App</strong> will delete all your data and you will remain locked until you register again.';
+                currentConfirmationAction = resetProfileConfirmed;
+            } else if (type === 'quiz') {
+                document.getElementById('confirmation-title').textContent = 'Reset Quiz Progress';
+                document.getElementById('confirmation-message').innerHTML = 
+                    'Are you sure? <strong>StiSkilli App</strong> will reset your quiz progress to start of current set.';
+                currentConfirmationAction = resetQuizConfirmed;
+            }
+            
+            document.getElementById('confirmation-modal').classList.add('active');
+        }
+
+        function hideConfirmation() {
+            document.getElementById('confirmation-modal').classList.remove('active');
+            currentConfirmationAction = null;
+            currentConfirmationType = null;
+        }
+
+        function resetProfileConfirmed() {
+            localStorage.removeItem('userProfile');
+            localStorage.removeItem('quizProgress');
+            location.reload();
+        }
+
+        function resetQuizConfirmed() {
+            currentQuestionIndex = last25StartIndex;
+            score = 0;
+            correctAnswers = 0;
+            wrongAnswers = 0;
+            streak = 0;
+            saveQuizProgress();
+            loadQuestion();
+            hideConfirmation();
+        }
+
+        // Initialize confirmation modal buttons
+        document.getElementById('confirm-yes').addEventListener('click', function() {
+            if (currentConfirmationAction) {
+                currentConfirmationAction();
+            }
+        });
+
+        document.getElementById('confirm-no').addEventListener('click', hideConfirmation);
+
+        // --- NEWS LOADING FUNCTION ---
+        function loadNews() {
+            const newsContainer = document.getElementById('news-container');
+            
+            // Check if newsData exists (from external JS file)
+            if (typeof newsData !== 'undefined' && newsData.length > 0) {
+                let newsHTML = '<h2 class="upsc-heading">Latest Updates 📰</h2>';
+                
+                newsData.forEach(news => {
+                    newsHTML += `
+                        <a href="${news.link}" class="news-card" target="_blank" rel="noopener noreferrer">
+                            <div class="news-title">${news.title}</div>
+                            <div class="news-desc">${news.description}</div>
+                            <span class="news-date">${news.date} • ${news.source}</span>
+                        </a>
+                    `;
+                });
+                
+                newsContainer.innerHTML = newsHTML;
+            } else {
+                // Fallback if newsData is not available
+                newsContainer.innerHTML = `
+                    <h2 class="upsc-heading">Latest Updates 📰</h2>
+                    <div class="vacant-msg">
+                        <i class="fas fa-newspaper"></i>
+                        <p>No news available at the moment.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // --- QUIZ LOGIC (USING EXTERNAL quizData.js) ---
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let correctAnswers = 0;
+        let wrongAnswers = 0;
+        let streak = 0;
+        let timer;
+        let timeLeft = 72;
+        let quizStarted = false;
+        let questionOrder = [];
+        let last25StartIndex = 0;
+
+        // Initialize quiz with external quiz data
+        function initializeQuiz() {
+            // Check if quizQuestions exists
+            if (typeof quizQuestions === 'undefined') {
+                console.error('Quiz data not found');
+                return;
+            }
+            
+            const savedProgress = localStorage.getItem('quizProgress');
+            if (savedProgress) {
+                const progress = JSON.parse(savedProgress);
+                currentQuestionIndex = progress.currentQuestionIndex || 0;
+                score = progress.score || 0;
+                correctAnswers = progress.correctAnswers || 0;
+                wrongAnswers = progress.wrongAnswers || 0;
+                streak = progress.streak || 0;
+                questionOrder = progress.questionOrder || [];
+                last25StartIndex = progress.last25StartIndex || 0;
+                
+                if (questionOrder.length === 0) {
+                    questionOrder = Array.from({length: quizQuestions.length}, (_, i) => i);
+                    shuffleArray(questionOrder);
+                }
+            } else {
+                questionOrder = Array.from({length: quizQuestions.length}, (_, i) => i);
+                shuffleArray(questionOrder);
+                saveQuizProgress();
+            }
+            
+            updateQuizUI();
+            loadQuestion();
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function loadQuestion() {
+            if (typeof quizQuestions === 'undefined') return;
+            
+            if (currentQuestionIndex >= questionOrder.length) {
+                currentQuestionIndex = 0;
+                questionOrder = Array.from({length: quizQuestions.length}, (_, i) => i);
+                shuffleArray(questionOrder);
+            }
+
+            const questionIndex = questionOrder[currentQuestionIndex];
+            const question = quizQuestions[questionIndex];
+            
+            document.getElementById('question-text').textContent = question.question;
+            document.getElementById('current-question').textContent = currentQuestionIndex + 1;
+            document.getElementById('total-questions').textContent = quizQuestions.length;
+            
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+            
+            const letters = ['A', 'B', 'C', 'D'];
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'option-btn';
+                button.innerHTML = `
+                    <span class="option-letter">${letters[index]}</span>
+                    ${option}
+                `;
+                button.onclick = () => selectOption(index, question.correct);
+                optionsContainer.appendChild(button);
+            });
+            
+            // Reset timer
+            clearInterval(timer);
+            timeLeft = 72;
+            document.getElementById('question-timer').textContent = `${timeLeft}s`;
+            
+            // Start timer
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById('question-timer').textContent = `${timeLeft}s`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    handleTimeOut();
+                }
+            }, 1000);
+            
+            // Update progress bar
+            const progress = ((currentQuestionIndex % 25) + 1) / 25 * 100;
+            document.getElementById('quiz-progress').style.width = `${progress}%`;
+            
+            // Show/hide back button based on question count in current set
+            const currentSetQuestion = (currentQuestionIndex % 25) + 1;
+            document.getElementById('reset-btn').style.display = currentSetQuestion <= 1 ? 'none' : 'flex';
+            
+            updateQuizUI();
+        }
+
+        function selectOption(selectedIndex, correctIndex) {
+            clearInterval(timer);
+            
+            const options = document.querySelectorAll('.option-btn');
+            const selectedOption = options[selectedIndex];
+            const correctOption = options[correctIndex];
+            
+            // Disable all options
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            // Mark selected option
+            if (selectedIndex === correctIndex) {
+                selectedOption.classList.add('correct');
+                score += 2;
+                correctAnswers++;
+                streak++;
+                
+                // Update streak display
+                const streakElement = document.getElementById('user-streak');
+                streakElement.textContent = streak;
+                streakElement.style.color = streak >= 3 ? '#10B981' : '#FFD700';
+            } else {
+                selectedOption.classList.add('wrong');
+                correctOption.classList.add('correct');
+                score -= 0.25;
+                wrongAnswers++;
+                streak = 0;
+                document.getElementById('user-streak').textContent = streak;
+            }
+            
+            // Update score display
+            document.getElementById('current-score').textContent = score;
+            
+            // Show auto-next indicator
+            const indicator = document.getElementById('auto-next-indicator');
+            indicator.style.display = 'block';
+            
+            let countdown = 3;
+            const countdownElement = document.getElementById('next-countdown');
+            countdownElement.textContent = countdown;
+            
+            const countdownInterval = setInterval(() => {
+                countdown--;
+                countdownElement.textContent = countdown;
+                
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    indicator.style.display = 'none';
+                    saveQuizProgress();
+                    
+                    // Check if we need to show results after 25 questions
+                    const currentSetQuestion = (currentQuestionIndex % 25) + 1;
+                    if (currentSetQuestion === 25) {
+                        showResultsModal();
+                    } else {
+                        currentQuestionIndex++;
+                        loadQuestion();
+                    }
+                }
+            }, 1000);
+        }
+
+        function handleTimeOut() {
+            const options = document.querySelectorAll('.option-btn');
+            const correctIndex = quizQuestions[questionOrder[currentQuestionIndex]].correct;
+            const correctOption = options[correctIndex];
+            
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            correctOption.classList.add('correct');
+            wrongAnswers++;
+            streak = 0;
+            
+            // Show auto-next indicator
+            const indicator = document.getElementById('auto-next-indicator');
+            indicator.style.display = 'block';
+            
+            let countdown = 3;
+            const countdownElement = document.getElementById('next-countdown');
+            countdownElement.textContent = countdown;
+            
+            const countdownInterval = setInterval(() => {
+                countdown--;
+                countdownElement.textContent = countdown;
+                
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    indicator.style.display = 'none';
+                    saveQuizProgress();
+                    
+                    // Check if we need to show results after 25 questions
+                    const currentSetQuestion = (currentQuestionIndex % 25) + 1;
+                    if (currentSetQuestion === 25) {
+                        showResultsModal();
+                    } else {
+                        currentQuestionIndex++;
+                        loadQuestion();
+                    }
+                }
+            }, 1000);
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            saveQuizProgress();
+            
+            // Check if we need to show results after 25 questions
+            const currentSetQuestion = (currentQuestionIndex % 25) + 1;
+            if (currentSetQuestion === 1 && currentQuestionIndex > 0) {
+                showResultsModal();
+            } else {
+                loadQuestion();
+            }
+        }
+
+        function showResultsModal() {
+            const accuracy = correctAnswers / (correctAnswers + wrongAnswers) * 100;
+            
+            document.getElementById('final-score').textContent = score;
+            document.getElementById('correct-answers').textContent = correctAnswers;
+            document.getElementById('wrong-answers').textContent = wrongAnswers;
+            document.getElementById('accuracy').textContent = `${accuracy.toFixed(1)}%`;
+            
+            document.getElementById('quiz-results-modal').classList.add('active');
+        }
+
+        function closeResultsModal() {
+            document.getElementById('quiz-results-modal').classList.remove('active');
+            showConfirmation('quiz');
+        }
+
+        function continueQuiz() {
+            document.getElementById('quiz-results-modal').classList.remove('active');
+            last25StartIndex = currentQuestionIndex;
+            saveQuizProgress();
+            loadQuestion();
+        }
+
+        function saveQuizProgress() {
+            const progress = {
+                currentQuestionIndex,
+                score,
+                correctAnswers,
+                wrongAnswers,
+                streak,
+                questionOrder,
+                last25StartIndex
+            };
+            localStorage.setItem('quizProgress', JSON.stringify(progress));
+        }
+
+        function updateQuizUI() {
+            document.getElementById('current-score').textContent = score;
+            document.getElementById('user-streak').textContent = streak;
+            
+            // Update streak color
+            const streakElement = document.getElementById('user-streak');
+            streakElement.style.color = streak >= 3 ? '#10B981' : '#FFD700';
+        }
+
+        // --- PROFILE LOGIC (SIMPLIFIED) ---
+        function checkProfile() {
+            unlockInterface();
+            return true;
+        }
+
+        function unlockInterface() {
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('locked'));
+        }
+
+        // --- TAB NAVIGATION LOGIC ---
+        function activateTab(element, tabId) {
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            if(element) element.classList.add('active');
+
+            document.querySelectorAll('.modal-overlay').forEach(el => el.classList.remove('active'));
+
+            const target = document.getElementById(`modal-${tabId}`);
+            if(target) target.classList.add('active');
+            
+            // Initialize quiz if quiz tab is activated
+            if (tabId === 'quiz') {
+                if (!quizStarted) {
+                    initializeQuiz();
+                    quizStarted = true;
+                }
+            }
+            
+            // Load news when news tab is activated
+            if (tabId === 'news') {
+                loadNews();
+            }
+        }
+
+        // --- SUB-MODAL LOGIC ---
+        function openSubModal(id) {
+            document.getElementById(id).classList.add('active');
+        }
+        
+        function closeSubModal(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+
+        // --- CUSTOM ALERT FUNCTION ---
+        function showCustomAlert(message) {
+            document.getElementById('confirmation-title').textContent = 'StiSkilli App';
+            document.getElementById('confirmation-message').textContent = message;
+            document.getElementById('confirm-yes').style.display = 'none';
+            document.getElementById('confirm-no').textContent = 'OK';
+            document.getElementById('confirm-no').onclick = function() {
+                hideConfirmation();
+                document.getElementById('confirm-yes').style.display = 'block';
+                document.getElementById('confirm-no').textContent = 'No';
+            };
+            document.getElementById('confirmation-modal').classList.add('active');
+        }
+
+        // --- CHARTS INITIALIZATION ---
+        document.addEventListener("DOMContentLoaded", function() {
+            // Unlock interface immediately
+            unlockInterface();
+            
+            // Activate UPSC tab by default
+            activateTab(document.getElementById('nav-upsc'), 'upsc');
+
+            Chart.defaults.color = '#fff';
+            Chart.defaults.font.family = "'Plus Jakarta Sans', sans-serif";
+
+            // Attempts Chart
+            const ctx1 = document.getElementById('attemptsChart').getContext('2d');
+            new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: ['General', 'OBC', 'SC / ST'],
+                    datasets: [{
+                        label: 'Maximum Attempts',
+                        data: [6, 9, 100],
+                        backgroundColor: ['#FFD700', '#B8860B', '#A37A00'],
+                        borderColor: '#000',
+                        borderWidth: 1,
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { 
+                            grid: { color: '#333' }, 
+                            ticks: { 
+                                color: '#aaa', 
+                                callback: v => v > 20 ? 'Unlimited' : v 
+                            } 
+                        },
+                        y: { grid: { display: false }, ticks: { color: '#fff', font: {weight: 'bold'} } }
+                    }
+                }
+            });
+
+            // Interview Qualities Chart
+            const ctx2 = document.getElementById('interviewChart').getContext('2d');
+            new Chart(ctx2, {
+                type: 'bubble',
+                data: {
+                    labels: ['Mental Alertness', 'Critical Thinking', 'Balanced Judgment', 'Communication', 'Integrity', 'Leadership'],
+                    datasets: [{
+                        label: 'Key Qualities',
+                        data: [
+                            {x: 1, y: 3, r: 15}, {x: 2.5, y: 1.5, r: 20}, {x: 4, y: 3.8, r: 18},
+                            {x: 1.8, y: 4.5, r: 12}, {x: 3.5, y: 0.5, r: 16}, {x: 0.5, y: 2.5, r: 14}
+                        ],
+                        backgroundColor: 'rgba(255, 215, 0, 0.7)',
+                        borderColor: '#fff',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { display: false, min: 0, max: 5 },
+                        y: { display: false, min: 0, max: 5 }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const labels = ['Mental Alertness', 'Critical Thinking', 'Balanced Judgment', 'Communication', 'Integrity', 'Leadership'];
+                                    return labels[context.dataIndex];
+                                }
+                            },
+                            backgroundColor: '#000',
+                            titleColor: '#FFD700',
+                            bodyColor: '#fff',
+                            displayColors: false
+                        }
+                    }
+                }
+            });
+            
+            // Preload news data when page loads (optional)
+            if (typeof newsData !== 'undefined') {
+                console.log('News data loaded successfully');
+            }
+        });
+
+        // Close modals on outside click
+        window.onclick = function(event) {
+            if (event.target.classList.contains('upsc-sub-modal')) {
+                event.target.classList.remove('active');
+            }
+            if (event.target.classList.contains('quiz-results-modal')) {
+                event.target.classList.remove('active');
+            }
+            if (event.target.classList.contains('confirmation-modal')) {
+                event.target.classList.remove('active');
+                document.getElementById('confirm-yes').style.display = 'block';
+                document.getElementById('confirm-no').textContent = 'No';
+            }
+        }
+    </script>
+   <style>
+/* Buttons  ---------- container */
+.floating-nav { position: fixed;right: 0;top: 50%;transform: translateY(-50%);display: flex;flex-direction: column; z-index: 9999;}
+
+/* button style - default (badi screen ke liye) */
+.float-btn {writing-mode: vertical-rl;transform: rotate(180deg);text-decoration: none;padding: 7px 7px;font-weight: 600;letter-spacing: 1px;color: white;margin: 4px 0;font-size: 14px;
+/* curved side outside */border-radius: 0 15px 15px 0;background: linear-gradient(135deg, #ff7a00, #ff3c00);box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);transition: all .35s ease;}
+/* hover animation */
+.float-btn:hover {padding-right: 2px;box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);}
+/* back button color */
+.back {background: linear-gradient(135deg, #007bff, #003cff);}
+/* ===== 1500px se chhoti screen ke liye - 12x12 icons ===== */
+@media (max-width: 1500px) {.floating-nav {right: 0;gap: 3px;}
+    .float-btn {writing-mode: horizontal-tb !important;  /* horizontal kar diya */transform: rotate(0deg) !important;      /* rotation hata di */width: 17px !important;height: 30px !important;min-width: 17px;min-height: 30px;padding: 0 !important;margin: 2px 0 !important;
+    font-size: 5px !important;line-height: 12px !important;text-align: center !important;border-radius: 6px 0 0 6px !important;   /* right side curved */display: flex;align-items: center;justify-content: center;background: linear-gradient(135deg, #ff7a00, #ff3c00);box-shadow:   2px 5px rgba(0, 0, 0, 0.2);
+        /* text ko hide kar diya - sirf icon dikhega */
+        color: transparent !important; position: relative;}
+    /* Home button - house icon */
+    .float-btn:first-child::before { content: "🏠";font-size: 6px;color: white;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
+    /* Back button - back arrow icon */
+    .float-btn.back::before {content: "🔙";font-size: 6px;color: white;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
+    /* Hover effect for tiny buttons */
+    .float-btn:hover {transform: scale(1.1);box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);padding: 0 !important;}
+    /* Back button color in tiny mode */
+    .float-btn.back {background: linear-gradient(135deg, #007bff, #003cff);}}
+
+/* responsive for very small screens - extra adjustments */
+@media (max-width: 480px) {.floating-nav {right: 2px;}.float-btn {width: 17px !important;height: 17px !important; min-width: 17px;min-height: 17px;font-size: 4px !important;}.float-btn::before { font-size: 5px !important;}}
+/* original responsive - pehle jaisa hi */
+@media (min-width: 1501px) and (max-width: 768px) {.float-btn { font-size: 12px;padding: 14px 10px;}}
+</style>
+<div class="floating-nav"><a href="main.html" class="float-btn">Home</a></div>
+    <script src="social-bar.js"></script>
+</body>
+</html>
