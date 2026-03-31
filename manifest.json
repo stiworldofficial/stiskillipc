@@ -2,12 +2,13 @@
   "background_color": "#ffffff",
   "dir": "ltr",
   "display": "standalone",
-  "name": "stiskillipc.stiworldofficial",
+  "name": "STI Skilli - Exam Preparation Platform",
+  "short_name": "STI Skilli",
+  "description": "STI Skilli is an all-in-one exam preparation platform for India, offering latest government and private job updates, exam notifications, previous year questions (PYQs), mock tests, syllabus, results, and career guidance with a fast and seamless experience.",
   "orientation": "any",
   "scope": "/",
-  "short_name": "stiskillipc.stiworldofficial",
   "start_url": "/",
-  "theme_color": "#ffffff",
+  "theme_color": "#ff6600",
 
   "icons": [
     {
