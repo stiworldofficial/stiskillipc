@@ -1,0 +1,65 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "stiskillipc.stiworldofficial",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "stiskillipc.stiworldofficial",
+  "start_url": "/",
+  "theme_color": "#ffffff"
+}
+  "icons": [
+    {
+      "src": "https://pc.stiworldofficial.com/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://pc.stiworldofficial.com/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://pc.stiworldofficial.com/oneo.png",
+      "sizes": "1366x768",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Home page of Stiskilli"
+    },
+    {
+      "src": "https://pc.stiworldofficial.com/twoo.png",
+      "sizes": "1366x768",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Courses available on Stiskilli"
+    },
+    {
+      "src": "https://pc.stiworldofficial.com/threeo.png",
+      "sizes": "1366x768",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Exam preparation materials"
+    },
+    {
+      "src": "https://pc.stiworldofficial.com/fouro.png",
+      "sizes": "1366x768",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Practice tests section"
+    },
+    {
+      "src": "https://pc.stiworldofficial.com/fiveo.png",
+      "sizes": "1366x768",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "User dashboard"
+    }
+  ],
+  "categories": ["education", "productivity"],
+  "prefer_related_applications": false
+}
