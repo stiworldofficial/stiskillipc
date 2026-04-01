@@ -1,5 +1,5 @@
 const APP_NAME = "stiskilli";
-const CACHE_VERSION = "v3";
+const CACHE_VERSION = "v4";
 const STATIC_CACHE = `${APP_NAME}-static-${CACHE_VERSION}`;
 const DYNAMIC_CACHE = `${APP_NAME}-dynamic-${CACHE_VERSION}`;
 
