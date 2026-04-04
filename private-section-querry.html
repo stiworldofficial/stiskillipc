@@ -1,1 +1,408 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>STISkilli - Expert Consultation Form</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- THEME VARIABLES --- */
+        :root {
+            --primary: #F4C430;       
+            --primary-glow: #FFD700; 
+            --dark-glass: rgba(10, 10, 10, 0.85);
+            --header-height: 70px; 
+            --footer-height: 75px; 
+        }
+
+        /* --- GLOBAL RESET --- */
+        html, body {
+            margin: 0; padding: 0;
+            width: 100%; height: 100dvh;
+            overflow: hidden; 
+            position: fixed; 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overscroll-behavior: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* --- UNIVERSE BACKGROUND --- */
+        #universe-bg {
+            position: fixed; top: -10%; left: -10%; width: 120%; height: 120%;
+            z-index: -10;
+            background: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2072&auto=format&fit=crop');
+            background-size: cover;
+            filter: contrast(120%) brightness(40%);
+            animation: galaxyMove 60s linear infinite alternate;
+        }
+        @keyframes galaxyMove { from { transform: scale(1); } to { transform: scale(1.1); } }
+
+        /* --- GOLDEN BORDER ANIMATION --- */
+        .golden-border-anim {
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            animation: borderPulse 3s infinite alternate;
+        }
+        @keyframes borderPulse {
+            0% { box-shadow: 0 0 10px rgba(244, 196, 48, 0.2); border-color: #bfa128; }
+            100% { box-shadow: 0 0 20px rgba(244, 196, 48, 0.6), inset 0 0 10px rgba(244, 196, 48, 0.2); border-color: #ffd700; }
+        }
+
+        /* --- HEADER --- */
+        .glass-header {
+            position: fixed; top: calc(15px + env(safe-area-inset-top)); left: 50%; transform: translateX(-50%);
+            width: 94%; max-width: 800px; height: var(--header-height);
+            background: rgba(5, 5, 5, 0.95); backdrop-filter: blur(25px);
+            border-radius: 24px;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 20px; z-index: 3000;
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+        }
+        .header-logo { width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--primary); object-fit: cover; box-shadow: 0 0 10px var(--primary-glow); }
+        
+        .header-title-text {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(to bottom, #FFD700, #B8860B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            filter: drop-shadow(0 0 5px rgba(244, 196, 48, 0.5));
+            text-align: center;
+        }
+
+        /* --- DOCK (Footer) --- */
+        .dock-wrapper { 
+            position: fixed; bottom: calc(20px + env(safe-area-inset-bottom)); left: 0; width: 100%; 
+            display: flex; justify-content: center; z-index: 3000; padding: 0 5px;
+        }
+        .glass-dock { 
+            width: 100%; max-width: 700px; 
+            height: var(--footer-height); 
+            background: rgba(5, 5, 5, 0.95); backdrop-filter: blur(30px);
+            border-radius: 24px; 
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 10px;
+        }
+        .dock-item { 
+            width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; 
+            color: rgba(255, 255, 255, 0.3); cursor: pointer; position: relative;
+            transition: all 0.3s ease; border-radius: 16px; flex: 1;
+        }
+        .dock-item i { font-size: 1.4rem; transition: 0.3s; }
+        .dock-item.active { 
+            color: var(--primary-glow); 
+            background: radial-gradient(circle, rgba(244, 196, 48, 0.2) 0%, transparent 70%);
+            text-shadow: 0 0 20px var(--primary);
+        }
+        .dock-item.active i { transform: scale(1.1); filter: drop-shadow(0 0 5px var(--primary)); }
+
+        /* --- MAIN FORM CONTAINER --- */
+        .form-overlay {
+            position: fixed; 
+            top: calc(var(--header-height) + 30px + env(safe-area-inset-top)); 
+            bottom: calc(var(--footer-height) + 35px + env(safe-area-inset-bottom)); 
+            left: 0; right: 0; 
+            z-index: 2500; 
+            display: flex; justify-content: center; align-items: center;
+            padding: 0 15px; 
+            pointer-events: none; /* Let touches pass through the wrapper */
+        }
+
+        .glass-panel {
+            pointer-events: auto; /* Form container intercept karega touch */
+            background: rgba(20, 20, 20, 0.8); 
+            backdrop-filter: blur(25px); 
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 30px; 
+            padding: 30px 25px;
+            width: 100%; 
+            max-width: 500px; 
+            max-height: 100%;
+            overflow-y: auto;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            display: flex; 
+            flex-direction: column; 
+            align-items: center;
+            /* Scrollbar styling */
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) transparent;
+        }
+        
+        .glass-panel::-webkit-scrollbar { width: 6px; }
+        .glass-panel::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+
+        /* --- FORM ELEMENTS --- */
+        .form-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .form-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            margin-bottom: 8px;
+        }
+        .form-subtitle {
+            font-size: 0.95rem;
+            color: #aaa;
+            line-height: 1.4;
+        }
+
+        .gold-input-group { width: 100%; margin-bottom: 20px; text-align: left; }
+        .gold-label { 
+            font-size: 0.85rem; color: var(--primary); font-weight: 700; 
+            margin-left: 10px; margin-bottom: 8px; display: block; letter-spacing: 1px; 
+            text-transform: uppercase;
+        }
+        .gold-input {
+            width: 100%; background: rgba(0,0,0,0.6); border: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 16px; border-radius: 16px; color: #fff; font-size: 1rem; 
+            transition: all 0.3s ease; outline: none; box-sizing: border-box;
+        }
+        .gold-input:focus { 
+            border-color: var(--primary); 
+            box-shadow: 0 0 20px rgba(244, 196, 48, 0.2); 
+            background: rgba(0,0,0,0.8); 
+        }
+        .gold-input::placeholder { color: #666; }
+        
+        .btn-submit {
+            width: 100%; background: linear-gradient(135deg, #FFD700 0%, #B8860B 100%);
+            color: #000; font-family: 'Rajdhani', sans-serif; font-weight: 900; font-size: 1.3rem;
+            padding: 18px; border-radius: 16px; border: none; cursor: pointer; 
+            position: relative; overflow: hidden; text-transform: uppercase; letter-spacing: 1px;
+            box-shadow: 0 5px 20px rgba(244, 196, 48, 0.4); 
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+        .btn-submit:active { transform: scale(0.98); box-shadow: 0 2px 10px rgba(244, 196, 48, 0.4); }
+
+        /* --- POPUP OVERLAY --- */
+        .overlay-popup {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(5, 5, 5, 0.95); z-index: 5000;
+            display: none; /* Default hidden */
+            flex-direction: column; align-items: center; justify-content: center;
+            backdrop-filter: blur(15px);
+            padding: 20px;
+        }
+
+        .popup-box {
+            background: linear-gradient(180deg, rgba(25, 25, 25, 0.95) 0%, rgba(10, 10, 10, 0.95) 100%);
+            border: 2px solid var(--primary);
+            border-radius: 30px;
+            padding: 40px 30px;
+            width: 100%; max-width: 450px;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(244, 196, 48, 0.3), inset 0 0 20px rgba(244, 196, 48, 0.1);
+            animation: popUpAnim 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popUpAnim { 
+            from { transform: scale(0.8) translateY(20px); opacity: 0; } 
+            to { transform: scale(1) translateY(0); opacity: 1; } 
+        }
+
+        .popup-icon {
+            font-size: 4rem; color: var(--correct, #00e676); 
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 15px rgba(0, 230, 118, 0.5));
+        }
+
+        .popup-title {
+            font-family: 'Rajdhani', sans-serif; font-size: 2.2rem; font-weight: 900; 
+            color: var(--primary); margin-bottom: 15px; line-height: 1.1; text-transform: uppercase;
+        }
+
+        .popup-text {
+            color: #ddd; font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px;
+        }
+
+        .btn-close-popup {
+            padding: 14px 40px; font-family: 'Rajdhani', sans-serif; font-weight: 800; font-size: 1.2rem; 
+            border-radius: 50px; border: none; cursor: pointer; 
+            background: var(--primary); color: #000; 
+            box-shadow: 0 0 20px var(--primary-glow); 
+            transition: 0.3s; width: 100%;
+        }
+        .btn-close-popup:hover { transform: translateY(-2px); box-shadow: 0 5px 25px var(--primary); }
+
+    </style>
+</head>
+<body>
+
+    <!-- Universe Background -->
+    <div id="universe-bg"></div>
+
+    <!-- Header (Same as original) -->
+    <header class="glass-header golden-border-anim" id="main-header">
+        <img class="header-logo" src="sti.png" alt="Logo" onerror="this.style.display='none'">
+        <div id="app-main-title" class="header-title-text">STISkilli</div>
+        <img class="header-logo" src="ytglogo.png" alt="Logo" onerror="this.style.display='none'">
+    </header>
+
+    <!-- Main Form Area (Centered between header and footer) -->
+    <div class="form-overlay">
+        <div class="glass-panel golden-border-anim">
+            
+            <div class="form-header">
+                <h2 class="form-title">Consultation</h2>
+                <p class="form-subtitle">Apni details fill karein aur humare expert aapse jald hi connect karenge.</p>
+            </div>
+
+            <form id="lead-form" class="w-full">
+                <!-- Name Field -->
+                <div class="gold-input-group">
+                    <label class="gold-label"><i class="fas fa-user mr-2"></i> Pura Naam (Full Name)</label>
+                    <input type="text" id="user-name" class="gold-input" placeholder="e.g. Rahul Kumar" required>
+                </div>
+
+                <!-- Number Field -->
+                <div class="gold-input-group">
+                    <label class="gold-label"><i class="fas fa-phone-alt mr-2"></i> Mobile Number</label>
+                    <input type="tel" id="user-number" class="gold-input" placeholder="+91 XXXXX XXXXX" pattern="[0-9]{10,15}" title="Please enter a valid mobile number" required>
+                </div>
+
+                <!-- Email Field -->
+                <div class="gold-input-group">
+                    <label class="gold-label"><i class="fas fa-envelope mr-2"></i> Email Address</label>
+                    <input type="email" id="user-email" class="gold-input" placeholder="name@example.com" required>
+                </div>
+
+                <!-- Location Field -->
+                <div class="gold-input-group">
+                    <label class="gold-label"><i class="fas fa-map-marker-alt mr-2"></i> Aapki Location (City/State)</label>
+                    <input type="text" id="user-location" class="gold-input" placeholder="e.g. New Delhi" required>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-submit">
+                    Submit Karein <i class="fas fa-paper-plane ml-2"></i>
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Footer / Dock (Same as original) -->
+    <div class="dock-wrapper" id="dock-wrapper">
+        <nav class="glass-dock golden-border-anim" id="dock-nav-container">
+            <div id="nav-profile" class="dock-item active"><i class="fas fa-user-circle"></i></div>
+            <div id="nav-ancient" class="dock-item"><i class="fas fa-landmark section-icon"></i></div>
+            <div id="nav-medieval" class="dock-item"><i class="fas fa-monument section-icon"></i></div>
+            <div id="nav-modern" class="dock-item"><i class="fas fa-flag section-icon"></i></div>
+            <div id="nav-world" class="dock-item"><i class="fas fa-globe section-icon"></i></div>
+            <div id="nav-art" class="dock-item"><i class="fas fa-palette section-icon"></i></div>
+        </nav>
+    </div>
+
+    <!-- Success Popup (Centered Overlay) -->
+    <div id="success-popup" class="overlay-popup">
+        <div class="popup-box">
+            <i class="fas fa-check-circle popup-icon"></i>
+            <div class="popup-title">Welcome <span id="display-name">User</span>!</div>
+            <div class="popup-text">
+                <strong>Congratulations!</strong><br><br>
+                Soon our expert will contact you, get ready for your career growth.
+            </div>
+            <button class="btn-close-popup" onclick="closePopup()">Awesome!</button>
+        </div>
+    </div>
+
+    <!-- JavaScript For Form Handling -->
+    <script>
+        // Form submit hone par event listener
+        document.getElementById('lead-form').addEventListener('submit', function(event) {
+            // Page reload ko rokein
+            event.preventDefault();
+            
+            // User ka naam get karein
+            const userName = document.getElementById('user-name').value.trim();
+            
+            // Popup me user ka naam set karein
+            if(userName) {
+                // First name extract karna (optional)
+                const firstName = userName.split(' ')[0];
+                document.getElementById('display-name').innerText = firstName;
+            }
+
+            // Success popup show karein
+            document.getElementById('success-popup').style.display = 'flex';
+            
+            // Background form ko clear karein (optional)
+            document.getElementById('lead-form').reset();
+        });
+
+        // Popup close karne ka function aur redirect
+        function closePopup() {
+            document.getElementById('success-popup').style.display = 'none';
+            // User ko main.html par redirect karein
+            window.location.href = 'main.html';
+        }
+
+        // --- Triple Tap Feature for testing/UI adjustments (from original) ---
+        let tapCountTriple = 0;
+        let tapTimerTriple = null;
+        const headerElement = document.getElementById('main-header');
+        const footerWrapperElement = document.getElementById('dock-wrapper');
+
+        function toggleHeaderFooter() {
+            if (!headerElement || !footerWrapperElement) return;
+            
+            if (headerElement.style.opacity === '0') {
+                headerElement.style.opacity = '1';
+                headerElement.style.visibility = 'visible';
+                footerWrapperElement.style.opacity = '1';
+                footerWrapperElement.style.visibility = 'visible';
+            } else {
+                headerElement.style.opacity = '0';
+                headerElement.style.visibility = 'hidden';
+                footerWrapperElement.style.opacity = '0';
+                footerWrapperElement.style.visibility = 'hidden';
+            }
+        }
+
+        function onTripleTapHandler(event) {
+            const target = event.target;
+            if (target.closest('input') || target.closest('button')) {
+                return;
+            }
+            
+            tapCountTriple++;
+            if (tapTimerTriple) clearTimeout(tapTimerTriple);
+            
+            if (tapCountTriple === 3) {
+                toggleHeaderFooter();
+                tapCountTriple = 0;
+            } else {
+                tapTimerTriple = setTimeout(() => {
+                    tapCountTriple = 0;
+                }, 500);
+            }
+        }
+
+        // Add event listener for triple tap
+        document.body.addEventListener('touchstart', onTripleTapHandler);
+        document.body.addEventListener('click', onTripleTapHandler);
+        
+    </script>
+</body>
+</html>
