@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
+   <base href="/" />
+<script>
+// FORCE ALL LINKS INSIDE APP (ULTIMATE FIX)
+document.addEventListener("click", function(e) {
+  const a = e.target.closest("a");
+  if (!a) return;
+
+  const url = new URL(a.href, location.href);
+
+  // same domain → app ke andar hi
+  if (url.origin === location.origin) {
+    e.preventDefault();
+    window.location.href = url.pathname + url.search;
+  }
+});
+
+// BLOCK window.open (browser jump rokne ke liye)
+window.open = function(url) {
+  window.location.href = url;
+};
+</script>
    <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -390,15 +411,15 @@
     sub: "Examination",
     tag: "Grade A",
     img: "upsc.webp",
-    linkHi: "upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps-hindi.html",
-    linkEn: "upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps.html"
+    linkHi: "/upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps-hindi.html",
+    linkEn: "/upsc-ias-ips-ifos-ifs-iaas-icas-icls-idas-ides-iis-ipos-iptafs-irs-income-tax-irs-customer-indirect-tax-irts-iras-irps-irsse-itrs-rpf-aghqcs-danics-danips-pcs-pps.html"
   },
   {
     title: "Engineering",
     sub: "Services-Examination",
     tag: "Technical",
     img: "ese.webp",
-    linkHi: "#upsc-ese-ies-engineering-services-exam.html",
+    linkHi: "#",
     linkEn: "upsc-ese-ies-engineering-services-exam.html"
   },
   {
