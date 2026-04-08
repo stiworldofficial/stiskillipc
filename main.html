@@ -389,11 +389,11 @@ window.open = function(url) {
             
             <!-- Buttons in a single row -->
             <div class="lang-row">
-                <a id="link-hi" href="#" class="lang-btn-row btn-hindi-row">
-                    <span>हिंदी</span>
-                </a> 
-                <a id="link-en" href="#" class="lang-btn-row btn-eng-row">
-                    <span>ENGLISH</span>
+                <a id="link-hi" href="javascript:void(0)" class="lang-btn-row btn-hindi-row">
+              <span>हिंदी</span>
+                    </a> 
+                 <a id="link-en" href="javascript:void(0)" class="lang-btn-row btn-eng-row">
+                      <span>ENGLISH</span>
                 </a>
             </div>
         </div>
@@ -514,10 +514,12 @@ window.open = function(url) {
                 // Only government category shows language selection popup
                 showLangPopup(title, img, linkHi, linkEn);
             } else {
+
+
                 // All other categories: direct link (prefer English, fallback Hindi)
-                const targetUrl = linkEn && linkEn !== '#' ? linkEn : (linkHi || '#');
-                if (targetUrl && targetUrl !== '#') {
-                    window.location.href = targetUrl;
+                const targetUrl = linkEn && linkEn !== '#' ? linkEn : (linkHi || '');
+if (targetUrl && targetUrl !== '#' && targetUrl !== '') {
+    window.location.href = targetUrl;
                 }
             }
         }
@@ -526,8 +528,8 @@ window.open = function(url) {
         function showLangPopup(title, img, linkHi, linkEn) {
             document.getElementById('pop-title').innerText = title;
             // img is ignored as per design (no image in popup)
-            document.getElementById('link-hi').href = linkHi;
-            document.getElementById('link-en').href = linkEn;
+            document.getElementById('link-hi').href = linkHi || "javascript:void(0)";
+            document.getElementById('link-en').href = linkEn || "javascript:void(0)";
             document.getElementById('lang-popup').classList.add('active');
         }
 
@@ -614,28 +616,7 @@ window.open = function(url) {
 // FORCE PWA MODE - All links open inside app
 // =============================================
 
-// Yeh function ensure karta hai ki saare internal links app ke andar khulein
-document.addEventListener('click', function(e) {
-  // Check karo ki click link par hua ya nahi
-  let clickedLink = e.target.closest('a');
-  
-  if (clickedLink && clickedLink.href) {
-    const linkUrl = new URL(clickedLink.href);
-    const currentUrl = new URL(window.location.href);
-    
-    // Sirf internal links ko handle karo (same domain)
-    if (linkUrl.origin === currentUrl.origin) {
-      // Prevent default browser navigation
-      e.preventDefault();
-      
-      // App ke andar navigate karo
-      window.location.href = clickedLink.href;
-      
-      console.log('PWA Navigation:', clickedLink.href);
-    }
-    // External links browser mein khulenge (yeh theek hai)
-  }
-});
+
 
 // Extra security: Ensure har link mein target="_self" set ho
 document.addEventListener('DOMContentLoaded', function() {
