@@ -15,10 +15,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <!-- QUIZ DATA (External File) -->
     <script src="currentaffairsquizdataenglish.js"></script>
+    
     <!-- NEWS DATA (External File) -->
     <script src="latestnewsdata.js"></script>
+    
     <style>
         /* --- MAIN APP THEME (Green/Neon) --- */
         :root {
@@ -969,10 +972,10 @@
     <div class="iphone-dock-wrapper">
         <nav class="iphone-dock">
             <div class="nav-item active" id="nav-profile" onclick="activateTab(this, 'profile')">
-                <div class="icon-box"><i class="fas fa-user-circle"></i></div><span>Youtube</span>
+                <div class="icon-box"><i class="fas fa-user-circle"></i></div><span>Prelims</span>
             </div>
             <div class="nav-item locked" id="nav-pyq" onclick="activateTab(this, 'pyq')">
-                <div class="icon-box"><i class="fas fa-file-alt"></i></div><span>START</span>
+                <div class="icon-box"><i class="fas fa-file-alt"></i></div><span>Mains</span>
             </div>
             
             <div class="nav-item upsc-tab locked" id="nav-upsc" onclick="activateTab(this, 'upsc')">
@@ -988,139 +991,77 @@
         </nav>
     </div>
 
-    <div id="modal-profile" class="modal-overlay active">
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------ Prelims Section ----------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------------------------->
+
+    <div id="modal-profile" class="modal-overlay">
         <div class="modal-box" style="border-color: var(--gold);">
             <div class="scroll-content upsc-container">
                 
                 <div id="profile-view">
-                    <h2 class="upsc-heading">Free YouTube Courses 🎓</h2>
-                    <p class="text-gray-400 text-sm mb-6">Ultra-premax, stylish and modern YouTube playlists for UPSC 2026 preparation. Click on any card to watch.</p>
-                    
-                    <div class="yt-course-grid">
-                        <!-- 1 -->
-                        <div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PLwxNM9U5Vy9XoToFQJvMtrYpFmJBPIqzS'">
-<div class="yt-course-icon"><i class="fas fa-landmark"></i></div>
-<div class="yt-course-title">Complete History for UPSC</div>
-<div class="yt-course-desc">Ancient to Modern India, Art & Culture, World History - One Playlist</div>
-<div class="yt-course-meta">
-<div class="yt-course-channel"><i class="fas fa-user-circle"></i> StudyIQ</div>
-<div class="yt-course-views"><i class="fas fa-eye"></i> 2.5M+</div>
-</div>
-</div>
+                    <h2 class="upsc-heading">PYQ and Live TEST Series🎓</h2>
+                    <p class="text-gray-400 text-sm mb-6">Access 35+ categories of Previous Year Questions from 30+ years with detailed solutions And Live TEST Series</p>
 
-<div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PLXLQ6YfV4sCz7gV2el9oFhxBgGjYPmC8T'">
-<div class="yt-course-icon"><i class="fas fa-balance-scale"></i></div>
-<div class="yt-course-title">Indian Polity Masterclass</div>
-<div class="yt-course-desc">Constitution, Parliament, Judiciary, Governance - Laxmikant Simplified</div>
-<div class="yt-course-meta">
-<div class="yt-course-channel"><i class="fas fa-user-circle"></i> Unacademy</div>
-<div class="yt-course-views"><i class="fas fa-eye"></i> 3.1M+</div>
-</div>
-</div>
 
-<div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PL6-Oiy7l1HzJ2zfH6MYpL31xHqZbZc4xv'">
-<div class="yt-course-icon"><i class="fas fa-mountain"></i></div>
-<div class="yt-course-title">Geography Ultimate Series</div>
-<div class="yt-course-desc">Physical, Indian, World and Economic Geography with Maps</div>
-<div class="yt-course-meta">
-<div class="yt-course-channel"><i class="fas fa-user-circle"></i> OnlyIAS</div>
-<div class="yt-course-views"><i class="fas fa-eye"></i> 1.8M+</div>
-</div>
-</div>
 
-<div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PLpUXl1SnqLQ0Dcv7d1dDmKDfKjXW3GQm-'">
-<div class="yt-course-icon"><i class="fas fa-chart-line"></i></div>
-<div class="yt-course-title">Economics Simplified</div>
-<div class="yt-course-desc">Budget, GDP, Inflation, Schemes, Economic Survey - For GS-3</div>
-<div class="yt-course-meta">
-<div class="yt-course-channel"><i class="fas fa-user-circle"></i> Vision IAS</div>
-<div class="yt-course-views"><i class="fas fa-eye"></i> 2.2M+</div>
-</div>
-</div>
+<!------------------------------------------------ Live TEST Series ----------------------------------------------------------------->
 
-<div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PL8gCwRr2r5zJ8Y8p5QvW7d6ZQ6Q0lZ6v6'">
-<div class="yt-course-icon"><i class="fas fa-seedling"></i></div>
-<div class="yt-course-title">Environment & Ecology</div>
-<div class="yt-course-desc">Climate Change, Biodiversity, Acts, IUCN, COP Meetings</div>
-<div class="yt-course-meta">
-<div class="yt-course-channel"><i class="fas fa-user-circle"></i> Drishti IAS</div>
-<div class="yt-course-views"><i class="fas fa-eye"></i> 1.5M+</div>
-</div>
-</div>
+                    <h2 class="upsc-heading">Live Test Series📚</h2>
+               <!-- <p class="text-gray-400 text-sm mb-6">Check Your Prepration Now</p>--->
+                
+                <div class="pyq-grid">
 
-<div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PL6-Oiy7l1HzKjWQ7gN9L9PzQ2v6q2Z6xv'">
-<div class="yt-course-icon"><i class="fas fa-atom"></i></div>
-<div class="yt-course-title">Science & Technology 2026</div>
-<div class="yt-course-desc">Space, IT, AI, Robotics, Defense, Nuclear Tech - Current Affairs</div>
-<div class="yt-course-meta">
-<div class="yt-course-channel"><i class="fas fa-user-circle"></i> Next IAS</div>
-<div class="yt-course-views"><i class="fas fa-eye"></i> 1.3M+</div>
-</div>
-</div>
 
-<div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PL8gCwRr2r5zJ8Y8p5QvW7d6ZQ6Q0lZ6v7'">
-<div class="yt-course-icon"><i class="fas fa-shield-alt"></i></div>
-<div class="yt-course-title">Internal Security</div>
-<div class="yt-course-desc">Terrorism, Cyber Security, Border Management, Naxalism</div>
-<div class="yt-course-meta">
-<div class="yt-course-channel"><i class="fas fa-user-circle"></i> Vajiram & Ravi</div>
-<div class="yt-course-views"><i class="fas fa-eye"></i> 980K+</div>
-</div>
-</div>
+                    <!-- First Card -->
+                    <div class="pyq-card" onclick="window.open('comprehension-part-one-english.html', '_blank')">
+                        <div class="pyq-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="pyq-title">Master The Comprehension</div>
+                        <div class="pyq-count">Ancient+Medival+Modern+World+Art & Culture+Polity+Economic+Geography+Biodiversity+Science & Tech</div>
 
-<div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PL6-Oiy7l1HzJ2zfH6MYpL31xHqZbZc4xw'">
-<div class="yt-course-icon"><i class="fas fa-handshake"></i></div>
-<div class="yt-course-title">International Relations</div>
-<div class="yt-course-desc">India's Foreign Policy, Neighboring Countries, UN, WTO, Regional Groups</div>
-<div class="yt-course-meta">
-<div class="yt-course-channel"><i class="fas fa-user-circle"></i> Study Glows</div>
-<div class="yt-course-views"><i class="fas fa-eye"></i> 1.1M+</div>
-</div>
-</div>
+                        <div class="yt-course-meta">
+                                <div class="yt-course-channel"><i class="fas fa-user-circle"></i>7-Apr-2026</div>
+                                <div class="yt-course-views"><i class="fas fa-eye"></i> 2k+ Joined</div>
+                            </div>
 
-<div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PL8gCwRr2r5zJ8Y8p5QvW7d6ZQ6Q0lZ6v8'">
-<div class="yt-course-icon"><i class="fas fa-brain"></i></div>
-<div class="yt-course-title">Ethics, Integrity & Aptitude</div>
-<div class="yt-course-desc">Case Studies, Quotes, Theories, Emotional Intelligence - GS-4</div>
-<div class="yt-course-meta">
-<div class="yt-course-channel"><i class="fas fa-user-circle"></i> IASbaba</div>
-<div class="yt-course-views"><i class="fas fa-eye"></i> 750K+</div>
-</div>
-</div>
+                     <!-- Second Card Will BE Here -->
 
-<div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PL6-Oiy7l1HzKjWQ7gN9L9PzQ2v6q2Z6xy'">
-<div class="yt-course-icon"><i class="fas fa-pen-alt"></i></div>
-<div class="yt-course-title">Essay Writing Mastery</div>
-<div class="yt-course-desc">Structure, Quotes, Topics, Brainstorming - 250 Marks Paper</div>
-<div class="yt-course-meta">
-<div class="yt-course-channel"><i class="fas fa-user-circle"></i> ForumIAS</div>
-<div class="yt-course-views"><i class="fas fa-eye"></i> 1.4M+</div>
-</div>
-</div>
 
-<div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PL8gCwRr2r5zJ8Y8p5QvW7d6ZQ6Q0lZ6v9'">
-<div class="yt-course-icon"><i class="fas fa-clock"></i></div>
-<div class="yt-course-title">Daily Current Affairs 2026</div>
-<div class="yt-course-desc">The Hindu, PIB, IE, PRS - Analysis and MCQs for Prelims & Mains</div>
-<div class="yt-course-meta">
-<div class="yt-course-channel"><i class="fas fa-user-circle"></i> Byju's IAS</div>
-<div class="yt-course-views"><i class="fas fa-eye"></i> 2.8M+</div>
-</div>
-</div>
 
-<div class="yt-course-card" onclick="window.location.href='https://www.youtube.com/playlist?list=PL6-Oiy7l1HzJ2zfH6MYpL31xHqZbZc4xz'">
-<div class="yt-course-icon"><i class="fas fa-book-open"></i></div>
-<div class="yt-course-title">NCERT Foundation</div>
-<div class="yt-course-desc">Class 6-12 History, Geography, Polity, Economics - Animated Videos</div>
-<div class="yt-course-meta">
-<div class="yt-course-channel"><i class="fas fa-user-circle"></i> Khan GS</div>
-<div class="yt-course-views"><i class="fas fa-eye"></i> 4.2M+</div>
-</div>
-</div>
+                    </div>
+                        </div>
+
+
+
+
+  <!------------------------------------------------ PYQs ----------------------------------------------------------------->
+                        <br>
+                        <h2 class="upsc-heading">All PYQ🎓</h2>
+
+
+                         <!-- First Card -->
+                    <div class="pyq-card" onclick="window.open('comprehension-part-one-english.html', '_blank')">
+                        <div class="pyq-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="pyq-title">Prelims = GS+CSAT PYQ</div>
+                        <div class="pyq-count">Ancient+Medival+Modern+World+Art-&-Culture+Polity+Economic+Geography+Biodiversity+Science & Tech</div>
+
+                        <div class="yt-course-meta">
+                                <div class="yt-course-channel"><i class="fas fa-user-circle"></i>Last 35 Years</div>
+                                <div class="yt-course-views"><i class="fas fa-eye"></i> 7k+ Joined</div>
+                            </div>
+
+                     <!-- Second Card Will BE Here -->
+
+                       
+                        
+
+
                     </div>
                     
                     <div class="text-center mt-10 text-sm text-gray-500">
-                        <p><i class="fas fa-info-circle mr-2 text-[var(--gold)]"></i> All courses are free on YouTube. Updated for UPSC 2026.</p>
+                        <p><i class="fas fa-info-circle mr-2 text-[var(--gold)]"></i> Just Check Your Prepration</p>
                     </div>
                 </div>
 
@@ -1128,138 +1069,82 @@
         </div>
     </div>
 
+
+
+     <!----------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------ Mains Section ----------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------------------------->
+
     <div id="modal-pyq" class="modal-overlay">
         <div class="modal-box" style="border-color: var(--gold);">
             <div class="scroll-content upsc-container">
-                <h2 class="upsc-heading">PYQ Master Collection 📚</h2>
-                <p class="text-gray-400 text-sm mb-6">Access 35+ categories of Previous Year Questions from 30+ years with detailed solutions</p>
+                <h2 class="upsc-heading">Subjectwise Prepration 📚</h2>
+                <p class="text-gray-400 text-sm mb-6">We Created Three Mothod Of Starting Your Prepration</p>
+
+
+    <!------------------------------------------------ Method One ----------------------------------------------------------------->
+                        <br>
+                        <h2 class="upsc-heading">Method One🎓</h2>            
                 
                 <div class="pyq-grid">
                     <!-- 35 Modern Cards for PYQ Categories -->
-                   <div class="pyq-card" onclick="window.location.href='history-pyqs-gspluscsat-english.html'">
-    <div class="pyq-icon"><i class="fas fa-calendar-alt"></i></div>
-    <div class="pyq-title">Prelims = GS+CSAT PYQ OF Last 35 Years </div>
-    <div class="pyq-count">2000 Questions</div>
-</div>
-                    <div class="pyq-card" onclick="window.location.href='#comprehension-part-one-english.html'">
-    <div class="pyq-icon"><i class="fas fa-balance-scale"></i></div>
-    <div class="pyq-title">Master The Complete Comprehension</div>
-    <div class="pyq-count">1000+ Questions</div>
-</div>
-                    <div class="pyq-card" onclick="window.location.href'#'">
-    <div class="pyq-icon"><i class="fas fa-balance-scale"></i></div>
-    <div class="pyq-title">Master The Interpesonal Skills</div>
-    <div class="pyq-count">1000+ Questions</div>
-</div>
-                    <div class="pyq-card" onclick="window.location.href'#'">
-    <div class="pyq-icon"><i class="fas fa-balance-scale"></i></div>
-    <div class="pyq-title">Master The Logical Reasoning</div>
-    <div class="pyq-count">1000+ Questions</div>
-</div>
-                    <div class="pyq-card" onclick="window.location.href'#'">
-    <div class="pyq-icon"><i class="fas fa-balance-scale"></i></div>
-    <div class="pyq-title">Master The Decision Making</div>
-    <div class="pyq-count">1000+ Questions</div>
-</div>
-                    <div class="pyq-card" onclick="window.location.href'#'">
-    <div class="pyq-icon"><i class="fas fa-balance-scale"></i></div>
-    <div class="pyq-title">Master The Genral Mental Ability</div>
-    <div class="pyq-count">1000+ Questions</div>
-</div>
-                    <div class="pyq-card" onclick="window.location.href'#'">
-    <div class="pyq-icon"><i class="fas fa-balance-scale"></i></div>
-    <div class="pyq-title">Master The Number System</div>
-    <div class="pyq-count">1000+ Questions</div>
-</div>
-                    <div class="pyq-card" onclick="window.location.href'#'">
-    <div class="pyq-icon"><i class="fas fa-balance-scale"></i></div>
-    <div class="pyq-title">Master The Data Interpretation</div>
-    <div class="pyq-count">1000+ Questions</div>
-</div>
+                    <div class="pyq-card" onclick="window.open('#history-pyqs-gspluscsat-english.html', '_blank')">
+                        <div class="pyq-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="pyq-title">History</div>
+                        <div class="pyq-count">Ancient+Medival+Modern+World+Art-&-Culture</div>
+                         <div class="yt-course-meta">
+                                <div class="yt-course-channel"><i class="fas fa-user-circle"></i>Complete</div>
+                                <div class="yt-course-views"><i class="fas fa-eye"></i> 3k+ Joined</div>
+                            </div>
 
-<div class="pyq-card" onclick="window.location.href='history-subjectwise-all-pyg-syllabus-subject-chaperwise-english.html'">
-    <div class="pyq-icon"><i class="fas fa-landmark"></i></div>
-    <div class="pyq-title">History Complete-MCQ</div>
-    <div class="pyq-count">3500+ Questions</div>
-</div>
+                             <!-- Second Card Will BE Here -->
 
-<div class="pyq-card" onclick="window.location.href='#'">
-    <div class="pyq-icon"><i class="fas fa-mountain"></i></div>
-    <div class="pyq-title">Geography-Complete-MCQ</div>
-    <div class="pyq-count">3000+ Questions</div>
-</div>
+                              </div>
+                        </div>
+    <!------------------------------------------------ Method Two ----------------------------------------------------------------->
+                        <br>
+                        <h2 class="upsc-heading">Method Two🎓</h2>            
+                
+                <div class="pyq-grid">
+                    <!-- 35 Modern Cards for PYQ Categories -->
+                    <div class="pyq-card" onclick="window.open('#history-pyqs-gspluscsat-english.html', '_blank')">
+                        <div class="pyq-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="pyq-title">History</div>
+                        <div class="pyq-count">Ancient+Medival+Modern+World+Art-&-Culture</div>
+                         <div class="yt-course-meta">
+                                <div class="yt-course-channel"><i class="fas fa-user-circle"></i>Complete</div>
+                                <div class="yt-course-views"><i class="fas fa-eye"></i> 3k+ Joined</div>
+                            </div>
 
-<div class="pyq-card" onclick="window.location.href='#'">
-    <div class="pyq-icon"><i class="fas fa-balance-scale"></i></div>
-    <div class="pyq-title">Indian Polity & Constitution/Governance & Indian Society</div>
-    <div class="pyq-count">4000+ Questions</div>
-</div>
+                             <!-- Second Card Will BE Here -->
 
-<div class="pyq-card" onclick="window.location.href='#'">
-    <div class="pyq-icon"><i class="fas fa-chart-line"></i></div>
-    <div class="pyq-title">Economics</div>
-    <div class="pyq-count">3500+ Questions</div>
-</div>
+                              </div>
+                        </div>
+    <!------------------------------------------------ Method Three ----------------------------------------------------------------->
+                        <br>
+                        <h2 class="upsc-heading">Method Three🎓</h2>            
+                
+                <div class="pyq-grid">
+                    <!-- 35 Modern Cards for PYQ Categories -->
+                    <div class="pyq-card" onclick="window.open('#history-pyqs-gspluscsat-english.html', '_blank')">
+                        <div class="pyq-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="pyq-title">History</div>
+                        <div class="pyq-count">Ancient+Medival+Modern+World+Art-&-Culture</div>
+                         <div class="yt-course-meta">
+                                <div class="yt-course-channel"><i class="fas fa-user-circle"></i>Complete</div>
+                                <div class="yt-course-views"><i class="fas fa-eye"></i> 3k+ Joined</div>
+                            </div>
 
-<div class="pyq-card" onclick="window.location.href='#'">
-    <div class="pyq-icon"><i class="fas fa-seedling"></i></div>
-    <div class="pyq-title">Environment & Ecology</div>
-    <div class="pyq-count">1000+ Questions</div>
-</div>
+                             <!-- Second Card Will BE Here -->
 
-<div class="pyq-card" onclick="window.location.href='#'">
-    <div class="pyq-icon"><i class="fas fa-atom"></i></div>
-    <div class="pyq-title">Science & Technology</div>
-    <div class="pyq-count">2800+ Questions</div>
-</div>
+                              </div>
+                        </div>
 
-<div class="pyq-card" onclick="window.location.href='#'">
-    <div class="pyq-icon"><i class="fas fa-tractor"></i></div>
-    <div class="pyq-title">Agriculture</div>
-    <div class="pyq-count">2000+ Questions</div>
-</div>
 
-<div class="pyq-card" onclick="window.location.href='#'">
-    <div class="pyq-icon"><i class="fas fa-shield-alt"></i></div>
-    <div class="pyq-title">Internal Security</div>
-    <div class="pyq-count">1200+ Questions</div>
-</div>
 
-<div class="pyq-card" onclick="window.location.href='#'">
-    <div class="pyq-icon"><i class="fas fa-handshake"></i></div>
-    <div class="pyq-title">International Relations</div>
-    <div class="pyq-count">1800+ Questions</div>
-</div>
 
-<div class="pyq-card" onclick="window.location.href='#'">
-    <div class="pyq-icon"><i class="fas fa-exclamation-triangle"></i></div>
-    <div class="pyq-title">Disaster Management</div>
-    <div class="pyq-count">1000+ Questions</div>
-</div>
 
-<div class="pyq-card" onclick="window.location.href='#'">
-    <div class="pyq-icon"><i class="fas fa-brain"></i></div>
-    <div class="pyq-title">Ethics, Integrity & Aptitude</div>
-    <div class="pyq-count">2000+ Questions</div>
-</div>
-
-<div class="pyq-card" onclick="window.location.href='#'">
-    <div class="pyq-icon"><i class="fas fa-palette"></i></div>
-    <div class="pyq-title">Art & Culture</div>
-    <div class="pyq-count">1500+ Questions</div>
-</div>
-
-<div class="pyq-card" onclick="window.location.href='#'">
-    <div class="pyq-icon"><i class="fas fa-palette"></i></div>
-    <div class="pyq-title">Mains</div>
-    <div class="pyq-count">Answer Writing</div>
-</div>
-
-<div class="pyq-card" onclick="window.location.href='#'">
-    <div class="pyq-icon"><i class="fas fa-palette"></i></div>
-    <div class="pyq-title">Optional</div>
-    <div class="pyq-count">Subject-wise</div>
-</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2517,38 +2402,6 @@
             }
         }
     </script>
-   <style>
-/* Buttons  ---------- container */
-.floating-nav { position: fixed;right: 0;top: 50%;transform: translateY(-50%);display: flex;flex-direction: column; z-index: 9999;}
-
-/* button style - default (badi screen ke liye) */
-.float-btn {writing-mode: vertical-rl;transform: rotate(180deg);text-decoration: none;padding: 7px 7px;font-weight: 600;letter-spacing: 1px;color: white;margin: 4px 0;font-size: 14px;
-/* curved side outside */border-radius: 0 15px 15px 0;background: linear-gradient(135deg, #ff7a00, #ff3c00);box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);transition: all .35s ease;}
-/* hover animation */
-.float-btn:hover {padding-right: 2px;box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);}
-/* back button color */
-.back {background: linear-gradient(135deg, #007bff, #003cff);}
-/* ===== 1500px se chhoti screen ke liye - 12x12 icons ===== */
-@media (max-width: 1500px) {.floating-nav {right: 0;gap: 3px;}
-    .float-btn {writing-mode: horizontal-tb !important;  /* horizontal kar diya */transform: rotate(0deg) !important;      /* rotation hata di */width: 17px !important;height: 30px !important;min-width: 17px;min-height: 30px;padding: 0 !important;margin: 2px 0 !important;
-    font-size: 5px !important;line-height: 12px !important;text-align: center !important;border-radius: 6px 0 0 6px !important;   /* right side curved */display: flex;align-items: center;justify-content: center;background: linear-gradient(135deg, #ff7a00, #ff3c00);box-shadow:   2px 5px rgba(0, 0, 0, 0.2);
-        /* text ko hide kar diya - sirf icon dikhega */
-        color: transparent !important; position: relative;}
-    /* Home button - house icon */
-    .float-btn:first-child::before { content: "🏠";font-size: 6px;color: white;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
-    /* Back button - back arrow icon */
-    .float-btn.back::before {content: "🔙";font-size: 6px;color: white;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
-    /* Hover effect for tiny buttons */
-    .float-btn:hover {transform: scale(1.1);box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);padding: 0 !important;}
-    /* Back button color in tiny mode */
-    .float-btn.back {background: linear-gradient(135deg, #007bff, #003cff);}}
-
-/* responsive for very small screens - extra adjustments */
-@media (max-width: 480px) {.floating-nav {right: 2px;}.float-btn {width: 17px !important;height: 17px !important; min-width: 17px;min-height: 17px;font-size: 4px !important;}.float-btn::before { font-size: 5px !important;}}
-/* original responsive - pehle jaisa hi */
-@media (min-width: 1501px) and (max-width: 768px) {.float-btn { font-size: 12px;padding: 14px 10px;}}
-</style>
-<div class="floating-nav"><a href="main.html" class="float-btn">Home</a></div>
-    <script src="social-bar.js"></script>
+     <script src="social-bar.js"></script>
 </body>
 </html>
