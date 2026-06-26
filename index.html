@@ -2,257 +2,1036 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>STI Skilli | Loading...</title>
-   <link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#ff6600">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>StiSkilli App – HSSC CET Group D Preparation</title>
+    <meta name="description" content="Ultimate tracker and preparation app for Haryana HSSC CET Group D Exam. Get latest notifications, syllabus, mock tests, Haryana GK, and previous year questions.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --gold-primary: #FFD700;
-            --void-bg: #000000;
+            --primary: #00E5FF; 
+            --primary-glow: rgba(0, 229, 255, 0.5);
+            --secondary: #B400FF; 
+            --secondary-glow: rgba(180, 0, 255, 0.5);
+            --tertiary: #FF0055; 
+            --bg-dark: #07070C; 
+            --glass-bg: rgba(15, 15, 25, 0.75);
+            --glass-border: rgba(0, 229, 255, 0.15);
+            --header-offset: calc(15px + env(safe-area-inset-top));
+            --header-height: 70px; 
+            --footer-offset: calc(25px + env(safe-area-inset-bottom));
+            --footer-height: 75px; 
+            --text-light: #F8FAFC; 
+            --text-muted: #94A3B8;
+            --success: #00FF88;
+            --warning: #FFD700;
+            
+            --brand-gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --card-gradient: linear-gradient(160deg, rgba(30, 30, 45, 0.8) 0%, rgba(10, 10, 15, 0.95) 100%);
         }
 
-        body, html {
-            margin: 0; padding: 0; width: 100%; height: 100%;
-            background-color: var(--void-bg);
-            font-family: 'Montserrat', sans-serif;
-            color: white;
-            overflow: hidden;
-            position: fixed; 
-            transition: opacity 0.8s ease-in-out; 
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            overflow: hidden; 
+            height: 100vh;
+            width: 100vw;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* --- 1. HD Image Background (Ascension Style) --- */
-        #bg-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100dvh; 
-            object-fit: cover; 
-            object-position: center;
-            z-index: 0;
-            opacity: 0.85; 
-            animation: slowZoom 20s infinite alternate; 
-        }
-
-        @keyframes slowZoom {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.1); }
+        #fixed-media-background {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -10; background-size: cover; background-position: center;
+            background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop');
+            filter: brightness(12%) saturate(180%) blur(5px);
+            opacity: 0.9;
         }
         
-        /* Overlay */
-        .image-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
-            z-index: 1;
-            pointer-events: none;
+        .bg-orb {
+            position: absolute; border-radius: 50%; filter: blur(90px); z-index: -9;
+            animation: float 25s infinite alternate ease-in-out;
+            opacity: 0.6;
+        }
+        .orb-1 { top: -15%; left: -10%; width: 55vw; height: 55vw; background: var(--primary); }
+        .orb-2 { bottom: -15%; right: -10%; width: 65vw; height: 65vw; background: var(--secondary); animation-delay: -7s;}
+        .orb-3 { top: 40%; left: 40%; width: 30vw; height: 30vw; background: var(--tertiary); filter: blur(120px); animation-delay: -3s; opacity: 0.3;}
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            100% { transform: translate(15%, 20%) scale(1.3) rotate(20deg); }
         }
 
-        /* --- 2. Main UI Layer --- */
-        .stage-center {
+        .iphone-header {
+            position: fixed; top: var(--header-offset); left: 50%; transform: translateX(-50%);
+            width: 92%; max-width: 600px; height: var(--header-height);
+            background: rgba(10, 10, 15, 0.85); backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border); border-radius: 24px;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 15px; z-index: 3000; box-shadow: 0 10px 40px rgba(0,229,255,0.1);
+        }
+        .header-left img { 
+            width: 42px; height: 42px; border-radius: 14px; 
+            border: 2px solid transparent; 
+            background-image: linear-gradient(var(--bg-dark), var(--bg-dark)), var(--brand-gradient);
+            background-origin: border-box; background-clip: content-box, border-box;
+            object-fit: cover; box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        }
+        .header-center { 
+            font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 900; 
+            background: var(--brand-gradient); -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; letter-spacing: 1.2px; 
+            text-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+        }
+        
+        /* Cute Language Button */
+        .lang-btn {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            border: 1px solid var(--primary); color: var(--primary);
+            padding: 8px 12px; border-radius: 14px; font-size: 0.85rem; font-weight: 800;
+            display: flex; align-items: center; gap: 6px; cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.2); transition: all 0.3s;
+            font-family: 'Outfit', sans-serif;
+        }
+        .lang-btn:hover { background: var(--primary); color: #000; box-shadow: 0 0 20px var(--primary-glow); transform: scale(1.05); }
+
+        .iphone-dock-wrapper { 
+            position: fixed; bottom: var(--footer-offset); 
+            left: 0; width: 100%; display: flex; justify-content: center; z-index: 3000; padding: 0 15px; 
+        }
+        .iphone-dock { 
+            width: 100%; max-width: 500px; height: var(--footer-height); 
+            background: rgba(5, 5, 8, 0.9); backdrop-filter: blur(30px); 
+            border-radius: 35px; border: 1px solid rgba(255,255,255,0.1); 
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.05); 
+            padding: 0 12px; 
+        }
+        
+        .nav-item { 
+            flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; 
+            color: var(--text-muted); cursor: pointer; height: 100%; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
-            z-index: 10;
-            height: 100dvh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            transition: opacity 1s ease-in-out; 
         }
-
-        /* --- 3. Logo (Floating & Transparent) --- */
-        .logo-container {
-            width: 120px; height: 120px;
-            margin-bottom: 0.5rem; 
-            position: relative;
-            z-index: 2;
-            animation: floatLogo 4s ease-in-out infinite;
+        .nav-item .icon-box {
+            width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+            border-radius: 16px; transition: all 0.4s; margin-bottom: 2px;
         }
+        .nav-item i { font-size: 1.35rem; transition: 0.3s; }
+        .nav-item span { font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.7; font-family: 'Outfit'; text-align: center; line-height: 1.1; }
 
-        .logo-img {
-            width: 100%; height: 100%;
-            object-fit: contain; 
-            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4)); 
-        }
-
-        @keyframes floatLogo {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-
-        /* --- 4. Typography (Royal Fonts) --- */
-        .brand-title {
-            font-family: 'Cinzel Decorative', cursive;
-            font-weight: 700;
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            line-height: 1;
-            text-align: center;
+        .nav-item.locked { opacity: 0.4; pointer-events: none; filter: grayscale(100%); }
+        .nav-item.active { color: #fff; opacity: 1; pointer-events: auto; filter: none; }
+        .nav-item.active .icon-box {
+            background: var(--brand-gradient); 
             color: #fff;
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
-            margin-bottom: 0.5rem;
-            animation: fadeIn 1.5s ease-out;
+            transform: translateY(-10px) scale(1.1); 
+            box-shadow: 0 10px 25px var(--primary-glow);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .nav-item.active span { opacity: 1; color: var(--primary); text-shadow: 0 0 10px var(--primary-glow); }
+
+        .modal-overlay { 
+            position: fixed; 
+            top: calc(var(--header-offset) + var(--header-height) + 15px);
+            bottom: calc(var(--footer-offset) + var(--footer-height) + 15px);
+            left: 0; right: 0; z-index: 2500; 
+            display: none; justify-content: center; padding: 0 15px; pointer-events: none;
+        }
+        .modal-overlay.active { display: flex !important; animation: modalFadeIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        .tagline {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem; 
-            animation: fadeIn 2s ease-out;
-            text-align: center;
+        .modal-box { 
+            pointer-events: auto; background: var(--glass-bg); backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border); 
+            border-radius: 36px; width: 100%; max-width: 650px; height: 100%; 
+            padding: 24px; box-shadow: 0 30px 60px rgba(0,0,0,0.6), inset 0 0 20px rgba(0, 229, 255, 0.05); 
+            display: flex; flex-direction: column; overflow: hidden; position: relative;
         }
 
-        /* --- 5. Loader --- */
-        .loader-zone {
-            width: 160px;
-            text-align: center;
+        @media (min-width: 768px) { .modal-box { max-width: 90%; min-width: 600px; padding: 30px; } }
+        @media (min-width: 1024px) { .modal-box { max-width: 80%; } }
+
+        .scroll-content { flex-grow: 1; overflow-y: auto; padding-right: 8px; -webkit-overflow-scrolling: touch; }
+        .scroll-content::-webkit-scrollbar { width: 6px; }
+        .scroll-content::-webkit-scrollbar-thumb { background: rgba(0, 229, 255, 0.3); border-radius: 10px; }
+        .scroll-content::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+        .cet-container { color: var(--text-light); }
+        .cet-heading { 
+            font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 1.8rem;
+            background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 20px; display: inline-block; position: relative; letter-spacing: -0.5px;
+        }
+        .cet-heading::after {
+            content: ''; position: absolute; left: 0; bottom: -8px; height: 4px; width: 50px;
+            background: var(--brand-gradient); border-radius: 4px; box-shadow: 0 0 10px var(--primary-glow);
+        }
+        
+        .info-card {
+            background: var(--card-gradient); border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px; padding: 25px; margin-bottom: 22px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative; overflow: hidden;
+        }
+        .info-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%;
+            background: var(--brand-gradient); opacity: 0; transition: 0.4s;
+        }
+        .info-card:hover { transform: translateY(-5px); border-color: rgba(0, 229, 255, 0.3); box-shadow: 0 15px 35px rgba(0,0,0,0.5); }
+        .info-card:hover::before { opacity: 1; }
+        
+        .info-card-header { display: flex; align-items: center; margin-bottom: 15px; }
+        .info-card-icon {
+            width: 48px; height: 48px; border-radius: 14px; background: rgba(0, 229, 255, 0.1);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+            color: var(--primary); margin-right: 15px; border: 1px solid rgba(0, 229, 255, 0.2);
+        }
+        .info-card-title { font-family: 'Outfit'; font-size: 1.3rem; font-weight: 800; color: #fff; }
+
+        .cet-btn {
+            background: var(--brand-gradient); color: #fff; padding: 14px 24px; border-radius: 16px;
+            font-weight: 800; font-size: 1rem; cursor: pointer; border: none;
+            transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center;
+            margin-top: 15px; width: 100%; box-shadow: 0 8px 25px var(--primary-glow);
+            font-family: 'Outfit', sans-serif; letter-spacing: 0.5px; position: relative; overflow: hidden;
+        }
+        .cet-btn::after {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+        .cet-btn:hover::after { left: 100%; }
+        .cet-btn:active { transform: scale(0.96); box-shadow: 0 4px 15px var(--primary-glow); }
+        
+        .flowchart-flex { display: flex; flex-direction: column; align-items: center; gap: 15px; margin: 25px 0; }
+        @media(min-width: 600px) { .flowchart-flex { flex-direction: row; justify-content: center; } }
+        .flowchart-step {
+            width: 130px; height: 130px; border-radius: 50%; 
+            background: linear-gradient(145deg, #151520, #0a0a0f); border: 2px solid var(--primary);
+            display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+            font-weight: 800; color: #fff; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.15), inset 0 0 15px rgba(0,0,0,0.8); flex-shrink: 0; font-family: 'Outfit';
+        }
+        .flowchart-step:hover { 
+            border-color: var(--secondary); box-shadow: 0 0 35px var(--secondary-glow); 
+            transform: scale(1.05) translateY(-5px); 
+        }
+        .arrow-down { font-size: 1.8rem; color: var(--primary); text-shadow: 0 0 10px var(--primary-glow); }
+        @media(min-width: 600px) { .arrow-down { transform: rotate(-90deg); } }
+
+        .cet-sub-modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(2, 2, 5, 0.85); backdrop-filter: blur(15px); z-index: 4000;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); padding: 15px;
+        }
+        .cet-sub-modal.active { opacity: 1; visibility: visible; }
+        .cet-sub-modal.active .sub-modal-content { transform: scale(1) translateY(0); opacity: 1; }
+        
+        .sub-modal-content {
+            background: linear-gradient(160deg, #12121c 0%, #08080c 100%); 
+            border: 1px solid rgba(0, 229, 255, 0.3); 
+            width: 100%; max-width: 650px; max-height: 88vh; overflow-y: auto; 
+            border-radius: 32px; padding: 35px; position: relative; color: #fff; 
+            box-shadow: 0 30px 80px rgba(0,0,0,0.9), inset 0 2px 10px rgba(255,255,255,0.05);
+            transform: scale(0.95) translateY(20px); opacity: 0; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .sub-modal-content::-webkit-scrollbar { width: 8px; }
+        .sub-modal-content::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); border-radius: 10px; margin: 10px; }
+        .sub-modal-content::-webkit-scrollbar-thumb { background: linear-gradient(var(--primary), var(--secondary)); border-radius: 10px; }
+
+        .close-sub-btn {
+            position: absolute; top: 25px; right: 25px; width: 40px; height: 40px;
+            background: rgba(255,255,255,0.05); border-radius: 50%; border: 1px solid rgba(255,255,255,0.1);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; color: #fff; cursor: pointer; z-index: 10; transition: all 0.3s;
+        }
+        .close-sub-btn:hover { background: var(--tertiary); border-color: var(--tertiary); transform: rotate(90deg) scale(1.1); box-shadow: 0 0 15px var(--tertiary); }
+
+        .popup-title { font-family: 'Outfit'; font-size: 1.8rem; font-weight: 900; color: var(--primary); margin-bottom: 20px; line-height: 1.2; text-shadow: 0 0 15px var(--primary-glow); border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 15px;}
+        .popup-subtitle { font-size: 1rem; color: var(--warning); font-weight: 700; margin-top: 20px; margin-bottom: 10px; font-family: 'Outfit';}
+        .popup-text { font-size: 0.95rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 15px; }
+        
+        .modern-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 18px; margin-top: 25px; }
+        @media (min-width: 768px) { .modern-grid { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); } }
+
+        .modern-card {
+            background: rgba(20, 20, 30, 0.6); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.05); border-radius: 24px;
+            padding: 25px 15px; text-align: center; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer; position: relative; overflow: hidden;
+        }
+        .modern-card:hover {
+            transform: translateY(-8px) scale(1.02); border-color: var(--primary);
+            box-shadow: 0 15px 35px rgba(0,229,255,0.2); background: rgba(30, 30, 45, 0.8);
+        }
+        .modern-icon {
+            width: 64px; height: 64px; background: rgba(0,0,0,0.3); border-radius: 18px;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 18px; font-size: 2rem; color: var(--primary);
+            border: 1px solid rgba(255,255,255,0.05); box-shadow: inset 0 2px 10px rgba(0,229,255,0.1);
+        }
+        .modern-title { font-family: 'Outfit'; font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: 8px; }
+        .modern-subtitle { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 15px; height: 2.8em; }
+        .modern-meta {
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.75rem; color: var(--success); padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08);
+            font-weight: 700;
+        }
+        
+        .earn-badge {
+            background: linear-gradient(90deg, #FF0055, #FF5500); color: #fff;
+            padding: 4px 10px; border-radius: 12px; font-size: 0.65rem; font-weight: 900;
+            position: absolute; top: 12px; right: 12px; box-shadow: 0 4px 10px rgba(255,0,85,0.4);
+            letter-spacing: 0.5px;
         }
 
-        .loader-line {
-            width: 100%;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 2px;
-            overflow: hidden;
-            position: relative;
+        .styled-list { background: rgba(0,0,0,0.2); border-radius: 16px; padding: 20px; border: 1px solid rgba(255,255,255,0.05); }
+        .styled-list li { margin-bottom: 15px; display: flex; align-items: flex-start; font-size: 0.95rem; color: #cbd5e1; line-height: 1.5; }
+        .styled-list li:last-child { margin-bottom: 0; }
+        .styled-list li span.icon { margin-right: 15px; color: var(--success); font-size: 1.2rem; margin-top: 2px;}
+        
+        .news-card {
+            display: block; text-decoration: none; background: rgba(20,20,30,0.6); 
+            border-left: 5px solid var(--secondary); padding: 22px; margin-bottom: 18px; 
+            border-radius: 0 20px 20px 0; transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
+        .news-card:hover { background: rgba(30,30,45,0.8); transform: translateX(10px); border-color: var(--primary); box-shadow: 0 10px 25px rgba(0,229,255,0.15); }
+        .news-title { color: #fff; font-weight: 800; margin-bottom: 10px; font-size: 1.15rem; font-family: 'Outfit'; line-height: 1.3;}
+        .news-desc { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
+        .news-date { color: var(--primary); font-size: 0.8rem; margin-top: 12px; display: inline-block; font-weight: 700; background: rgba(0,229,255,0.1); padding: 4px 10px; border-radius: 8px;}
 
-        .loader-fill {
-            position: absolute;
-            left: 0; top: 0;
-            height: 100%;
-            width: 0%;
-            background: #FFD700;
-            box-shadow: 0 0 20px #FFD700;
-            transition: width 0.1s linear;
+        /* Language Modal Specific */
+        .lang-options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;}
+        .lang-option {
+            background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.1);
+            padding: 20px; border-radius: 20px; text-align: center; cursor: pointer; transition: 0.3s;
         }
-
-        .status-text {
-            margin-top: 12px;
-            font-size: 0.7rem;
-            color: #ddd;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            font-weight: 600;
+        .lang-option:hover, .lang-option.selected {
+            background: rgba(0, 229, 255, 0.1); border-color: var(--primary); box-shadow: 0 10px 25px var(--primary-glow);
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); } 
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Dissolve Effect Class */
-        .dissolve-active {
-            opacity: 0 !important;
-        }
+        .lang-option i { font-size: 2.5rem; color: var(--primary); margin-bottom: 10px; display: block; }
+        .lang-option span { font-size: 1.2rem; font-weight: 800; font-family: 'Outfit'; color: #fff; }
     </style>
 </head>
 <body>
-
-    <img id="bg-image" src="skilligovtbck.webp" alt="">
     
-    <div class="image-overlay"></div>
+    <div id="fixed-media-background"></div>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
 
-    <main id="main-stage" class="stage-center">
-        
-        <div class="logo-container">
-            <img src="stione.png" alt="STI Skilli" class="logo-img"
-                 onerror="this.src='https://placehold.co/200x200/png?text=S';">
-        </div>
-
-        <h1 class="brand-title">STISKILLI</h1>
-        <p class="tagline">Your True Guide</p>
-
-        <div class="loader-zone">
-            <div class="loader-line">
-                <div id="progress-bar" class="loader-fill"></div>
+    <header class="iphone-header">
+        <div class="header-left"><img src="https://placehold.co/100x100/00E5FF/07070C?text=CET" alt="Logo"></div>
+        <div class="header-center">HSSC CET-D</div>
+        <div class="header-right" onclick="showLangModal()">
+            <div class="lang-btn">
+                <i class="fas fa-language"></i> <span id="current-lang-display">EN</span>
             </div>
-            <p id="status-text" class="status-text">Initializing...</p>
         </div>
-    </main>
+    </header>
+
+    <div class="iphone-dock-wrapper">
+        <nav class="iphone-dock">
+            <div class="nav-item active" id="nav-tests" onclick="activateTab(this, 'tests')">
+                <div class="icon-box"><i class="fas fa-file-signature"></i></div><span data-i18n="nav_tests">PYQ Tests</span>
+            </div>
+            <div class="nav-item locked" id="nav-syllabus" onclick="activateTab(this, 'syllabus')">
+                <div class="icon-box"><i class="fas fa-book-open"></i></div><span data-i18n="nav_syllabus">Syllabus</span>
+            </div>
+            <div class="nav-item locked" id="nav-info" onclick="activateTab(this, 'info')">
+                <div class="icon-box"><i class="fas fa-info-circle"></i></div><span data-i18n="nav_info">Get Info</span>
+            </div>
+            <div class="nav-item locked" id="nav-earn" onclick="activateTab(this, 'earn')">
+                <div class="icon-box"><i class="fas fa-coins"></i></div><span data-i18n="nav_earn">Earn</span>
+            </div>
+            <div class="nav-item locked" id="nav-news" onclick="activateTab(this, 'news')">
+                <div class="icon-box"><i class="fas fa-bell"></i></div><span data-i18n="nav_updates">Updates</span>
+            </div>
+        </nav>
+    </div>
+
+    <div id="modal-tests" class="modal-overlay">
+        <div class="modal-box">
+            <div class="scroll-content cet-container">
+                <h2 class="cet-heading" data-i18n="test_heading">Mock Tests & PYQs 🎯</h2>
+                <p class="text-[var(--text-muted)] text-[0.95rem] mb-6" data-i18n="test_desc">Master the HSSC pattern with actual previous year questions and full-length NTA pattern mock tests.</p>
+
+                <h3 class="text-xl font-black text-white mt-4 mb-3 font-['Outfit']"><i class="fas fa-fire text-[var(--tertiary)] mr-2"></i><span data-i18n="test_sec1">Full Length Mocks</span></h3>
+                <div class="modern-grid mb-8">
+                    <div class="modern-card">
+                        <div class="modern-icon"><i class="fas fa-stopwatch"></i></div>
+                        <div class="modern-title" data-i18n="test_c1_t">NTA Pattern Mock 1</div>
+                        <div class="modern-subtitle" data-i18n="test_c1_s">100 Qs • 90 Mins • Strict NTA Pattern</div>
+                        <div class="modern-meta">
+                            <span><i class="fas fa-users"></i> <span data-i18n="test_att1">15k+ Attempted</span></span>
+                            <span class="bg-[var(--success)] text-black px-2 py-1 rounded font-bold" data-i18n="test_free">FREE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-xl font-black text-white mt-4 mb-3 font-['Outfit']"><i class="fas fa-history text-[var(--warning)] mr-2"></i><span data-i18n="test_sec2">Subject-wise PYQs</span></h3>
+                <div class="modern-grid">
+                    <div class="modern-card">
+                        <div class="modern-icon" style="color: #00E5FF; background: rgba(0, 229, 255, 0.1);"><i class="fas fa-map-marked-alt"></i></div>
+                        <div class="modern-title" data-i18n="test_c2_t">Haryana GK PYQs</div>
+                        <div class="modern-subtitle" data-i18n="test_c2_s">Last 10 Years HSSC Papers</div>
+                        <div class="modern-meta"><span data-i18n="test_avail1">50+ Sets Available</span></div>
+                    </div>
+                    <div class="modern-card">
+                        <div class="modern-icon" style="color: #B400FF; background: rgba(180, 0, 255, 0.1);"><i class="fas fa-calculator"></i></div>
+                        <div class="modern-title" data-i18n="test_c3_t">Maths & Reasoning</div>
+                        <div class="modern-subtitle" data-i18n="test_c3_s">With short trick solutions</div>
+                        <div class="modern-meta"><span data-i18n="test_avail2">30+ Sets Available</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-syllabus" class="modal-overlay">
+        <div class="modal-box">
+            <div class="scroll-content cet-container">
+                <h2 class="cet-heading" data-i18n="syl_heading">Syllabus Breakdown 📚</h2>
+                <p class="text-[var(--text-muted)] text-[0.95rem] mb-6" data-i18n="syl_desc">Click on any subject card to view the extremely detailed NTA syllabus topics specifically curated for HSSC CET Group D.</p>
+
+                <div class="modern-grid pb-8">
+                    <div class="modern-card" onclick="openDynamicModal('syl-haryana')">
+                        <div class="modern-icon" style="color: #00E5FF; border-color: #00E5FF;"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="modern-title" data-i18n="syl_c1_t">Haryana GK</div>
+                        <div class="modern-subtitle" data-i18n="syl_c1_s">History, Geo, Culture, Current Affairs.</div>
+                        <div class="modern-meta"><span class="text-white font-normal" data-i18n="syl_weight">Weightage:</span> <span class="text-[1.1rem]">25%</span></div>
+                    </div>
+                    <div class="modern-card" onclick="openDynamicModal('syl-awareness')">
+                        <div class="modern-icon" style="color: #FF9800; border-color: #FF9800;"><i class="fas fa-globe"></i></div>
+                        <div class="modern-title" data-i18n="syl_c2_t">General Awareness</div>
+                        <div class="modern-subtitle" data-i18n="syl_c2_s">India GK, Polity, History, Art.</div>
+                        <div class="modern-meta"><span class="text-white font-normal" data-i18n="syl_weight">Weightage:</span> <span class="text-[1.1rem] text-[#FF9800]">15%</span></div>
+                    </div>
+                    <div class="modern-card" onclick="openDynamicModal('syl-science')">
+                        <div class="modern-icon" style="color: #4CAF50; border-color: #4CAF50;"><i class="fas fa-flask"></i></div>
+                        <div class="modern-title" data-i18n="syl_c3_t">General Science</div>
+                        <div class="modern-subtitle" data-i18n="syl_c3_s">Physics, Chem, Bio (10th Std).</div>
+                        <div class="modern-meta"><span class="text-white font-normal" data-i18n="syl_weight">Weightage:</span> <span class="text-[1.1rem] text-[#4CAF50]">15%</span></div>
+                    </div>
+                    <div class="modern-card" onclick="openDynamicModal('syl-maths')">
+                        <div class="modern-icon" style="color: #F44336; border-color: #F44336;"><i class="fas fa-square-root-alt"></i></div>
+                        <div class="modern-title" data-i18n="syl_c4_t">Maths (Quant)</div>
+                        <div class="modern-subtitle" data-i18n="syl_c4_s">Arithmetic, Number System, Mensuration.</div>
+                        <div class="modern-meta"><span class="text-white font-normal" data-i18n="syl_weight">Weightage:</span> <span class="text-[1.1rem] text-[#F44336]">15%</span></div>
+                    </div>
+                    <div class="modern-card" onclick="openDynamicModal('syl-reasoning')">
+                        <div class="modern-icon" style="color: #9C27B0; border-color: #9C27B0;"><i class="fas fa-brain"></i></div>
+                        <div class="modern-title" data-i18n="syl_c5_t">Reasoning</div>
+                        <div class="modern-subtitle" data-i18n="syl_c5_s">Logic, Series, Blood Relations.</div>
+                        <div class="modern-meta"><span class="text-white font-normal" data-i18n="syl_weight">Weightage:</span> <span class="text-[1.1rem] text-[#9C27B0]">10%</span></div>
+                    </div>
+                    <div class="modern-card" onclick="openDynamicModal('syl-english')">
+                        <div class="modern-icon" style="color: #2196F3; border-color: #2196F3;"><i class="fas fa-font"></i></div>
+                        <div class="modern-title" data-i18n="syl_c6_t">English Language</div>
+                        <div class="modern-subtitle" data-i18n="syl_c6_s">Grammar, Vocab, Error Spotting.</div>
+                        <div class="modern-meta"><span class="text-white font-normal" data-i18n="syl_weight">Weightage:</span> <span class="text-[1.1rem] text-[#2196F3]">10%</span></div>
+                    </div>
+                    <div class="modern-card" onclick="openDynamicModal('syl-hindi')">
+                        <div class="modern-icon" style="color: #E91E63; border-color: #E91E63;"><i class="fas fa-om"></i></div>
+                        <div class="modern-title" data-i18n="syl_c7_t">Hindi Language</div>
+                        <div class="modern-subtitle" data-i18n="syl_c7_s">Vyakaran, Sandhi, Paryayvachi.</div>
+                        <div class="modern-meta"><span class="text-white font-normal" data-i18n="syl_weight">Weightage:</span> <span class="text-[1.1rem] text-[#E91E63]">10%</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-info" class="modal-overlay">
+        <div class="modal-box">
+            <div class="scroll-content cet-container">
+                <h2 class="cet-heading" data-i18n="info_heading">Complete HSSC Info 🧠</h2>
+                <p class="text-[var(--text-muted)] text-[0.95rem] mb-6" data-i18n="info_desc">Everything you need to know about the HSSC CET Group D recruitment process, from notification to joining.</p>
+
+                <!-- Step 1 -->
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="info-card-icon"><i class="fas fa-question-circle"></i></div>
+                        <h2 class="info-card-title" data-i18n="info_1_t">1. What is CET Group D?</h2>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-4 leading-relaxed" data-i18n="info_1_d">Common Eligibility Test (CET) for Group D is a single-window exam for recruitment to massive posts like Peon, Beldar, Animal Attendant, etc. across Haryana Government Departments.</p>
+                    <button class="cet-btn" onclick="openDynamicModal('info-step-1')"><span data-i18n="info_1_btn">View Job Profiles & Salary</span> <i class="fas fa-arrow-right"></i></button>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="info-card-icon" style="color: var(--secondary); border-color: var(--secondary);"><i class="fas fa-sitemap"></i></div>
+                        <h2 class="info-card-title" data-i18n="info_2_t">2. Selection Process</h2>
+                    </div>
+                    <div class="flowchart-flex mb-4">
+                        <div class="flowchart-step">
+                            <i class="fas fa-edit mb-2 text-2xl text-[var(--primary)]"></i>
+                            <div><span data-i18n="info_2_f1">Written Exam</span><br><span class="text-white text-sm" data-i18n="info_2_f1m">95 Marks</span></div>
+                        </div>
+                        <div class="arrow-down"><i class="fas fa-plus"></i></div>
+                        <div class="flowchart-step">
+                            <i class="fas fa-home mb-2 text-2xl text-[var(--secondary)]"></i>
+                            <div><span data-i18n="info_2_f2">Socio-Econ</span><br><span class="text-white text-sm" data-i18n="info_2_f2m">5 Marks</span></div>
+                        </div>
+                        <div class="arrow-down"><i class="fas fa-equals"></i></div>
+                        <div class="flowchart-step" style="border-color: var(--success); box-shadow: 0 0 30px rgba(0,255,136,0.2);">
+                            <i class="fas fa-trophy mb-2 text-2xl text-[var(--success)]"></i>
+                            <div><span data-i18n="info_2_f3">Final Merit</span><br><span class="text-[var(--success)] text-sm" data-i18n="info_2_f3m">100 Marks</span></div>
+                        </div>
+                    </div>
+                    <button class="cet-btn" onclick="openDynamicModal('info-step-2')"><span data-i18n="info_2_btn">Detailed Selection Rules</span> <i class="fas fa-arrow-right"></i></button>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="info-card-icon" style="color: var(--success); border-color: var(--success);"><i class="fas fa-check-double"></i></div>
+                        <h2 class="info-card-title" data-i18n="info_3_t">3. Eligibility Criteria</h2>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-4 leading-relaxed" data-i18n="info_3_d">Minimum 10th pass is required. Age limit is 18-42 years. Knowledge of Hindi/Sanskrit up to Matric is mandatory.</p>
+                    <button class="cet-btn" onclick="openDynamicModal('info-step-3')"><span data-i18n="info_3_btn">Check Age Relaxations</span> <i class="fas fa-arrow-right"></i></button>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="info-card-icon" style="color: var(--warning); border-color: var(--warning);"><i class="fas fa-chart-pie"></i></div>
+                        <h2 class="info-card-title" data-i18n="info_4_t">4. Exact Exam Pattern</h2>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-4 leading-relaxed" data-i18n="info_4_d">100 Questions, 95 Marks total (0.95 marks per question). Duration is 1 hour 45 minutes.</p>
+                    <div class="h-56 w-full mb-4 bg-[rgba(0,0,0,0.3)] rounded-xl p-2 border border-[rgba(255,255,255,0.05)]">
+                        <canvas id="marksChart"></canvas>
+                    </div>
+                    <button class="cet-btn" onclick="openDynamicModal('info-step-4')"><span data-i18n="info_4_btn">Negative Marking Rules</span> <i class="fas fa-arrow-right"></i></button>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="info-card-icon" style="color: #FF0055; border-color: #FF0055;"><i class="fas fa-users-cog"></i></div>
+                        <h2 class="info-card-title" data-i18n="info_5_t">5. Socio-Economic 5 Marks</h2>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-4 leading-relaxed" data-i18n="info_5_d">The most crucial deciding factor in HSSC. 5 extra marks are awarded based on family income, govt job status, etc.</p>
+                    <button class="cet-btn" onclick="openDynamicModal('info-step-5')"><span data-i18n="info_5_btn">Complete Rules</span> <i class="fas fa-arrow-right"></i></button>
+                </div>
+
+                <!-- Step 6 (Previously 8) -->
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="info-card-icon" style="color: var(--success); border-color: var(--success);"><i class="fas fa-list-ol"></i></div>
+                        <h2 class="info-card-title" data-i18n="info_6_t">6. Post Preferences Portal</h2>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-4 leading-relaxed" data-i18n="info_6_d">After the exam, HSSC opens a portal to fill your preferred job roles. Choosing wrongly can land you a tough field job.</p>
+                    <button class="cet-btn" onclick="openDynamicModal('info-step-6')"><span data-i18n="info_6_btn">Best Posts Guide</span> <i class="fas fa-arrow-right"></i></button>
+                </div>
+
+                <!-- Step 7 (Previously 9) -->
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="info-card-icon" style="color: var(--warning); border-color: var(--warning);"><i class="fas fa-file-signature"></i></div>
+                        <h2 class="info-card-title" data-i18n="info_7_t">7. Document Verification (DV)</h2>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-4 leading-relaxed" data-i18n="info_7_d">Many candidates are rejected at the final stage due to wrong Parivar Pehchan Patra (PPP) data or missing certificates.</p>
+                    <button class="cet-btn" onclick="openDynamicModal('info-step-7')"><span data-i18n="info_7_btn">List of Required Docs</span> <i class="fas fa-arrow-right"></i></button>
+                </div>
+
+                <!-- Step 8 (Previously 10) -->
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="info-card-icon" style="color: var(--primary); border-color: var(--primary);"><i class="fas fa-chart-line"></i></div>
+                        <h2 class="info-card-title" data-i18n="info_8_t">8. Career Growth & Promos</h2>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-4 leading-relaxed" data-i18n="info_8_d">A Group D job is not the end. Understand how you can get promoted to Group C (Clerk) via departmental exams.</p>
+                    <button class="cet-btn" onclick="openDynamicModal('info-step-8')"><span data-i18n="info_8_btn">Promotion Hierarchy</span> <i class="fas fa-arrow-right"></i></button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-earn" class="modal-overlay">
+        <div class="modal-box">
+            <div class="scroll-content cet-container">
+                <h2 class="cet-heading" data-i18n="earn_heading">Earn Rewards 💰</h2>
+                <p class="text-[var(--text-muted)] text-[0.95rem] mb-6" data-i18n="earn_desc">Complete tasks, invite friends, and unlock premium Mock Tests and PDFs for free by earning StiCoins.</p>
+                
+                <div class="modern-grid">
+                    <div class="modern-card" onclick="openExternal('refer-and-earn')">
+                        <span class="earn-badge">HOT</span>
+                        <div class="modern-icon" style="color: #FFD700; background: rgba(255, 215, 0, 0.1); border-color: #FFD700;"><i class="fas fa-user-plus"></i></div>
+                        <div class="modern-title" data-i18n="earn_c1_t">Refer & Earn</div>
+                        <div class="modern-subtitle" data-i18n="earn_c1_s">Invite friends to install and get coins per referral.</div>
+                        <div class="modern-meta"><span><i class="fas fa-coins text-yellow-400"></i> +500 Coins</span></div>
+                    </div>
+                    
+                    <div class="modern-card" onclick="openExternal('daily-spin-wheel')">
+                        <div class="modern-icon" style="color: #E91E63; background: rgba(233, 30, 99, 0.1); border-color: #E91E63;"><i class="fas fa-dharmachakra"></i></div>
+                        <div class="modern-title" data-i18n="earn_c2_t">Daily Spin</div>
+                        <div class="modern-subtitle" data-i18n="earn_c2_s">Spin the wheel every 24 hours to win free test passes.</div>
+                        <div class="modern-meta"><span class="text-pink-400"><i class="fas fa-gift"></i> <span data-i18n="earn_free">Free Entry</span></span></div>
+                    </div>
+
+                    <div class="modern-card" onclick="openExternal('watch-video-ads')">
+                        <div class="modern-icon" style="color: #4CAF50; background: rgba(76, 175, 80, 0.1); border-color: #4CAF50;"><i class="fas fa-play-circle"></i></div>
+                        <div class="modern-title" data-i18n="earn_c3_t">Watch & Learn</div>
+                        <div class="modern-subtitle" data-i18n="earn_c3_s">Watch quick educational ads to earn coins instantly.</div>
+                        <div class="modern-meta"><span><i class="fas fa-coins text-yellow-400"></i> +50 / video</span></div>
+                    </div>
+
+                    <div class="modern-card" onclick="openExternal('take-surveys')">
+                        <div class="modern-icon" style="color: #2196F3; background: rgba(33, 150, 243, 0.1); border-color: #2196F3;"><i class="fas fa-poll-h"></i></div>
+                        <div class="modern-title" data-i18n="earn_c4_t">Quick Surveys</div>
+                        <div class="modern-subtitle" data-i18n="earn_c4_s">Answer 3-minute surveys regarding exam prep.</div>
+                        <div class="modern-meta"><span><i class="fas fa-coins text-yellow-400"></i> +200 Coins</span></div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 p-6 rounded-3xl bg-gradient-to-br from-[#12121c] to-[#08080c] border border-[rgba(255,215,0,0.3)] text-center shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-[var(--warning)] opacity-10 rounded-full filter blur-2xl"></div>
+                    <h3 class="text-white font-black text-xl mb-2 font-['Outfit']" data-i18n="earn_wallet">Your Wallet Balance</h3>
+                    <div class="text-5xl font-black text-yellow-400 font-['Outfit'] mb-4 tracking-tight text-shadow-md"><i class="fas fa-coins mr-3 text-3xl"></i>0</div>
+                    <button class="cet-btn !w-auto !px-10 !py-3 !text-lg" style="background: linear-gradient(135deg, #FFD700, #FF8C00); color: #000; box-shadow: 0 10px 20px rgba(255, 140, 0, 0.3);" onclick="openExternal('redeem-store')" data-i18n="earn_redeem">Redeem Store</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-news" class="modal-overlay">
+        <div class="modal-box">
+            <div class="scroll-content cet-container">
+                <h2 class="cet-heading" data-i18n="news_heading">Latest HSSC Updates 📰</h2>
+                
+                <a href="#" class="news-card">
+                    <div class="news-title" data-i18n="news_1_t">Supreme Court Ruling: 5 Marks Socio-Economic Criteria Quashed</div>
+                    <div class="news-desc" data-i18n="news_1_d">In a massive update, the Supreme Court has upheld the Punjab & Haryana High Court decision to scrap the 5 socio-economic marks policy in Haryana CET. The new merit list for Group D will now be formed entirely out of the 95 marks written exam.</div>
+                    <span class="news-date" data-i18n="news_1_dt">Latest Ruling • HSSC Official / Court</span>
+                </a>
+
+                <a href="#" class="news-card" style="border-left-color: var(--primary);">
+                    <div class="news-title" data-i18n="news_2_t">New HSSC Calendar Expected Soon</div>
+                    <div class="news-desc" data-i18n="news_2_d">Following the state elections, the Haryana Government has directed HSSC to expedite the recruitment process for 50,000 vacant posts, out of which roughly 15,000 will be Group D posts. A fresh CET notification is highly anticipated.</div>
+                    <span class="news-date" data-i18n="news_2_dt">Recruitment Process • Haryana Govt</span>
+                </a>
+                
+                <a href="#" class="news-card" style="border-left-color: var(--success);">
+                    <div class="news-title" data-i18n="news_3_t">NTA Normalization Formula Confirmation</div>
+                    <div class="news-desc" data-i18n="news_3_d">NTA will continue using the equi-percentile normalization method if the exam is conducted in multiple shifts. Focus on minimizing negative (blank 5th bubble) marks to maintain a good raw score.</div>
+                    <span class="news-date" data-i18n="news_3_dt">Exam Pattern • NTA Notice</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="dynamic-detail-modal" class="cet-sub-modal">
+        <div class="sub-modal-content">
+            <button class="close-sub-btn" onclick="closeDynamicModal()"><i class="fas fa-times"></i></button>
+            <h3 id="modal-dynamic-title" class="popup-title"></h3>
+            <div id="modal-dynamic-content" class="mt-4">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Language Selection Modal -->
+    <div id="lang-modal" class="cet-sub-modal">
+        <div class="sub-modal-content !max-w-[400px]">
+            <button class="close-sub-btn" onclick="closeLangModal()"><i class="fas fa-times"></i></button>
+            <h3 class="popup-title !text-center !border-none !mb-0">Select Language <br><span class="text-[1.2rem] text-white">भाषा चुनें</span></h3>
+            
+            <div class="lang-options-grid">
+                <div class="lang-option" id="lang-en" onclick="setLanguage('en')">
+                    <i class="fas fa-font"></i>
+                    <span>English</span>
+                </div>
+                <div class="lang-option" id="lang-hi" onclick="setLanguage('hi')">
+                    <i class="fas fa-om"></i>
+                    <span>हिन्दी</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
-        const params = new URLSearchParams(window.location.search);
-        const allow = params.get("allow");
-        
-        let REDIRECT_URL = 'main.html';
-        if (allow === "stiskilli") {
-            REDIRECT_URL = 'main.html?allow=stiskilli';
+        let currentLang = 'en';
+
+        // MASSIVE BILINGUAL DATA OBJECT
+        const appData = {
+            // --- SYLLABUS DATA ---
+            'syl-haryana': {
+                title_en: 'Haryana GK (25% Weightage)',
+                title_hi: 'हरियाणा सामान्य ज्ञान (25% वेटेज)',
+                content_en: `
+                    <div class="popup-subtitle"><i class="fas fa-bullseye text-[var(--primary)] mr-2"></i> The Deciding Factor</div>
+                    <p class="popup-text">With 25 questions dedicated solely to Haryana, this section guarantees selection. NTA asks deeply factual questions here.</p>
+                    <ul class="styled-list">
+                        <li><span class="icon"><i class="fas fa-check-circle"></i></span><strong>History:</strong> Battles of Panipat, Revolt of 1857 in Haryana, Prajamandal Movement, formation of Haryana (1 Nov 1966).</li>
+                        <li><span class="icon"><i class="fas fa-check-circle"></i></span><strong>Geography:</strong> Rivers (Ghaggar, Yamuna), Canals (WJC), Soils, National Parks, Wildlife Sanctuaries.</li>
+                        <li><span class="icon"><i class="fas fa-check-circle"></i></span><strong>Economy:</strong> Major crops, industrial hubs (Gurugram, Faridabad, Panipat), SEZs.</li>
+                        <li><span class="icon"><i class="fas fa-check-circle"></i></span><strong>Culture:</strong> Folk dances (Saang, Khoria), local festivals (Teej), traditional attire, ornaments.</li>
+                    </ul>`,
+                content_hi: `
+                    <div class="popup-subtitle"><i class="fas fa-bullseye text-[var(--primary)] mr-2"></i> निर्णायक विषय</div>
+                    <p class="popup-text">केवल हरियाणा को समर्पित 25 प्रश्नों के साथ, यह अनुभाग चयन की गारंटी देता है। NTA यहाँ गहरे तथ्यात्मक प्रश्न पूछता है।</p>
+                    <ul class="styled-list">
+                        <li><span class="icon"><i class="fas fa-check-circle"></i></span><strong>इतिहास:</strong> पानीपत का युद्ध, हरियाणा में 1857 का विद्रोह, प्रजामंडल आंदोलन, हरियाणा का गठन।</li>
+                        <li><span class="icon"><i class="fas fa-check-circle"></i></span><strong>भूगोल:</strong> नदियाँ (घग्गर, यमुना), नहरें, मिट्टी, राष्ट्रीय उद्यान, वन्यजीव अभयारण्य।</li>
+                        <li><span class="icon"><i class="fas fa-check-circle"></i></span><strong>अर्थव्यवस्था:</strong> प्रमुख फसलें, औद्योगिक केंद्र (गुरुग्राम, फरीदाबाद, पानीपत), SEZ।</li>
+                        <li><span class="icon"><i class="fas fa-check-circle"></i></span><strong>संस्कृति:</strong> लोक नृत्य (सांग, खोरिया), स्थानीय त्योहार (तीज), पारंपरिक पोशाक, आभूषण।</li>
+                    </ul>`
+            },
+            'syl-awareness': {
+                title_en: 'General Awareness (15% Weightage)',
+                title_hi: 'सामान्य जागरूकता (15% वेटेज)',
+                content_en: `
+                    <p class="popup-text">A vast section, but NTA focuses mainly on Static GK and recent National current affairs.</p>
+                    <ul class="styled-list">
+                        <li><span class="icon"><i class="fas fa-check-circle"></i></span><strong>Current Affairs:</strong> National events (Last 6 months), Appointments, Awards.</li>
+                        <li><span class="icon"><i class="fas fa-check-circle"></i></span><strong>History:</strong> Indian National Movement, Buddhism, Jainism, Delhi Sultanate.</li>
+                        <li><span class="icon"><i class="fas fa-check-circle"></i></span><strong>Polity:</strong> Fundamental Rights, Parliament, President, Important Articles.</li>
+                    </ul>`,
+                content_hi: `
+                    <p class="popup-text">एक विशाल खंड, लेकिन NTA मुख्य रूप से स्टेटिक GK और हाल के राष्ट्रीय करंट अफेयर्स पर केंद्रित है।</p>
+                    <ul class="styled-list">
+                        <li><span class="icon"><i class="fas fa-check-circle"></i></span><strong>करेंट अफेयर्स:</strong> राष्ट्रीय घटनाक्रम (पिछले 6 महीने), नियुक्तियां, पुरस्कार।</li>
+                        <li><span class="icon"><i class="fas fa-check-circle"></i></span><strong>इतिहास:</strong> भारतीय राष्ट्रीय आंदोलन, बौद्ध धर्म, जैन धर्म, दिल्ली सल्तनत।</li>
+                        <li><span class="icon"><i class="fas fa-check-circle"></i></span><strong>राजव्यवस्था:</strong> मौलिक अधिकार, संसद, राष्ट्रपति, महत्वपूर्ण अनुच्छेद।</li>
+                    </ul>`
+            },
+            'syl-science': {
+                title_en: 'General Science (15% Weightage)',
+                title_hi: 'सामान्य विज्ञान (15% वेटेज)',
+                content_en: `<ul class="styled-list"><li><span class="icon"><i class="fas fa-check-circle"></i></span><strong>Physics:</strong> Light, Electricity, Work, Energy.</li><li><span class="icon"><i class="fas fa-check-circle"></i></span><strong>Chemistry:</strong> Acids, Bases, Metals, Non-metals.</li><li><span class="icon"><i class="fas fa-check-circle"></i></span><strong>Biology:</strong> Life processes, Nutrition, Diseases.</li></ul>`,
+                content_hi: `<ul class="styled-list"><li><span class="icon"><i class="fas fa-check-circle"></i></span><strong>भौतिकी:</strong> प्रकाश, बिजली, कार्य, ऊर्जा।</li><li><span class="icon"><i class="fas fa-check-circle"></i></span><strong>रसायन विज्ञान:</strong> अम्ल, क्षार, धातु, अधातु।</li><li><span class="icon"><i class="fas fa-check-circle"></i></span><strong>जीव विज्ञान:</strong> जीवन प्रक्रियाएं, पोषण, रोग।</li></ul>`
+            },
+            'syl-maths': {
+                title_en: 'Maths / Quant (15% Weightage)',
+                title_hi: 'गणित (15% वेटेज)',
+                content_en: `<ul class="styled-list"><li><span class="icon"><i class="fas fa-check-circle"></i></span>Number System, Simplification, LCM, HCF.</li><li><span class="icon"><i class="fas fa-check-circle"></i></span>Percentage, Ratio, Profit & Loss, SI & CI.</li><li><span class="icon"><i class="fas fa-check-circle"></i></span>Time & Work, Mensuration (2D/3D shapes).</li></ul>`,
+                content_hi: `<ul class="styled-list"><li><span class="icon"><i class="fas fa-check-circle"></i></span>संख्या प्रणाली, सरलीकरण, LCM, HCF।</li><li><span class="icon"><i class="fas fa-check-circle"></i></span>प्रतिशत, अनुपात, लाभ-हानि, SI और CI।</li><li><span class="icon"><i class="fas fa-check-circle"></i></span>समय और कार्य, क्षेत्रमिति (2D/3D आकार)।</li></ul>`
+            },
+            'syl-reasoning': {
+                title_en: 'Reasoning (10% Weightage)',
+                title_hi: 'तर्कशक्ति (10% वेटेज)',
+                content_en: `<ul class="styled-list"><li><span class="icon"><i class="fas fa-check-circle"></i></span>Series, Coding-Decoding, Direction.</li><li><span class="icon"><i class="fas fa-check-circle"></i></span>Blood Relations, Analogy, Classification.</li><li><span class="icon"><i class="fas fa-check-circle"></i></span>Syllogism, Venn Diagrams, Non-Verbal (Mirror image).</li></ul>`,
+                content_hi: `<ul class="styled-list"><li><span class="icon"><i class="fas fa-check-circle"></i></span>श्रृंखला, कोडिंग-डिकोडिंग, दिशा।</li><li><span class="icon"><i class="fas fa-check-circle"></i></span>रक्त संबंध, सादृश्य, वर्गीकरण।</li><li><span class="icon"><i class="fas fa-check-circle"></i></span>सिलोगिज्म, वेन आरेख, नॉन-वर्बल (दर्पण छवि)।</li></ul>`
+            },
+            'syl-english': {
+                title_en: 'English Language (10% Weightage)',
+                title_hi: 'अंग्रेजी भाषा (10% वेटेज)',
+                content_en: `<ul class="styled-list"><li><span class="icon"><i class="fas fa-check-circle"></i></span>Grammar: Parts of speech, Tenses, Articles.</li><li><span class="icon"><i class="fas fa-check-circle"></i></span>Vocabulary: Synonyms, Antonyms, Idioms.</li><li><span class="icon"><i class="fas fa-check-circle"></i></span>Usage: Active/Passive Voice, Spotting Error.</li></ul>`,
+                content_hi: `<ul class="styled-list"><li><span class="icon"><i class="fas fa-check-circle"></i></span>Grammar: Parts of speech, Tenses, Articles.</li><li><span class="icon"><i class="fas fa-check-circle"></i></span>Vocabulary: Synonyms, Antonyms, Idioms.</li><li><span class="icon"><i class="fas fa-check-circle"></i></span>Usage: Active/Passive Voice, Spotting Error.</li></ul>`
+            },
+            'syl-hindi': {
+                title_en: 'Hindi Language (10% Weightage)',
+                title_hi: 'हिंदी भाषा (10% वेटेज)',
+                content_en: `<ul class="styled-list"><li><span class="icon"><i class="fas fa-check-circle"></i></span>Vyakaran: Sangya, Sarvanam, Visheshan, Ling, Vachan.</li><li><span class="icon"><i class="fas fa-check-circle"></i></span>Shabd Rachna: Sandhi, Samas, Upsarg, Pratyay.</li><li><span class="icon"><i class="fas fa-check-circle"></i></span>Vocab: Paryayvachi, Vilom, Muhavare.</li></ul>`,
+                content_hi: `<ul class="styled-list"><li><span class="icon"><i class="fas fa-check-circle"></i></span>व्याकरण: संज्ञा, सर्वनाम, विशेषण, लिंग, वचन।</li><li><span class="icon"><i class="fas fa-check-circle"></i></span>शब्द रचना: संधि, समास, उपसर्ग, प्रत्यय।</li><li><span class="icon"><i class="fas fa-check-circle"></i></span>शब्दावली: पर्यायवाची, विलोम, मुहावरे।</li></ul>`
+            },
+
+            // --- INFO DATA ---
+            'info-step-1': {
+                title_en: 'What is CET Group D?', title_hi: 'CET ग्रुप D क्या है?',
+                content_en: `
+                    <div class="popup-subtitle">Job Profiles & Responsibilities</div>
+                    <ul class="styled-list">
+                        <li><span class="icon"><i class="fas fa-briefcase"></i></span><strong>Top Posts:</strong> Beldar, Peon, Animal Attendant, Helper, Chowkidar.</li>
+                        <li><span class="icon"><i class="fas fa-money-bill-wave"></i></span><strong>Salary:</strong> Basic Pay ₹16,900. In hand salary after DA, HRA comes to around ₹25,000 - ₹28,000 initially.</li>
+                    </ul>`,
+                content_hi: `
+                    <div class="popup-subtitle">कार्य प्रोफ़ाइल और जिम्मेदारियां</div>
+                    <ul class="styled-list">
+                        <li><span class="icon"><i class="fas fa-briefcase"></i></span><strong>शीर्ष पद:</strong> बेलदार, चपरासी, एनिमल अटेंडेंट, हेल्पर, चौकीदार।</li>
+                        <li><span class="icon"><i class="fas fa-money-bill-wave"></i></span><strong>वेतन:</strong> मूल वेतन ₹16,900। DA, HRA के बाद इन-हैंड वेतन लगभग ₹25,000 - ₹28,000 मिलता है।</li>
+                    </ul>`
+            },
+            'info-step-2': {
+                title_en: 'Detailed Selection Process', title_hi: 'विस्तृत चयन प्रक्रिया',
+                content_en: `
+                    <ul class="styled-list">
+                        <li><span class="icon"><i class="fas fa-pen-alt"></i></span><strong>Stage 1:</strong> OMR based offline test. 100 questions. Total 95 Marks.</li>
+                        <li><span class="icon"><i class="fas fa-home"></i></span><strong>Stage 2:</strong> 5 Marks Socio-Economic criteria.</li>
+                        <li><span class="icon"><i class="fas fa-trophy"></i></span><strong>Final Merit:</strong> Out of 100 Marks.</li>
+                    </ul>`,
+                content_hi: `
+                    <ul class="styled-list">
+                        <li><span class="icon"><i class="fas fa-pen-alt"></i></span><strong>चरण 1:</strong> OMR आधारित ऑफलाइन टेस्ट। 100 प्रश्न। कुल 95 अंक।</li>
+                        <li><span class="icon"><i class="fas fa-home"></i></span><strong>चरण 2:</strong> 5 अंक सामाजिक-आर्थिक मानदंड।</li>
+                        <li><span class="icon"><i class="fas fa-trophy"></i></span><strong>अंतिम मेरिट:</strong> 100 अंकों में से।</li>
+                    </ul>`
+            },
+            'info-step-3': {
+                title_en: 'Eligibility Criteria', title_hi: 'पात्रता मानदंड',
+                content_en: `
+                    <ul class="styled-list">
+                        <li><span class="icon"><i class="fas fa-graduation-cap"></i></span><strong>Education:</strong> Matriculation (10th Pass).</li>
+                        <li><span class="icon"><i class="fas fa-language"></i></span><strong>Language:</strong> Hindi/Sanskrit up to 10th.</li>
+                        <li><span class="icon"><i class="fas fa-birthday-cake"></i></span><strong>Age:</strong> 18 to 42 years (Relaxations: SC/BC +5 Yrs).</li>
+                    </ul>`,
+                content_hi: `
+                    <ul class="styled-list">
+                        <li><span class="icon"><i class="fas fa-graduation-cap"></i></span><strong>शिक्षा:</strong> 10वीं पास।</li>
+                        <li><span class="icon"><i class="fas fa-language"></i></span><strong>भाषा:</strong> 10वीं तक हिंदी/संस्कृत।</li>
+                        <li><span class="icon"><i class="fas fa-birthday-cake"></i></span><strong>आयु:</strong> 18 से 42 वर्ष (छूट: SC/BC +5 वर्ष)।</li>
+                    </ul>`
+            },
+            'info-step-4': {
+                title_en: 'Exam Pattern & Negative Marking', title_hi: 'परीक्षा पैटर्न और नेगेटिव मार्किंग',
+                content_en: `
+                    <ul class="styled-list">
+                        <li><span class="icon"><i class="fas fa-clock"></i></span><strong>Time:</strong> 1 hour 45 minutes.</li>
+                        <li><span class="icon"><i class="fas fa-exclamation-triangle"></i></span><strong>The Penalty Rule:</strong> OMR sheets will have 5 options. If you leave a question entirely blank, 0.95 marks will be deducted. Fill the 5th bubble if you don't know the answer.</li>
+                    </ul>`,
+                content_hi: `
+                    <ul class="styled-list">
+                        <li><span class="icon"><i class="fas fa-clock"></i></span><strong>समय:</strong> 1 घंटा 45 मिनट।</li>
+                        <li><span class="icon"><i class="fas fa-exclamation-triangle"></i></span><strong>पेनल्टी नियम:</strong> OMR शीट में 5 विकल्प होंगे। यदि आप किसी प्रश्न को पूरी तरह से खाली छोड़ देते हैं, तो 0.95 अंक काट लिए जाएंगे। यदि उत्तर नहीं पता है तो 5वां बुलबुला भरें।</li>
+                    </ul>`
+            },
+            'info-step-5': {
+                title_en: 'Socio-Economic Criteria (5 Marks)', title_hi: 'सामाजिक-आर्थिक मानदंड (5 अंक)',
+                content_en: `
+                    <ul class="styled-list">
+                        <li><span class="icon"><i class="fas fa-rupee-sign"></i></span><strong>Condition 1:</strong> No family member in regular Govt. Job.</li>
+                        <li><span class="icon"><i class="fas fa-file-invoice"></i></span><strong>Condition 2:</strong> Gross annual family income less than ₹1,80,000 (verified via PPP).</li>
+                    </ul>`,
+                content_hi: `
+                    <ul class="styled-list">
+                        <li><span class="icon"><i class="fas fa-rupee-sign"></i></span><strong>शर्त 1:</strong> परिवार का कोई भी सदस्य नियमित सरकारी नौकरी में नहीं होना चाहिए।</li>
+                        <li><span class="icon"><i class="fas fa-file-invoice"></i></span><strong>शर्त 2:</strong> सकल वार्षिक पारिवारिक आय ₹1,80,000 से कम (PPP के माध्यम से सत्यापित)।</li>
+                    </ul>`
+            },
+            'info-step-6': {
+                title_en: 'Post Preferences', title_hi: 'पद प्राथमिकताएं (Preferences)',
+                content_en: `
+                    <ul class="styled-list">
+                        <li><span class="icon"><i class="fas fa-star"></i></span><strong>Top Preferences:</strong> Beldar (Irrigation/PWD), Peon (Secretariat), Library Attendant. Good working hours.</li>
+                        <li><span class="icon"><i class="fas fa-exclamation"></i></span><strong>Warning:</strong> If you don't fill preferences, HSSC allots randomly.</li>
+                    </ul>`,
+                content_hi: `
+                    <ul class="styled-list">
+                        <li><span class="icon"><i class="fas fa-star"></i></span><strong>शीर्ष प्राथमिकताएं:</strong> बेलदार (सिंचाई/PWD), चपरासी (सचिवालय), लाइब्रेरी अटेंडेंट। काम के घंटे अच्छे हैं।</li>
+                        <li><span class="icon"><i class="fas fa-exclamation"></i></span><strong>चेतावनी:</strong> यदि आप प्राथमिकताएं नहीं भरते हैं, तो HSSC यादृच्छिक रूप से आवंटित करता है।</li>
+                    </ul>`
+            },
+            'info-step-7': {
+                title_en: 'Document Verification (DV)', title_hi: 'दस्तावेज़ सत्यापन (DV)',
+                content_en: `
+                    <ul class="styled-list">
+                        <li><span class="icon"><i class="fas fa-id-card"></i></span><strong>PPP:</strong> Parivar Pehchan Patra is mandatory.</li>
+                        <li><span class="icon"><i class="fas fa-file-contract"></i></span><strong>Caste:</strong> SC/BCA/BCB/EWS strictly on Haryana Govt format.</li>
+                    </ul>`,
+                content_hi: `
+                    <ul class="styled-list">
+                        <li><span class="icon"><i class="fas fa-id-card"></i></span><strong>PPP:</strong> परिवार पहचान पत्र अनिवार्य है।</li>
+                        <li><span class="icon"><i class="fas fa-file-contract"></i></span><strong>जाति प्रमाण पत्र:</strong> SC/BCA/BCB/EWS सख्ती से हरियाणा सरकार के प्रारूप पर।</li>
+                    </ul>`
+            },
+            'info-step-8': {
+                title_en: 'Career Growth & Promotions', title_hi: 'करियर विकास और पदोन्नति',
+                content_en: `
+                    <ul class="styled-list">
+                        <li><span class="icon"><i class="fas fa-level-up-alt"></i></span><strong>Group C:</strong> After 3-5 years, eligible for promotion to Clerk via departmental exam.</li>
+                        <li><span class="icon"><i class="fas fa-graduation-cap"></i></span><strong>Studies:</strong> Fixed 9-to-5 hours allow preparation for higher exams.</li>
+                    </ul>`,
+                content_hi: `
+                    <ul class="styled-list">
+                        <li><span class="icon"><i class="fas fa-level-up-alt"></i></span><strong>ग्रुप C:</strong> 3-5 वर्षों के बाद, विभागीय परीक्षा के माध्यम से क्लर्क के रूप में पदोन्नति के लिए पात्र।</li>
+                        <li><span class="icon"><i class="fas fa-graduation-cap"></i></span><strong>अध्ययन:</strong> निश्चित 9-से-5 घंटे उच्च परीक्षाओं की तैयारी की अनुमति देते हैं।</li>
+                    </ul>`
+            }
+        };
+
+        // UI TRANSLATIONS
+        const i18n = {
+            en: {
+                "nav_tests": "PYQ Tests", "nav_syllabus": "Syllabus", "nav_info": "Get Info", "nav_earn": "Earn", "nav_updates": "Updates",
+                "test_heading": "Mock Tests & PYQs 🎯", "test_desc": "Master the HSSC pattern with actual previous year questions and full-length NTA pattern mock tests.",
+                "test_sec1": "Full Length Mocks", "test_c1_t": "NTA Pattern Mock 1", "test_c1_s": "100 Qs • 90 Mins • Strict NTA Pattern", "test_att1": "15k+ Attempted", "test_free": "FREE",
+                "test_sec2": "Subject-wise PYQs", "test_c2_t": "Haryana GK PYQs", "test_c2_s": "Last 10 Years HSSC Papers", "test_c3_t": "Maths & Reasoning", "test_c3_s": "With short trick solutions", "test_avail1": "50+ Sets Available", "test_avail2": "30+ Sets Available",
+                "syl_heading": "Syllabus Breakdown 📚", "syl_desc": "Click on any subject card to view the extremely detailed NTA syllabus topics specifically curated for HSSC CET Group D.",
+                "syl_c1_t": "Haryana GK", "syl_c1_s": "History, Geo, Culture, Current Affairs.", "syl_c2_t": "General Awareness", "syl_c2_s": "India GK, Polity, History, Art.",
+                "syl_c3_t": "General Science", "syl_c3_s": "Physics, Chem, Bio (10th Std).", "syl_c4_t": "Maths (Quant)", "syl_c4_s": "Arithmetic, Number System, Mensuration.",
+                "syl_c5_t": "Reasoning", "syl_c5_s": "Logic, Series, Blood Relations.", "syl_c6_t": "English Language", "syl_c6_s": "Grammar, Vocab, Error Spotting.",
+                "syl_c7_t": "Hindi Language", "syl_c7_s": "Vyakaran, Sandhi, Paryayvachi.", "syl_weight": "Weightage:",
+                "info_heading": "Complete HSSC Info 🧠", "info_desc": "Everything you need to know about the HSSC CET Group D recruitment process, from notification to joining.",
+                "info_1_t": "1. What is CET Group D?", "info_1_d": "Common Eligibility Test (CET) for Group D is a single-window exam for recruitment to massive posts like Peon, Beldar, Animal Attendant, etc.", "info_1_btn": "View Job Profiles & Salary",
+                "info_2_t": "2. Selection Process", "info_2_f1": "Written Exam", "info_2_f1m": "95 Marks", "info_2_f2": "Socio-Econ", "info_2_f2m": "5 Marks", "info_2_f3": "Final Merit", "info_2_f3m": "100 Marks", "info_2_btn": "Detailed Selection Rules",
+                "info_3_t": "3. Eligibility Criteria", "info_3_d": "Minimum 10th pass is required. Age limit is 18-42 years. Knowledge of Hindi/Sanskrit up to Matric is mandatory.", "info_3_btn": "Check Age Relaxations",
+                "info_4_t": "4. Exact Exam Pattern", "info_4_d": "100 Questions, 95 Marks total (0.95 marks per question). Duration is 1 hour 45 minutes.", "info_4_btn": "Negative Marking Rules",
+                "info_5_t": "5. Socio-Economic 5 Marks", "info_5_d": "The most crucial deciding factor in HSSC. 5 extra marks are awarded based on family income, govt job status, etc.", "info_5_btn": "Complete Rules",
+                "info_6_t": "6. Post Preferences Portal", "info_6_d": "After the exam, HSSC opens a portal to fill your preferred job roles. Choosing wrongly can land you a tough field job.", "info_6_btn": "Best Posts Guide",
+                "info_7_t": "7. Document Verification (DV)", "info_7_d": "Many candidates are rejected at the final stage due to wrong Parivar Pehchan Patra (PPP) data or missing certificates.", "info_7_btn": "List of Required Docs",
+                "info_8_t": "8. Career Growth & Promos", "info_8_d": "A Group D job is not the end. Understand how you can get promoted to Group C (Clerk) via departmental exams.", "info_8_btn": "Promotion Hierarchy",
+                "earn_heading": "Earn Rewards 💰", "earn_desc": "Complete tasks, invite friends, and unlock premium Mock Tests and PDFs for free by earning StiCoins.",
+                "earn_c1_t": "Refer & Earn", "earn_c1_s": "Invite friends to install and get coins per referral.", "earn_c2_t": "Daily Spin", "earn_c2_s": "Spin the wheel every 24 hours to win free test passes.", "earn_free": "Free Entry",
+                "earn_c3_t": "Watch & Learn", "earn_c3_s": "Watch quick educational ads to earn coins instantly.", "earn_c4_t": "Quick Surveys", "earn_c4_s": "Answer 3-minute surveys regarding exam prep.",
+                "earn_wallet": "Your Wallet Balance", "earn_redeem": "Redeem Store",
+                "news_heading": "Latest HSSC Updates 📰",
+                "news_1_t": "Supreme Court Ruling: 5 Marks Socio-Economic Criteria Quashed", "news_1_d": "In a massive update, the Supreme Court has upheld the Punjab & Haryana High Court decision to scrap the 5 socio-economic marks policy in Haryana CET.", "news_1_dt": "Latest Ruling • HSSC Official / Court",
+                "news_2_t": "New HSSC Calendar Expected Soon", "news_2_d": "Haryana Government has directed HSSC to expedite the recruitment process for 50,000 vacant posts, out of which roughly 15,000 will be Group D posts.", "news_2_dt": "Recruitment Process • Haryana Govt",
+                "news_3_t": "NTA Normalization Formula Confirmation", "news_3_d": "NTA will continue using the equi-percentile normalization method if the exam is conducted in multiple shifts.", "news_3_dt": "Exam Pattern • NTA Notice"
+            },
+            hi: {
+                "nav_tests": "PYQ टेस्ट", "nav_syllabus": "पाठ्यक्रम", "nav_info": "जानकारी", "nav_earn": "कमाएं", "nav_updates": "अपडेट",
+                "test_heading": "मॉक टेस्ट और PYQ 🎯", "test_desc": "वास्तविक पिछले वर्ष के प्रश्नों और पूर्ण-लंबाई NTA पैटर्न मॉक टेस्ट के साथ HSSC पैटर्न में महारत हासिल करें।",
+                "test_sec1": "पूर्ण-लंबाई मॉक", "test_c1_t": "NTA पैटर्न मॉक 1", "test_c1_s": "100 प्रश्न • 90 मिनट • NTA पैटर्न", "test_att1": "15k+ प्रयास", "test_free": "मुफ्त",
+                "test_sec2": "विषयवार PYQ", "test_c2_t": "हरियाणा GK PYQ", "test_c2_s": "पिछले 10 वर्षों के HSSC पेपर", "test_c3_t": "गणित और रीजनिंग", "test_c3_s": "शॉर्ट ट्रिक समाधान के साथ", "test_avail1": "50+ सेट उपलब्ध", "test_avail2": "30+ सेट उपलब्ध",
+                "syl_heading": "पाठ्यक्रम विवरण 📚", "syl_desc": "HSSC CET ग्रुप D के लिए विशेष रूप से तैयार किए गए अत्यधिक विस्तृत NTA पाठ्यक्रम विषयों को देखने के लिए किसी भी विषय कार्ड पर क्लिक करें।",
+                "syl_c1_t": "हरियाणा GK", "syl_c1_s": "इतिहास, भूगोल, संस्कृति, करंट अफेयर्स।", "syl_c2_t": "सामान्य जागरूकता", "syl_c2_s": "इंडिया GK, राजव्यवस्था, इतिहास।",
+                "syl_c3_t": "सामान्य विज्ञान", "syl_c3_s": "भौतिकी, रसायन, जीव विज्ञान (10वीं)।", "syl_c4_t": "गणित (Quant)", "syl_c4_s": "अंकगणित, संख्या प्रणाली, क्षेत्रमिति।",
+                "syl_c5_t": "तर्कशक्ति", "syl_c5_s": "तर्क, श्रृंखला, रक्त संबंध।", "syl_c6_t": "अंग्रेजी भाषा", "syl_c6_s": "व्याकरण, शब्दावली, त्रुटि खोजना।",
+                "syl_c7_t": "हिंदी भाषा", "syl_c7_s": "व्याकरण, संधि, पर्यायवाची।", "syl_weight": "वेटेज:",
+                "info_heading": "संपूर्ण HSSC जानकारी 🧠", "info_desc": "HSSC CET ग्रुप D भर्ती प्रक्रिया के बारे में आपको जो कुछ भी जानने की आवश्यकता है, अधिसूचना से लेकर जॉइनिंग तक।",
+                "info_1_t": "1. CET ग्रुप D क्या है?", "info_1_d": "ग्रुप D के लिए CET चपरासी, बेलदार, एनिमल अटेंडेंट आदि जैसे विशाल पदों पर भर्ती के लिए एक सिंगल-विंडो परीक्षा है।", "info_1_btn": "जॉब प्रोफाइल और वेतन देखें",
+                "info_2_t": "2. चयन प्रक्रिया", "info_2_f1": "लिखित परीक्षा", "info_2_f1m": "95 अंक", "info_2_f2": "सामाजिक-आर्थिक", "info_2_f2m": "5 अंक", "info_2_f3": "अंतिम मेरिट", "info_2_f3m": "100 अंक", "info_2_btn": "विस्तृत चयन नियम",
+                "info_3_t": "3. पात्रता मानदंड", "info_3_d": "न्यूनतम 10वीं पास आवश्यक है। आयु सीमा 18-42 वर्ष है। 10वीं तक हिंदी/संस्कृत का ज्ञान अनिवार्य है।", "info_3_btn": "आयु छूट की जांच करें",
+                "info_4_t": "4. सटीक परीक्षा पैटर्न", "info_4_d": "100 प्रश्न, कुल 95 अंक (0.95 अंक प्रति प्रश्न)। अवधि 1 घंटा 45 मिनट है।", "info_4_btn": "नेगेटिव मार्किंग नियम",
+                "info_5_t": "5. सामाजिक-आर्थिक 5 अंक", "info_5_d": "HSSC में सबसे महत्वपूर्ण निर्णायक कारक। पारिवारिक आय, सरकारी नौकरी की स्थिति आदि के आधार पर 5 अतिरिक्त अंक दिए जाते हैं।", "info_5_btn": "पूर्ण नियम",
+                "info_6_t": "6. पद प्राथमिकता पोर्टल", "info_6_d": "परीक्षा के बाद, HSSC आपकी पसंदीदा नौकरी भूमिकाओं को भरने के लिए एक पोर्टल खोलता है।", "info_6_btn": "सर्वश्रेष्ठ पदों की मार्गदर्शिका",
+                "info_7_t": "7. दस्तावेज़ सत्यापन (DV)", "info_7_d": "कई उम्मीदवारों को अंतिम चरण में गलत परिवार पहचान पत्र (PPP) डेटा या लापता प्रमाण पत्रों के कारण खारिज कर दिया जाता है।", "info_7_btn": "आवश्यक दस्तावेजों की सूची",
+                "info_8_t": "8. करियर विकास और पदोन्नति", "info_8_d": "ग्रुप D की नौकरी अंत नहीं है। समझें कि आप विभागीय परीक्षाओं के माध्यम से ग्रुप C (क्लर्क) में कैसे पदोन्नत हो सकते हैं।", "info_8_btn": "पदोन्नति पदानुक्रम",
+                "earn_heading": "इनाम कमाएं 💰", "earn_desc": "कार्य पूरे करें, दोस्तों को आमंत्रित करें, और StiCoins कमाकर मुफ्त में प्रीमियम मॉक टेस्ट और PDF अनलॉक करें।",
+                "earn_c1_t": "रेफर करें और कमाएं", "earn_c1_s": "दोस्तों को इंस्टॉल करने के लिए आमंत्रित करें और प्रति रेफरल सिक्के प्राप्त करें।", "earn_c2_t": "डेली स्पिन", "earn_c2_s": "मुफ्त टेस्ट पास जीतने के लिए हर 24 घंटे में पहिया घुमाएं।", "earn_free": "मुफ्त प्रवेश",
+                "earn_c3_t": "देखें और सीखें", "earn_c3_s": "तुरंत सिक्के कमाने के लिए त्वरित शैक्षिक विज्ञापन देखें।", "earn_c4_t": "त्वरित सर्वेक्षण", "earn_c4_s": "परीक्षा की तैयारी के संबंध में 3 मिनट के सर्वेक्षण का उत्तर दें।",
+                "earn_wallet": "आपका वॉलेट बैलेंस", "earn_redeem": "रिडीम स्टोर",
+                "news_heading": "नवीनतम HSSC अपडेट 📰",
+                "news_1_t": "सुप्रीम कोर्ट का फैसला: 5 अंक सामाजिक-आर्थिक मानदंड रद्द", "news_1_d": "सुप्रीम कोर्ट ने हरियाणा CET में 5 सामाजिक-आर्थिक अंकों की नीति को रद्द करने के पंजाब और हरियाणा हाईकोर्ट के फैसले को बरकरार रखा है।", "news_1_dt": "नवीनतम फैसला • HSSC आधिकारिक / कोर्ट",
+                "news_2_t": "नया HSSC कैलेंडर जल्द आने की उम्मीद", "news_2_d": "हरियाणा सरकार ने HSSC को 50,000 रिक्त पदों के लिए भर्ती प्रक्रिया में तेजी लाने का निर्देश दिया है, जिनमें से लगभग 15,000 ग्रुप D के पद होंगे।", "news_2_dt": "भर्ती प्रक्रिया • हरियाणा सरकार",
+                "news_3_t": "NTA नॉर्मलाइजेशन फॉर्मूला की पुष्टि", "news_3_d": "यदि परीक्षा कई पालियों में आयोजित की जाती है तो NTA सम-प्रतिशत नॉर्मलाइजेशन पद्धति का उपयोग करना जारी रखेगा।", "news_3_dt": "परीक्षा पैटर्न • NTA नोटिस"
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Unlock nav items
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('locked'));
+            
+            // Activate Info tab by default
+            activateTab(document.getElementById('nav-info'), 'info');
+            initCharts();
+            
+            // Set initial language UI
+            updateUI();
+        });
+
+        function showLangModal() { document.getElementById('lang-modal').classList.add('active'); }
+        function closeLangModal() { document.getElementById('lang-modal').classList.remove('active'); }
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-option').forEach(el => el.classList.remove('selected'));
+            document.getElementById(`lang-${lang}`).classList.add('selected');
+            document.getElementById('current-lang-display').innerText = lang === 'en' ? 'EN' : 'HI';
+            
+            updateUI();
+            setTimeout(closeLangModal, 300); // Close modal automatically after brief delay
         }
 
-        const DURATION = 3500; 
-        const HAS_VISITED_KEY = 'hasVisitedSkilli';
-
-        window.onload = () => {
-            const bar = document.getElementById('progress-bar');
-            const status = document.getElementById('status-text');
-            const stage = document.getElementById('main-stage');
-
-            // STI Skilli Original Steps
-            const steps = [
-                { p: 15, t: "Governmenting..." },
-                { p: 35, t: "Booostiingg..." },
-                { p: 65, t: "Privatising..." },
-                { p: 85, t: "Finding..." },
-                { p: 95, t: "Welcome BABY..." }
-            ];
-
-            let start = null;
-
-            function loadLoop(timestamp) {
-                if (!start) start = timestamp;
-                const rawProgress = Math.min((timestamp - start) / DURATION, 1);
-                
-                // Ease In Quad Animation
-                const easedProgress = rawProgress < 0.5 ? 2 * rawProgress * rawProgress : 1 - Math.pow(-2 * rawProgress + 2, 2) / 2;
-                
-                bar.style.width = `${rawProgress * 100}%`;
-
-                const step = steps.findLast(s => (rawProgress * 100) >= s.p);
-                if (step && status.innerText !== step.t) status.innerText = step.t;
-
-                if (rawProgress < 1) {
-                    requestAnimationFrame(loadLoop);
-                } else {
-                    // Final State
-                    status.innerText = "Welcome";
-                    status.style.color = "#FFF";
-                    status.style.letterSpacing = "0.5em";
-                    
-                    localStorage.setItem(HAS_VISITED_KEY, 'true');
-
-                    // --- Quick Dissolve Transition ---
-                    setTimeout(() => {
-                        // Dissolve Screen
-                        document.body.classList.add('dissolve-active');
-                        
-                        // Redirect
-                        setTimeout(() => {
-                            window.location.replace(REDIRECT_URL);
-                        }, 800);
-                        
-                    }, 500);
+        function updateUI() {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[currentLang][key]) {
+                    el.innerHTML = i18n[currentLang][key];
                 }
+            });
+            // Update currently open popup content if any
+            if(document.getElementById('dynamic-detail-modal').classList.contains('active')){
+                 // Re-trigger with current ID to refresh language
+                 const titleText = document.getElementById('modal-dynamic-title').innerText;
+                 for (const [key, value] of Object.entries(appData)) {
+                     if(value.title_en === titleText || value.title_hi === titleText){
+                         openDynamicModal(key);
+                         break;
+                     }
+                 }
             }
-            requestAnimationFrame(loadLoop);
-        };
+        }
+
+        // External Link Logic for BILINGUAL HTML FILES
+        function openExternal(baseFileName) {
+            // E.g. baseFileName = 'refer-and-earn'
+            // English opens 'refer-and-earn-en.html', Hindi opens 'refer-and-earn-hi.html'
+            const suffix = currentLang === 'hi' ? '-hi' : '-en';
+            window.open(`${baseFileName}${suffix}.html`, '_blank');
+        }
+
+        function activateTab(element, tabId) {
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            if(element) element.classList.add('active');
+
+            document.querySelectorAll('.modal-overlay').forEach(el => el.classList.remove('active'));
+            const target = document.getElementById(`modal-${tabId}`);
+            if(target) {
+                target.classList.add('active');
+            }
+        }
+
+        function openDynamicModal(dataId) {
+            const data = appData[dataId];
+            if(data) {
+                document.getElementById('modal-dynamic-title').innerText = currentLang === 'hi' ? data.title_hi : data.title_en;
+                document.getElementById('modal-dynamic-content').innerHTML = currentLang === 'hi' ? data.content_hi : data.content_en;
+                document.getElementById('dynamic-detail-modal').classList.add('active');
+            }
+        }
+        
+        function closeDynamicModal() { 
+            document.getElementById('dynamic-detail-modal').classList.remove('active'); 
+        }
+
+        // Close sub-modals on outside click
+        window.onclick = function(event) {
+            if (event.target.classList.contains('cet-sub-modal')) {
+                event.target.classList.remove('active');
+            }
+        }
+
+        function initCharts() {
+            Chart.defaults.color = '#94A3B8';
+            Chart.defaults.font.family = "'Plus Jakarta Sans', sans-serif";
+
+            // Marks Chart (Pie) matching EXACT syllabus constraints
+            const ctxMarks = document.getElementById('marksChart').getContext('2d');
+            new Chart(ctxMarks, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Haryana GK', 'Gen Awareness', 'Gen Science', 'Maths', 'Reasoning', 'English', 'Hindi'],
+                    datasets: [{
+                        data: [25, 15, 15, 15, 10, 10, 10],
+                        backgroundColor: ['#00E5FF', '#FF9800', '#4CAF50', '#F44336', '#9C27B0', '#2196F3', '#E91E63'],
+                        borderWidth: 2,
+                        borderColor: '#07070C' 
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: { position: 'right', labels: { color: '#fff', font: { size: 10, family: 'Outfit' } } },
+                        tooltip: { 
+                            callbacks: { label: (ctx) => ` ${ctx.label}: ${ctx.raw}%` },
+                            backgroundColor: 'rgba(0,0,0,0.9)', titleColor: '#00E5FF', padding: 10, borderColor: '#00E5FF', borderWidth: 1
+                        }
+                    }
+                }
+            });
+        }
     </script>
-    <script>
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/service-worker.js")
-    .then(() => console.log("SW Registered"))
-    .catch(err => console.log(err));
-}
-</script>
 </body>
 </html>
